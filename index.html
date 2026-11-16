@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>:root{--ink:#121212;--fg:#161a18;--mut:#5b6761;--line:#e2e6e3;--soft:#f4f6f3;--cond:"Barlow Condensed","Arial Narrow",Impact,system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--tabs:56px;--dock:84px}
+<style>:root{--ink:#121212;--fg:#161a18;--mut:#5b6761;--line:#e2e6e3;--soft:#f4f6f3;--cond:"Barlow Condensed","Arial Narrow",Impact,system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--tabs:56px;--dock:76px}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
@@ -25,9 +25,7 @@ img{max-width:100%}
 .deck.tech{--acc:#d71920;--on:#fff;--acc2:#d71920;--pale:#f6dcdc;--kick:#d71920;--kpi:#d71920}
 
 /* en-tête + vidéo */
-.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 20px 18px}
-.hd img{height:40px;width:auto}
-.hd span{font-size:.92rem;color:var(--mut);text-align:right;line-height:1.3}
+.hd{padding:16px 20px;text-align:center;font-family:var(--cond);font-weight:600;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
 .video{position:relative;background:#000}
 .video video{display:block;width:100%;height:auto;aspect-ratio:1280/558;background:#000}
 #son{position:absolute;top:12px;right:12px;background:rgba(18,18,18,.78);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
@@ -225,17 +223,17 @@ td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
 .ref a{font-family:var(--cond);font-weight:700;font-size:1.2rem;text-transform:uppercase;text-decoration:none;color:var(--ink)}
 .ref p{margin-top:8px;font-size:1rem}
 
-/* dock */
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:stretch;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s ease}
-.dock.on{transform:none}
-.dock button{border:0;cursor:pointer;font-family:var(--cond)}
-.dock #prev,.dock #next{flex:0 0 60px;height:58px;border-radius:14px;background:var(--ink);color:#fff;font-size:2rem;line-height:1}
-.dock #prev[disabled],.dock #next[disabled]{opacity:.3}
-.dock .mid{flex:1;min-width:0;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:6px 12px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:2px;color:var(--ink)}
-.dock .mid span{font-weight:700;font-size:1.25rem;letter-spacing:.04em;line-height:1.1}
-.dock .mid small{font-family:var(--body);font-size:.74rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
-.dock .mid em{display:block;height:4px;border-radius:2px;background:#dfe4e0;margin-top:3px;overflow:hidden}
-.dock .mid em i{display:block;height:100%;width:0;background:var(--acc2,#121212);transition:width .2s}
+/* dock : discret, sans texte */
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,0,0,.08);box-shadow:0 4px 18px rgba(0,0,0,.12);transform:translate(-50%,160%);transition:transform .25s ease}
+.dock.on{transform:translate(-50%,0)}
+.dock button{border:0;background:transparent;cursor:pointer;color:var(--ink);padding:0}
+.dock #prev,.dock #next{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.dock #prev:active,.dock #next:active{background:rgba(0,0,0,.07)}
+.dock #prev[disabled],.dock #next[disabled]{opacity:.25}
+.dock .dots{height:40px;padding:0 6px;display:flex;align-items:center}
+#dots{display:flex;align-items:center;gap:5px}
+#dots i{display:block;width:6px;height:6px;border-radius:3px;background:rgba(0,0,0,.2);transition:width .2s,background .2s}
+#dots i.on{width:18px;background:var(--ink)}
 
 /* sommaire */
 .sheet{position:fixed;inset:0;z-index:60}
@@ -273,8 +271,6 @@ td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
   .cg .cl{margin:0;border-top:1px solid var(--line)}
   .cg .cl+div,.cg .cl+div+div{border-top:1px solid var(--line);margin:0;padding:14px 12px 14px 0}
   .cg .cl+div::before,.cg .cl+div+div::before{content:none}
-  .dock{left:50%;right:auto;width:min(560px,92vw);transform:translate(-50%,110%);border-radius:20px 20px 0 0;border:1px solid var(--line);border-bottom:0}
-  .dock.on{transform:translate(-50%,0)}
   .sh-box{left:50%;right:auto;width:min(620px,94vw);transform:translateX(-50%)}
   .contact{flex-direction:row;align-items:center;justify-content:space-between}
   .cbox{min-width:300px}
@@ -290,7 +286,7 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
 </style>
 </head>
 <body>
-<header class="hd"><img src="img/logo.png" alt="Nabta Alkon" width="112" height="41"><span>Pyrolyse · biochar · captation du CO₂</span></header>
+<header class="hd">Pyrolyse · Biochar · CO₂</header>
 
 <section class="video" id="video">
   <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
@@ -465,9 +461,9 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
 </main>
 
 <div class="dock" id="dock" aria-label="Navigation entre les pages">
-  <button type="button" id="prev" aria-label="Page précédente">‹</button>
-  <button type="button" id="menu" class="mid" aria-label="Sommaire"><span id="cnt">01 / 15</span><small id="ttl"></small><em id="bar"><i></i></em></button>
-  <button type="button" id="next" aria-label="Page suivante">›</button>
+  <button type="button" id="prev" aria-label="Page précédente"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button type="button" id="menu" class="dots" aria-label="Sommaire"><span id="dots"></span></button>
+  <button type="button" id="next" aria-label="Page suivante"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
 </div>
 
 <div class="sheet" id="sheet" hidden>
@@ -515,15 +511,17 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
     var k=el.dataset.deck;
     decks[k]={el:el,track:$('.track',el),slides:$$('.slide',el),idx:0};
   });
-  var tabs=$('#tabs'),viewer=$('#viewer'),dock=$('#dock'),cnt=$('#cnt'),ttl=$('#ttl'),bar=$('#bar i'),prev=$('#prev'),next=$('#next'),sheet=$('#sheet');
+  var tabs=$('#tabs'),viewer=$('#viewer'),dock=$('#dock'),dotsEl=$('#dots'),prev=$('#prev'),next=$('#next'),sheet=$('#sheet');
   function pad(n){return (n<10?'0':'')+n}
   function D(){return decks[cur]}
   function setH(d){d=d||D();var s=d.slides[d.idx];if(s&&!d.el.hidden)d.track.style.height=s.offsetHeight+'px'}
+  var dotsFor=null;
   function update(){
     var d=D(),n=d.slides.length;
-    cnt.textContent=pad(d.idx+1)+' / '+n;
-    ttl.textContent=d.slides[d.idx].dataset.t||'';
-    bar.style.width=((d.idx+1)/n*100)+'%';
+    if(dotsFor!==cur){
+      dotsEl.innerHTML='';for(var i=0;i<n;i++)dotsEl.appendChild(document.createElement('i'));dotsFor=cur;
+    }
+    $$('i',dotsEl).forEach(function(e,i){e.classList.toggle('on',i===d.idx)});
     prev.disabled=d.idx<=0;next.disabled=d.idx>=n-1;
   }
   function ensureTop(){
