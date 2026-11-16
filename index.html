@@ -35,21 +35,21 @@
       <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
       <button id="son" type="button">🔊 Activer le son</button>
     </section>
-    <section class="sheet" data-p="2"><img src="pages/p01.jpg" alt="Page 1 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="3"><img src="pages/p02.jpg" alt="Page 2 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="4"><img src="pages/p03.jpg" alt="Page 3 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="5"><img src="pages/p04.jpg" alt="Page 4 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="6"><img src="pages/p05.jpg" alt="Page 5 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="7"><img src="pages/p06.jpg" alt="Page 6 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="8"><img src="pages/p07.jpg" alt="Page 7 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="9"><img src="pages/p08.jpg" alt="Page 8 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="10"><img src="pages/p09.jpg" alt="Page 9 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="11"><img src="pages/p10.jpg" alt="Page 10 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="12"><img src="pages/p11.jpg" alt="Page 11 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="13"><img src="pages/p12.jpg" alt="Page 12 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="14"><img src="pages/p13.jpg" alt="Page 13 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="15"><img src="pages/p14.jpg" alt="Page 14 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="16"><img src="pages/p15.jpg" alt="Page 15 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="1"><img src="pages/p01.jpg" alt="Page 1 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="2"><img src="pages/p02.jpg" alt="Page 2 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="3"><img src="pages/p03.jpg" alt="Page 3 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="4"><img src="pages/p04.jpg" alt="Page 4 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="5"><img src="pages/p05.jpg" alt="Page 5 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="6"><img src="pages/p06.jpg" alt="Page 6 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="7"><img src="pages/p07.jpg" alt="Page 7 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="8"><img src="pages/p08.jpg" alt="Page 8 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="9"><img src="pages/p09.jpg" alt="Page 9 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="10"><img src="pages/p10.jpg" alt="Page 10 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="11"><img src="pages/p11.jpg" alt="Page 11 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="12"><img src="pages/p12.jpg" alt="Page 12 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="13"><img src="pages/p13.jpg" alt="Page 13 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="14"><img src="pages/p14.jpg" alt="Page 14 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <section class="sheet" data-p="15"><img src="pages/p15.jpg" alt="Page 15 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
   </main>
 <script>
   var v=document.getElementById('v'),b=document.getElementById('son');
@@ -58,7 +58,7 @@
   v.addEventListener('volumechange',function(){if(!v.muted)b.hidden=true});
   var cur=document.getElementById('cur');
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)cur.textContent=(+e.target.dataset.p)+1})},{rootMargin:'-45% 0px -45% 0px'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)cur.textContent=(+e.target.dataset.p)+1})},{rootMargin:'-50% 0px -50% 0px'});
     document.querySelectorAll('.sheet').forEach(function(s){io.observe(s)});
   }
 </script>
