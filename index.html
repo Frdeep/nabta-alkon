@@ -3,30 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nabta Alkon – Vidéo de présentation</title>
-<meta name="description" content="Vidéo de présentation de Nabta Alkon : pyrolyse, biochar et captation du CO₂.">
-<meta property="og:title" content="Nabta Alkon – Vidéo de présentation">
+<title>Nabta Alkon – Dossier technique</title>
+<meta name="description" content="Nabta Alkon : pyrolyse, biochar et captation du CO₂.">
+<meta property="og:title" content="Nabta Alkon – Dossier technique">
 <meta property="og:type" content="website">
 <style>
-  :root{--bg:#0d1411;--fg:#f2f5f3;--mut:#9fb0a8;--acc:#e8b04a}
+  :root{--bar:#2b2f2d;--desk:#4a4f4c;--fg:#f2f5f3;--mut:#b6c0bb;--r:22px}
   *{box-sizing:border-box}
-  html,body{margin:0;height:100%}
-  body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;gap:16px}
-  h1{font-size:clamp(1.1rem,2.6vw,1.6rem);font-weight:600;margin:0;text-align:center}
-  .wrap{position:relative;width:min(100%,1100px)}
-  video{width:100%;height:auto;display:block;border-radius:12px;background:#000;box-shadow:0 10px 40px rgba(0,0,0,.5)}
-  #son{position:absolute;right:12px;bottom:56px;background:var(--acc);color:#1a1405;border:0;border-radius:999px;padding:10px 18px;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+  html,body{margin:0;min-height:100%}
+  body{background:var(--desk);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  .bar{position:sticky;top:0;z-index:5;height:52px;background:var(--bar);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 16px;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+  .bar .name{font-size:.95rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar .pg{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:.9rem;white-space:nowrap}
+  .bar .pg span{background:#1c1f1e;border-radius:8px;padding:4px 12px;color:var(--fg)}
+  main{padding:28px 16px 48px;display:flex;flex-direction:column;align-items:center;gap:28px}
+  .sheet{position:relative;width:min(100%,1100px);aspect-ratio:16/9;background:#0d1411;border-radius:var(--r);overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.4)}
+  .sheet video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+  #son{position:absolute;right:16px;top:16px;background:#e8b04a;color:#1a1405;border:0;border-radius:999px;padding:10px 18px;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:2}
   #son[hidden]{display:none}
-  p{color:var(--mut);margin:0;font-size:.9rem;text-align:center}
+  @media (max-width:600px){:root{--r:14px}main{padding:16px 10px 32px}.bar .name{font-size:.85rem}}
 </style>
 </head>
 <body>
-  <h1>Nabta Alkon</h1>
-  <div class="wrap">
-    <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
-    <button id="son" type="button">🔊 Activer le son</button>
+  <div class="bar">
+    <div class="name">Nabta_Alkon_dossier_technique.pdf</div>
+    <div class="pg"><span>1</span> / 1</div>
   </div>
-  <p>Pyrolyse · biochar · captation du CO₂</p>
+  <main>
+    <section class="sheet">
+      <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+      <button id="son" type="button">🔊 Activer le son</button>
+    </section>
+  </main>
 <script>
   var v=document.getElementById('v'),b=document.getElementById('son');
   v.play&&v.play().catch(function(){});
