@@ -4,135 +4,439 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nabta Alkon – Dossier technique</title>
-<meta name="description" content="Nabta Alkon : pyrolyse, biochar et captation du CO₂.">
+<meta name="description" content="Nabta Alkon technical files : matières, procédé, capacité, économie, contrats et carbone.">
 <meta property="og:title" content="Nabta Alkon – Dossier technique">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--fg:#101614;--mut:#55625c;--line:#e3e8e5;--acc:#c8102e;--gold:#f2b84b}
+  :root{--fg:#111514;--mut:#5a6660;--line:#dfe3e1;--soft:#f5f6f5;--red:#d71920;--ink:#121212;--gold:#f2b84b;--r:14px;
+    --cond:"Barlow Condensed","Arial Narrow",Impact,system-ui,sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   *{box-sizing:border-box}
-  html,body{margin:0;min-height:100%}
-  body{background:#fff;color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:18px;line-height:1.4;-webkit-text-size-adjust:100%}
-  header{padding:22px 18px 14px}
-  header h1{margin:0;font-size:1.9rem;line-height:1.15;font-weight:800;letter-spacing:-.01em}
-  header p{margin:8px 0 0;color:var(--mut);font-size:1.05rem}
+  html{scroll-behavior:smooth;scroll-padding-top:12px}
+  body{margin:0;background:#fff;color:var(--fg);font-family:var(--body);font-size:19px;line-height:1.5;-webkit-text-size-adjust:100%}
+  a{color:var(--red)}
+  .wrap{max-width:780px;margin:0 auto;padding:0 20px}
+
+  /* en-tête + vidéo */
+  header{padding:26px 0 18px}
+  header .k{font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px}
+  header .k::before{content:"";width:4px;height:18px;background:var(--red)}
+  header h1{margin:8px 0 0;font-family:var(--cond);font-weight:700;font-size:3rem;line-height:1;text-transform:uppercase;letter-spacing:-.005em}
+  header p{margin:10px 0 0;color:var(--mut);font-size:1.15rem}
   .video{position:relative;background:#000}
   .video video{display:block;width:100%;height:auto;aspect-ratio:1280/558;background:#000}
-  #son{position:absolute;left:12px;right:12px;bottom:56px;background:var(--gold);color:#1a1405;border:0;border-radius:12px;padding:16px;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+  #son{position:absolute;left:14px;right:14px;bottom:58px;background:var(--gold);color:#1a1405;border:0;border-radius:var(--r);padding:17px;font-family:var(--body);font-size:1.2rem;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35)}
   #son[hidden]{display:none}
-  .count{padding:22px 18px 8px;font-size:1.15rem;font-weight:700;color:var(--mut)}
-  .pg{border-top:1px solid var(--line);margin:0}
-  .pg img{display:block;width:100%;height:auto;cursor:zoom-in}
-  .zoom{display:block;width:100%;background:#fff;color:var(--fg);border:0;border-top:1px solid var(--line);padding:18px;font-size:1.15rem;font-weight:700;text-align:center;cursor:pointer}
-  .zoom:active{background:#f1f4f2}
-  footer{padding:28px 18px 40px;color:var(--mut);font-size:.95rem;text-align:center;border-top:1px solid var(--line)}
-  /* lecture en grand */
-  #lb{position:fixed;inset:0;z-index:50;background:#fff;display:none;flex-direction:column}
-  #lb.on{display:flex}
-  #lb .top{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);background:#fff}
-  #lb .top b{flex:1;text-align:center;font-size:1.1rem}
-  #lb button{background:#eef2f0;color:var(--fg);border:0;border-radius:12px;min-width:54px;min-height:54px;padding:0 16px;font-size:1.3rem;font-weight:800}
-  #lb button.x{background:var(--acc);color:#fff;font-size:1.05rem}
-  #lb .zone{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;background:#fff}
-  #lb img{display:block;width:260vw;max-width:none;height:auto}
-  #lb .hint{flex:0 0 auto;text-align:center;color:var(--mut);font-size:.9rem;padding:8px 12px;border-top:1px solid var(--line)}
-  @media (orientation:landscape){#lb img{width:100vw}#lb .hint{display:none}}
-  @media (min-width:900px){
-    body{font-size:17px}
-    header,.count,footer{max-width:1100px;margin:0 auto}
-    .video,.pg{max-width:1100px;margin:0 auto}
-    .video video{border-radius:0}
-    #lb img{width:min(100vw,1500px);margin:0 auto}
-    #son{left:auto;right:16px;width:auto;padding:12px 22px}
+
+  /* pages */
+  section.p{position:relative;padding:34px 0 0;border-top:1px solid var(--line);margin-top:34px}
+  section.p::after{content:"";position:absolute;right:0;top:34px;width:32px;height:32px;opacity:.9;background:radial-gradient(circle,var(--red) 1.6px,transparent 2px) 0 0/8px 8px}
+  .kick{display:flex;align-items:center;gap:10px;margin:0 44px 12px 0;font-family:var(--cond);font-weight:600;font-size:1.02rem;letter-spacing:.03em;text-transform:uppercase;color:var(--red)}
+  .kick::before{content:"";flex:0 0 4px;height:18px;background:var(--red)}
+  h2{margin:0 0 16px;font-family:var(--cond);font-weight:700;font-size:2.35rem;line-height:1.02;text-transform:uppercase;letter-spacing:-.005em}
+  h2::after{content:"";display:block;width:60px;height:4px;background:var(--red);margin-top:14px}
+  .lead{font-size:1.22rem;line-height:1.45;color:#242c28;margin:0 0 24px}
+  h3{margin:0;font-family:var(--cond);font-weight:700;font-size:1.3rem;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
+  .note{margin:26px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:1.08rem;color:#242c28}
+  .small{margin:12px 0 0;font-size:.95rem;color:var(--mut)}
+  .src{margin:14px 0 0;font-size:.98rem;color:var(--mut)}
+  .src a{font-weight:600}
+
+  /* cartes noires arrondies */
+  .cards{display:grid;gap:14px;margin:0}
+  .card{background:var(--ink);color:#fff;border-radius:var(--r);padding:20px 20px 18px;position:relative}
+  .card::before{content:"";position:absolute;left:0;top:20px;width:4px;height:22px;background:var(--red)}
+  .card h3{color:#fff;margin-left:2px}
+  .card h3 .k{color:#ff3d47;margin-right:10px}
+  .card p{margin:8px 0 0;color:#e8ecea;font-size:1.08rem;line-height:1.42}
+  .card.red{background:var(--red)}
+  .card.red::before{background:#fff}
+  .card.red p{color:#fff}
+  .card.light{background:var(--soft);color:var(--fg);border:1px solid var(--line)}
+  .card.light h3{color:var(--fg)}
+  .card.light p{color:#242c28}
+  a.card{display:block;text-decoration:none}
+  .go{display:inline-block;margin-top:12px;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;color:#fff}
+
+  .kpis{display:grid;gap:14px;margin:0 0 18px}
+  .kpi{padding:2px 0}
+  .kpi b{display:block;font-family:var(--cond);font-weight:700;font-size:3rem;line-height:1;color:var(--red)}
+  .kpi span{display:block;margin-top:4px;color:#242c28;font-size:1.1rem}
+  .op{font-family:var(--cond);font-weight:700;font-size:2rem;line-height:1;color:var(--red);text-align:left;margin:-4px 0}
+
+  .flow{display:grid;gap:10px}
+  .arrow{text-align:center;font-family:var(--cond);font-size:2rem;line-height:1;color:var(--red);font-weight:700}
+  .outs{display:grid;gap:12px}
+
+  /* tableaux */
+  .tw{border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:1.05rem}
+  thead th{background:var(--ink);color:#fff;text-align:left;font-family:var(--cond);font-weight:600;font-size:.95rem;letter-spacing:.05em;text-transform:uppercase;padding:13px 14px}
+  tbody th,tbody td{padding:15px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+  tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+  tbody th{font-weight:700}
+  td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .neg{color:var(--red);font-weight:700}
+  table.nm thead th{font-size:.82rem;padding:12px 8px;line-height:1.2}
+  table.nm tbody th,table.nm tbody td{padding:15px 8px;font-size:1.06rem}
+  table.nm tbody th{font-size:1.02rem}
+  @media (max-width:640px){
+    .tw.st{border:0;border-radius:0;overflow:visible}
+    table.st thead{display:none}
+    table.st,table.st tbody,table.st tr,table.st th,table.st td{display:block;width:100%}
+    table.st tr{border-radius:var(--r);margin:0 0 14px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+    table.st th{background:var(--ink);color:#fff;border:0;padding:15px 16px;font-family:var(--cond);font-weight:700;font-size:1.25rem;text-transform:uppercase}
+    table.st td{border:0;border-top:1px solid var(--line);padding:13px 16px}
+    table.st td::before{content:attr(data-l);display:block;font-family:var(--cond);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:3px}
+    table.st tbody tr:last-child th,table.st tbody tr:last-child td{border-bottom:0}
+  }
+
+  .bandeau{background:var(--red);color:#fff;font-family:var(--cond);font-weight:700;letter-spacing:.03em;text-transform:uppercase;font-size:1.2rem;line-height:1.2;padding:16px 18px;border-radius:var(--r);margin:16px 0 0}
+  .strong{margin:18px 0 0;padding:16px 18px;border-radius:var(--r);background:var(--soft);border:1px solid var(--line);font-size:1.12rem}
+  .strong b{display:block;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+
+  /* planning */
+  .months{display:grid;grid-template-columns:repeat(6,1fr);font-family:var(--cond);font-weight:700;font-size:1.05rem;border-bottom:1px solid var(--line)}
+  .months span{padding:4px 0}
+  .g{margin:16px 0 0}
+  .g .t{font-weight:700;margin:0 0 6px;font-size:1.1rem}
+  .track{position:relative;height:46px;background:repeating-linear-gradient(to right,transparent 0,transparent calc(16.666% - 1px),var(--line) calc(16.666% - 1px),var(--line) 16.666%)}
+  .bar2{position:absolute;top:3px;height:40px;border-radius:12px;background:var(--red);color:#fff;font-family:var(--cond);font-weight:700;font-size:1.1rem;display:flex;align-items:center;padding:0 12px;white-space:nowrap}
+  .bar2.k{background:var(--ink)}
+
+  /* références */
+  .refs{display:grid;gap:12px}
+  .ref{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+  .ref a{font-family:var(--cond);font-weight:700;font-size:1.3rem;text-transform:uppercase;text-decoration:none}
+  .ref p{margin:4px 0 0;color:#242c28;font-size:1.05rem}
+
+  /* pied de page de chaque page */
+  .pf{display:flex;align-items:center;gap:10px;margin-top:30px;padding:16px 0 0;border-top:2px solid var(--ink);font-family:var(--cond);font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase}
+  .pf a{color:var(--ink);text-decoration:none;padding:8px 0}
+  .pf .sp{flex:1}
+  .pf .ar{font-size:1.4rem;padding:2px 10px;border-radius:10px;background:var(--soft)}
+  .pf .nb{color:var(--red);font-weight:700}
+  .pf .links{display:flex;gap:16px;flex-wrap:wrap}
+  .pf-wrap{margin-top:0}
+
+  footer{margin-top:44px;padding:30px 0 50px;background:var(--ink);color:#c9d0cc;font-family:var(--cond);font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase}
+
+  @media (min-width:760px){
+    body{font-size:18px}
+    .cards.two{grid-template-columns:1fr 1fr}
+    .kpis.three{grid-template-columns:repeat(3,1fr)}
+    .outs{grid-template-columns:repeat(2,1fr)}
+    .refs{grid-template-columns:1fr 1fr}
+    h2{font-size:2.7rem}
+    header h1{font-size:3.6rem}
+    #son{left:auto;right:18px;width:auto;padding:13px 24px}
   }
 </style>
 </head>
 <body>
+
+<div class="wrap">
   <header>
+    <div class="k">Nabta Alkon</div>
     <h1>Nabta Alkon</h1>
     <p>Pyrolyse · biochar · captation du CO₂</p>
   </header>
+</div>
+<div class="video">
+  <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+  <button id="son" type="button">🔊 Activer le son</button>
+</div>
 
-  <section class="video">
-    <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
-    <button id="son" type="button">🔊 Activer le son</button>
-  </section>
+<main class="wrap">
 
-  <div class="count">Dossier technique · 15 pages</div>
-  <main>
-    <article class="pg" data-p="1">
-      <img src="pages/p01.jpg" alt="Page 1 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="1">🔍 Agrandir la page 1</button>
-    </article>
-    <article class="pg" data-p="2">
-      <img src="pages/p02.jpg" alt="Page 2 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="2">🔍 Agrandir la page 2</button>
-    </article>
-    <article class="pg" data-p="3">
-      <img src="pages/p03.jpg" alt="Page 3 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="3">🔍 Agrandir la page 3</button>
-    </article>
-    <article class="pg" data-p="4">
-      <img src="pages/p04.jpg" alt="Page 4 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="4">🔍 Agrandir la page 4</button>
-    </article>
-    <article class="pg" data-p="5">
-      <img src="pages/p05.jpg" alt="Page 5 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="5">🔍 Agrandir la page 5</button>
-    </article>
-    <article class="pg" data-p="6">
-      <img src="pages/p06.jpg" alt="Page 6 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="6">🔍 Agrandir la page 6</button>
-    </article>
-    <article class="pg" data-p="7">
-      <img src="pages/p07.jpg" alt="Page 7 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="7">🔍 Agrandir la page 7</button>
-    </article>
-    <article class="pg" data-p="8">
-      <img src="pages/p08.jpg" alt="Page 8 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="8">🔍 Agrandir la page 8</button>
-    </article>
-    <article class="pg" data-p="9">
-      <img src="pages/p09.jpg" alt="Page 9 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="9">🔍 Agrandir la page 9</button>
-    </article>
-    <article class="pg" data-p="10">
-      <img src="pages/p10.jpg" alt="Page 10 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="10">🔍 Agrandir la page 10</button>
-    </article>
-    <article class="pg" data-p="11">
-      <img src="pages/p11.jpg" alt="Page 11 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="11">🔍 Agrandir la page 11</button>
-    </article>
-    <article class="pg" data-p="12">
-      <img src="pages/p12.jpg" alt="Page 12 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="12">🔍 Agrandir la page 12</button>
-    </article>
-    <article class="pg" data-p="13">
-      <img src="pages/p13.jpg" alt="Page 13 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="13">🔍 Agrandir la page 13</button>
-    </article>
-    <article class="pg" data-p="14">
-      <img src="pages/p14.jpg" alt="Page 14 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="14">🔍 Agrandir la page 14</button>
-    </article>
-    <article class="pg" data-p="15">
-      <img src="pages/p15.jpg" alt="Page 15 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
-      <button class="zoom" type="button" data-p="15">🔍 Agrandir la page 15</button>
-    </article>
-  </main>
-
-  <footer>Nabta Alkon · dossier technique</footer>
-
-  <div id="lb" role="dialog" aria-modal="true" aria-label="Lecture en grand">
-    <div class="top">
-      <button id="lbp" type="button" aria-label="Page précédente">‹</button>
-      <b id="lbt">Page 1 / 15</b>
-      <button id="lbn" type="button" aria-label="Page suivante">›</button>
-      <button id="lbx" class="x" type="button" aria-label="Fermer">Fermer</button>
-    </div>
-    <div class="zone" id="lbz"><img id="lbi" alt=""></div>
-    <div class="hint">Glissez pour lire · pincez pour zoomer · tournez le téléphone pour voir la page entière</div>
+<!-- 01 -->
+<section class="p" id="sommaire" data-n="1">
+  <p class="kick">Nabta Alkon / Approfondir, point par point</p>
+  <h2>Nabta Alkon <span style="color:var(--red)">technical files</span></h2>
+  <p class="lead">Les mêmes hypothèses, avec les calculs, les livrables et les bases de décision détaillés.</p>
+  <div class="cards two">
+    <a class="card" href="#p2"><h3><span class="k">01</span>Matières &amp; produits</h3><p>Matière entrante, procédé et qualité des sortants.</p><span class="go">CONSULTER →</span></a>
+    <a class="card" href="#p5"><h3><span class="k">02</span>Capacité &amp; déploiement</h3><p>Volumes, investissement et étapes de réalisation.</p><span class="go">CONSULTER →</span></a>
+    <a class="card" href="#p8"><h3><span class="k">03</span>Économie &amp; sensibilités</h3><p>Ventes, charges, récupération et seuils du modèle.</p><span class="go">CONSULTER →</span></a>
+    <a class="card" href="#p13"><h3><span class="k">04</span>Contrats &amp; carbone</h3><p>Responsabilités, débouchés et certification.</p><span class="go">CONSULTER →</span></a>
   </div>
+  <div class="strong"><b>Scénario de référence</b>3 M€ au départ · 3 000 t/an · 60 % d’huile · 500 €/t · 250 k€/an de solde</div>
+  <p class="note">Un cadre illustratif. Le devis, les essais sur matière et les contrats permettront de construire le cas réel.</p>
+</section>
+
+<!-- 02 -->
+<section class="p" id="p2" data-n="2">
+  <p class="kick">Nabta Alkon / Matières</p>
+  <h2>Qualifier la matière avant de dimensionner</h2>
+  <p class="lead">La composition et la régularité de l’approvisionnement orientent le procédé, les coûts et la qualité du produit.</p>
+  <div class="tw st"><table class="st">
+    <thead><tr><th>À examiner</th><th>Ce qui est mesuré</th><th>Ce que cela prépare</th></tr></thead>
+    <tbody>
+      <tr><th>Origine et composition</th><td data-l="Ce qui est mesuré">Familles de plastiques ou biomasse ; mélanges et matières étrangères.</td><td data-l="Ce que cela prépare">Choix de la filière et compatibilité du procédé.</td></tr>
+      <tr><th>Humidité et taille</th><td data-l="Ce qui est mesuré">Eau, granulométrie et préparation nécessaire.</td><td data-l="Ce que cela prépare">Tri, broyage, séchage et alimentation.</td></tr>
+      <tr><th>Qualité et contaminants</th><td data-l="Ce qui est mesuré">Analyses adaptées au flux : inertes, cendres, contaminants ciblés.</td><td data-l="Ce que cela prépare">Traitement et spécifications des sortants.</td></tr>
+      <tr><th>Volume et régularité</th><td data-l="Ce qui est mesuré">Tonnes mobilisables, saisonnalité, distances et fournisseurs.</td><td data-l="Ce que cela prépare">Plan d’approvisionnement et coût livré.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><b>Livrable :</b> une fiche de matière et un plan d’analyses. Les seuils d’acceptation sont définis avec le procédé retenu et l’usage visé, à partir d’échantillons représentatifs.</p>
+  <p class="src">Sources : <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · purification des huiles ↗</a> · <a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R10] IEA Bioenergy · qualité biomasse, 2024 ↗</a></p>
+</section>
+
+<!-- 03 -->
+<section class="p" id="p3" data-n="3">
+  <p class="kick">Nabta Alkon / Chaîne de transformation</p>
+  <h2>Le procédé : trois sorties, des circuits dédiés</h2>
+  <p class="lead">La chaleur transforme la matière. Les vapeurs sont refroidies ; gaz et solides suivent leurs propres circuits.</p>
+  <div class="flow">
+    <div class="card"><h3>Préparer</h3><p>Trier, broyer et ajuster l’humidité selon le besoin.</p></div>
+    <div class="arrow">↓</div>
+    <div class="card"><h3>Réacteur</h3><p>Chauffer et piloter le temps de séjour.</p></div>
+    <div class="arrow">↓</div>
+    <div class="outs">
+      <div class="card red"><h3>Chaleur de procédé</h3><p>Gaz utilisé selon la configuration. Cette chaleur est renvoyée vers le réacteur.</p></div>
+      <div class="card"><h3>Solide</h3><p>Refroidir, caractériser et conditionner.</p></div>
+      <div class="card"><h3>Vapeurs</h3><p>Condenser en liquide, puis collecter.</p></div>
+      <div class="card"><h3>Gaz</h3><p>Traiter et orienter vers l’usage prévu.</p></div>
+    </div>
+  </div>
+  <p class="note">Schéma fonctionnel simplifié. Pesée, traçabilité des lots, entretien et suivi des émissions accompagnent le procédé. Le gaz utilisé pour la chaleur réduit un besoin énergétique ; sa valeur ne se compte pas deux fois.</p>
+  <p class="src">Source : <a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R5] IEA Bioenergy · procédé ↗</a></p>
+</section>
+
+<!-- 04 -->
+<section class="p" id="p4" data-n="4">
+  <p class="kick">Nabta Alkon / Qualité produit</p>
+  <h2>Les sortants à préparer pour les acheteurs</h2>
+  <p class="lead">Un produit se commercialise avec une qualité définie, des contrôles et un usage identifié.</p>
+  <div class="tw st"><table class="st">
+    <thead><tr><th>Filière / sortant</th><th>Usage à qualifier</th><th>Base avant livraison</th></tr></thead>
+    <tbody>
+      <tr><th>Plastiques : huile de pyrolyse</th><td data-l="Usage à qualifier">Matière première pour un acheteur industriel compatible.</td><td data-l="Base avant livraison">Fiche produit, analyses ciblées, stockage et critères d’acceptation.</td></tr>
+      <tr><th>Biomasse : biochar</th><td data-l="Usage à qualifier">Applications compatibles avec la qualité du lot et le cadre local.</td><td data-l="Base avant livraison">Origine, composition, qualité et, si visé, dossier de certification.</td></tr>
+      <tr><th>Gaz, liquides de biomasse et résidus</th><td data-l="Usage à qualifier">Usage interne ou débouché spécifique selon le procédé.</td><td data-l="Base avant livraison">Caractérisation, traitement, conditions de valorisation ou de gestion.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="bandeau">L’acheteur valide les spécifications avant la première livraison</div>
+  <p class="note">L’huile de pyrolyse peut nécessiter une purification pour l’usage choisi. Le biochar issu de biomasse et le résidu solide de plastiques ne désignent pas le même produit. Les co-produits restent hors recettes du modèle.</p>
+  <p class="src">Sources : <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · purification des huiles ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a></p>
+</section>
+
+<!-- 05 -->
+<section class="p" id="p5" data-n="5">
+  <p class="kick">Nabta Alkon / Capacité &amp; exploitation</p>
+  <h2>Du débit annoncé aux tonnes réellement traitées</h2>
+  <p class="lead">La capacité du scénario se lit sur une même base de temps, puis s’ajuste à l’utilisation réelle.</p>
+  <div class="kpis">
+    <div class="kpi"><b>10 t/j</b><span>Débit journalier du scénario.</span></div>
+    <div class="op">×</div>
+    <div class="kpi"><b>300 jours</b><span>Base annuelle retenue.</span></div>
+    <div class="op">=</div>
+    <div class="kpi"><b>3 000 t/an</b><span>Capacité annuelle de calcul.</span></div>
+  </div>
+  <div class="cards two">
+    <div class="card"><h3>Disponibilité</h3><p>Part du temps programmé où l’unité est en état de fonctionner.</p></div>
+    <div class="card"><h3>Utilisation de la capacité</h3><p>Tonnes réellement traitées / 3 000 t. Elle reflète aussi l’alimentation et l’organisation.</p></div>
+  </div>
+  <p class="note">Exemple de conversion uniquement : 10 t/j sur 24 h = 0,417 t/h. Les horaires réels restent à confirmer. Le modèle fait varier le volume par un facteur d’utilisation global : ne pas retrancher deux fois les mêmes arrêts.</p>
+  <p class="small">Base : hypothèses du scénario fourni. Capacités constructeur déclarées et production réelle mesurée sont des indicateurs différents.</p>
+</section>
+
+<!-- 06 -->
+<section class="p" id="p6" data-n="6">
+  <p class="kick">Nabta Alkon / CAPEX &amp; paiements</p>
+  <h2>Les 3 M€ : un périmètre à écrire</h2>
+  <p class="lead">Un montant global devient exploitable lorsqu’il est relié à une capacité, à des lots et à des étapes de réception.</p>
+  <div class="tw st"><table class="st">
+    <thead><tr><th>Lot</th><th>À détailler dans le devis</th><th>Point de validation</th></tr></thead>
+    <tbody>
+      <tr><th>Équipements</th><td data-l="À détailler dans le devis">Procédé, capacité, accessoires et préparation des matières.</td><td data-l="Point de validation">Choix technique et contenu de fourniture.</td></tr>
+      <tr><th>Site et utilités</th><td data-l="À détailler dans le devis">Génie civil, dalle, réseaux, énergie, eau et stockage.</td><td data-l="Point de validation">Limites de fourniture et interfaces du chantier.</td></tr>
+      <tr><th>Installation et lancement</th><td data-l="À détailler dans le devis">Transport, montage, essais, formation et pièces de départ.</td><td data-l="Point de validation">Réception, essais et transfert de responsabilité.</td></tr>
+      <tr><th>Frais périphériques</th><td data-l="À détailler dans le devis">Étude, autorisations et trésorerie de démarrage : montants à établir.</td><td data-l="Point de validation">Inclusions, exclusions et financement du lancement.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><b>Échéancier à négocier :</b> commande, fabrication, contrôle avant expédition, réception et essais. Les pourcentages de paiement, garanties éventuelles et conséquences d’un retard sont à contractualiser.</p>
+  <p class="small">3 M€ : cadrage communiqué par Nabta Alkon ; aucun découpage budgétaire par lot ni échéancier chiffré n’a été fourni.</p>
+</section>
+
+<!-- 07 -->
+<section class="p" id="p7" data-n="7">
+  <p class="kick">Nabta Alkon / Calendrier détaillé</p>
+  <h2>Un planning avec des tâches parallèles</h2>
+  <p class="lead">Vue illustrative à partir du lancement transport / chantier. La fabrication et les autorisations se positionnent en amont.</p>
+  <div role="img" aria-label="Planning : transport 2 à 3 mois, terrassement et dalle 2 à 3 mois, montage après réception 1 à 2 mois, infrastructures et utilités environ 6 mois">
+    <div class="months"><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
+    <div class="g"><p class="t">Transport des unités</p><div class="track"><div class="bar2" style="left:0;width:50%">2 à 3 mois</div></div></div>
+    <div class="g"><p class="t">Terrassement et dalle</p><div class="track"><div class="bar2" style="left:0;width:50%">2 à 3 mois</div></div></div>
+    <div class="g"><p class="t">Montage après réception</p><div class="track"><div class="bar2 k" style="left:50%;width:33.33%">1 à 2 mois</div></div></div>
+    <div class="g"><p class="t">Infrastructures et utilités</p><div class="track"><div class="bar2" style="left:0;width:100%">Environ 6 mois</div></div></div>
+  </div>
+  <p class="note">Cible globale communiquée : 8 mois de fabrication à installation, à confirmer par un planning complet. Les utilités peuvent conditionner le démarrage. Étude, autorisations, essais et montée en charge ont chacun leurs jalons.</p>
+  <p class="small">Durées indicatives Nabta Alkon : transport/site 2–3 mois ; montage 1–2 mois ; utilités environ 6 mois. Le graphique utilise les bornes hautes pour illustrer le chevauchement.</p>
+</section>
+
+<!-- 08 -->
+<section class="p" id="p8" data-n="8">
+  <p class="kick">Nabta Alkon / Calcul du chiffre d’affaires</p>
+  <h2>Les ventes : volume × rendement × prix</h2>
+  <p class="lead">Le modèle plastique suit une seule recette pour rendre le calcul vérifiable : l’huile vendue.</p>
+  <div class="kpis">
+    <div class="kpi"><b>3 000 t/an</b><span>Matière effectivement traitée.</span></div>
+    <div class="op">↓</div>
+    <div class="kpi"><b>1 800 t/an</b><span>Huile obtenue à 60 % de rendement.</span></div>
+    <div class="op">↓</div>
+    <div class="kpi"><b>900 k€/an</b><span>Ventes à 500 €/t d’huile.</span></div>
+  </div>
+  <div class="cards two">
+    <div class="card light"><h3>Pour 1 tonne entrante</h3><p>0,6 t d’huile × 500 €/t = 300 € de ventes.</p></div>
+    <div class="card light"><h3>Les autres sortants</h3><p>Les 40 % restants du bilan simplifié restent à caractériser. Aucun revenu de gaz, char, services ou carbone n’est ajouté.</p></div>
+  </div>
+  <p class="note">Le rendement de 60 % et le prix de 500 €/t sont des hypothèses. Le prix net, la quantité acceptée et la qualité doivent être reliés à la matière testée et au contrat d’achat. Le scénario biomasse demande un modèle distinct.</p>
+  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
+</section>
+
+<!-- 09 -->
+<section class="p" id="p9" data-n="9">
+  <p class="kick">Nabta Alkon / Calcul du solde annuel</p>
+  <h2>Les charges et le personnel à confirmer</h2>
+  <p class="lead">La simulation distingue les coûts liés au volume et les coûts maintenus quand le volume baisse.</p>
+  <div class="tw st"><table class="st">
+    <thead><tr><th>Poste</th><th>Base à 100 %</th><th>Règle du modèle</th></tr></thead>
+    <tbody>
+      <tr><th>Matière et transport</th><td data-l="Base à 100 %">240 k€/an · 80 €/t traitée</td><td data-l="Règle du modèle">Variable avec le tonnage.</td></tr>
+      <tr><th>Énergie</th><td data-l="Base à 100 %">150 k€/an · 50 €/t traitée</td><td data-l="Règle du modèle">Variable avec le tonnage.</td></tr>
+      <tr><th>Personnel</th><td data-l="Base à 100 %">120 k€/an</td><td data-l="Règle du modèle">Fixe ; variante testée à 300 k€/an.</td></tr>
+      <tr><th>Maintenance</th><td data-l="Base à 100 %">90 k€/an</td><td data-l="Règle du modèle">Fixe dans la sensibilité.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="kpis three" style="margin-top:24px">
+    <div class="kpi"><b>600 k€</b><span>OPEX dans le cas de base.</span></div>
+    <div class="kpi"><b>50 k€</b><span>Réserve annuelle maintenue.</span></div>
+    <div class="kpi"><b>250 k€</b><span>900 − 600 − 50 : solde annuel.</span></div>
+  </div>
+  <p class="note">Avec 300 k€ de personnel, les OPEX atteignent 780 k€/an et le solde tombe à 70 k€/an. Ces budgets ne définissent pas un effectif : couverture horaire, rotations, coût employeur et supervision restent à chiffrer.</p>
+  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
+</section>
+
+<!-- 10 -->
+<section class="p" id="p10" data-n="10">
+  <p class="kick">Nabta Alkon / Rendement du scénario</p>
+  <h2>Le recalcul complet à 3 M€</h2>
+  <p class="lead">Même solde de 250 k€/an. Seule la mise initiale change dans cette comparaison arithmétique.</p>
+  <div class="tw"><table class="nm">
+    <thead><tr><th>Indicateur</th><th class="num">Ancien calcul : 1 M€</th><th class="num">Mise retenue : 3 M€</th></tr></thead>
+    <tbody>
+      <tr><th>Récupération simple</th><td class="num">4 ans</td><td class="num">12 ans</td></tr>
+      <tr><th>Solde net cumulé sur 7 ans</th><td class="num">+750 k€</td><td class="num neg">−1 250 k€</td></tr>
+      <tr><th>ROI cumulé sur 7 ans</th><td class="num">+75 %</td><td class="num neg">−41,7 %</td></tr>
+      <tr><th>TRI sur 7 ans</th><td class="num">16,3 %</td><td class="num neg">−11,9 %</td></tr>
+      <tr><th>VAN à 10 % sur 7 ans</th><td class="num">+217 k€</td><td class="num neg">−1 783 k€</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Base : mise au départ, sept flux de fin d’année, valeur finale nulle, avant impôts et financement. Les 12 ans prolongent le solde constant au-delà des sept ans modélisés. Construction et montée en charge sont à ajouter au calendrier réel.</p>
+  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
+</section>
+
+<!-- 11 -->
+<section class="p" id="p11" data-n="11">
+  <p class="kick">Nabta Alkon / Hypothèses comparées</p>
+  <h2>Sensibilité : prix de l’huile × personnel</h2>
+  <p class="lead">Solde annuel après réserve, en k€. Entrée : 3 000 t/an ; huile : 1 800 t/an ; CAPEX : 3 M€.</p>
+  <div class="tw"><table class="nm">
+    <thead><tr><th>Prix de l’huile</th><th class="num">Personnel 120 k€/an</th><th class="num">Personnel 300 k€/an</th></tr></thead>
+    <tbody>
+      <tr><th>300 €/t</th><td class="num neg">−110</td><td class="num neg">−290</td></tr>
+      <tr><th>400 €/t</th><td class="num">70</td><td class="num neg">−110</td></tr>
+      <tr><th>500 €/t</th><td class="num">250</td><td class="num">70</td></tr>
+      <tr><th>650 €/t</th><td class="num">520</td><td class="num">340</td></tr>
+    </tbody>
+  </table></div>
+  <div class="strong"><b>Récupération à 500 €/t</b>12 ans avec 120 k€ de personnel ; 42,9 ans avec 300 k€.</div>
+  <p class="note">À dépenses inchangées : pour récupérer 3 M€ en 4 ans, il faut environ 778 €/t avec 120 k€ de personnel, ou 878 €/t avec 300 k€. Pour viser 7 ans : environ 599 €/t ou 699 €/t. Ce sont des seuils de calcul, pas des tarifs de marché.</p>
+  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
+</section>
+
+<!-- 12 -->
+<section class="p" id="p12" data-n="12">
+  <p class="kick">Nabta Alkon / Remplissage &amp; seuils</p>
+  <h2>Sensibilité : le volume réellement traité</h2>
+  <p class="lead">Le volume fait varier les ventes, la matière et l’énergie. Personnel, maintenance et réserve restent fixes.</p>
+  <div class="tw"><table class="nm">
+    <thead><tr><th>Utilisation</th><th class="num">Tonnes traitées</th><th class="num">Solde · personnel 120 k€</th><th class="num">Solde · personnel 300 k€</th></tr></thead>
+    <tbody>
+      <tr><th>100 %</th><td class="num">3 000 t/an</td><td class="num">250 k€/an</td><td class="num">70 k€/an</td></tr>
+      <tr><th>85 %</th><td class="num">2 550 t/an</td><td class="num">173,5 k€/an</td><td class="num neg">−6,5 k€/an</td></tr>
+      <tr><th>75 %</th><td class="num">2 250 t/an</td><td class="num">122,5 k€/an</td><td class="num neg">−57,5 k€/an</td></tr>
+      <tr><th>50 %</th><td class="num">1 500 t/an</td><td class="num neg">−5 k€/an</td><td class="num neg">−185 k€/an</td></tr>
+    </tbody>
+  </table></div>
+  <div class="strong"><b>Seuil du solde positif</b>≈ 51 % avec 120 k€ de personnel · ≈ 86 % avec 300 k€.</div>
+  <p class="note">À 75 % et 120 k€ de personnel : récupération de 3 M€ en 24,5 ans par extrapolation. Tripler la capacité ne garantit pas de tripler le solde : équipements, énergie, personnel, matière et débouchés doivent être recalculés.</p>
+  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
+</section>
+
+<!-- 13 -->
+<section class="p" id="p13" data-n="13">
+  <p class="kick">Nabta Alkon / Engagements &amp; responsabilités</p>
+  <h2>Les réponses à obtenir avant la signature</h2>
+  <p class="lead">Ces éléments constituent le dossier de décision ; leur validation se formalise avec les responsables concernés.</p>
+  <div class="cards two">
+    <div class="card"><h3>1–4 · Périmètre &amp; budget</h3><p>Contenu des 3 M€, capacité et coût par tonne ; exclusions ; paiements et garanties en cas de retard.</p></div>
+    <div class="card"><h3>5–8 · Performance &amp; qualité</h3><p>Rendement mesuré et visite ; résultat sur votre matière ; disponibilité ; qualité d’huile et contrôle.</p></div>
+    <div class="card"><h3>9–10 · Acheteurs &amp; prix</h3><p>Acheteur identifié, contrat, rôle de Nabta Alkon dans la vente ; prix plancher ou protection à négocier.</p></div>
+    <div class="card"><h3>11–12 · Exploitation &amp; conformité</h3><p>Exploitant et effectifs chiffrés ; responsable des autorisations, de la sécurité et de la conformité locale.</p></div>
+    <div class="card"><h3>13 · Partenariat</h3><p>Apports, droits économiques, partage des revenus et clauses de sortie.</p></div>
+    <div class="card"><h3>14 · Références</h3><p>Échanges avec des clients ou références vérifiables, en précisant le rôle réalisé par Nabta Alkon.</p></div>
+  </div>
+  <p class="note">L’étude de site précise aussi son coût, son contenu et le moment de facturation. Une autorisation relève de l’autorité compétente. Performance, délais et partage du risque doivent être définis au contrat, avec leurs conditions.</p>
+  <p class="small">Grille de validation issue des 14 questions transmises. Les réponses propres au projet restent à documenter ; aucun engagement non fourni n’est présenté comme acquis.</p>
+</section>
+
+<!-- 14 -->
+<section class="p" id="p14" data-n="14">
+  <p class="kick">Nabta Alkon / Certification &amp; valeur</p>
+  <h2>Carbone : une chaîne de preuves par filière</h2>
+  <p class="lead">D’abord qualifier l’éligibilité et l’usage ; ensuite mesurer, vérifier et contractualiser la valeur correspondante.</p>
+  <div class="cards two">
+    <div class="card"><h3><span class="k">1</span>Qualifier</h3><p>Matière, procédé et usage final.</p></div>
+    <div class="card"><h3><span class="k">2</span>Mesurer</h3><p>Lots et données de suivi.</p></div>
+    <div class="card"><h3><span class="k">3</span>Vérifier</h3><p>Contrôle indépendant.</p></div>
+    <div class="card"><h3><span class="k">4</span>Contractualiser</h3><p>Valeur, volume et livraison.</p></div>
+  </div>
+  <div class="cards two" style="margin-top:14px">
+    <div class="card light"><h3>Biochar : retrait carbone</h3><p>Le biochar peut stocker du carbone. L’émission de crédits suit une méthode, un retrait net vérifié et un suivi des usages.</p></div>
+    <div class="card light"><h3>Plastiques : bilan massique</h3><p>ISCC PLUS suit l’attribution de matières dans une chaîne certifiée. Ce mécanisme ne constitue pas un crédit de retrait CO₂.</p></div>
+  </div>
+  <p class="note">MRV = mesure, documentation et vérification. Pour le biochar, une vente future de crédits peut être encadrée avant émission. Prix, frais et éligibilité sont à établir. Le scénario plastique maintient les recettes carbone à zéro.</p>
+  <p class="src">Sources : <a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R4] ISCC PLUS · référentiel ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a></p>
+</section>
+
+<!-- 15 -->
+<section class="p" id="p15" data-n="15">
+  <p class="kick">Nabta Alkon / Références</p>
+  <h2>Les sources et les bases du dossier</h2>
+  <p class="lead">Les cas de marché éclairent le secteur. Ils ne démontrent ni les performances ni la rentabilité de Nabta Alkon.</p>
+  <div class="refs">
+    <div class="ref"><a href="https://www.basf.com/global/en/media/news-releases/2019/10/p-19-356" target="_blank" rel="noopener">[R1] BASF × Quantafuel ↗</a><p>20 M€ et droit de premier refus · 2019.</p></div>
+    <div class="ref"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R6] QMRE · présentation 2023 ↗</a><p>Capacité WASTX P5000 déclarée ; repère historique.</p></div>
+    <div class="ref"><a href="https://pryme-cleantech.com/uploads/downloads/Pryme-N.V.-Q4-2024-Report.pdf" target="_blank" rel="noopener">[R2] Pryme · rapport T4 2024 ↗</a><p>Production d’huile : 341 t sur l’année.</p></div>
+    <div class="ref"><a href="https://carboliq.com/en/sustainability/chemical-recycling/" target="_blank" rel="noopener">[R7] carboliq ↗</a><p>Présentation du procédé et des débouchés.</p></div>
+    <div class="ref"><a href="https://www.carbonfuture.com/magazine/exomad-green-announces-worlds-largest-biochar-carbon-removal-agreement-with-microsoft-tracked-by-carbonfuture-mrv" target="_blank" rel="noopener">[R3] Exomad × Microsoft ↗</a><p>Accord annoncé : ≥ 1,24 MtCO₂ sur 10 ans.</p></div>
+    <div class="ref"><a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · biochar ↗</a><p>Méthode de certification du retrait carbone.</p></div>
+    <div class="ref"><a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R4] ISCC PLUS ↗</a><p>Traçabilité et chaîne de contrôle des matières.</p></div>
+    <div class="ref"><a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · PuriCycle ↗</a><p>Purification et contaminants des huiles.</p></div>
+    <div class="ref"><a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R5] IEA Bioenergy · Task 34 ↗</a><p>Principe et étapes de la pyrolyse.</p></div>
+    <div class="ref"><a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R10] IEA Bioenergy · Task 43 ↗</a><p>Qualité de la biomasse · janvier 2024.</p></div>
+  </div>
+  <p class="note">Données projet : cadrage transmis par Nabta Alkon (3 M€, cible de 8 mois). Données économiques : scénario fourni, recalculé et testé. Chaque hypothèse est distincte d’un résultat mesuré ou d’un engagement contractuel.</p>
+  <p class="small">Sources consultées le 24/10/2026. Les liens sont cliquables ; les documents historiques peuvent évoluer ou devenir indisponibles chez leur éditeur.</p>
+</section>
+
+</main>
+<footer><div class="wrap">Nabta Alkon · dossier technique</div></footer>
 
 <script>
   var v=document.getElementById('v'),b=document.getElementById('son');
@@ -140,19 +444,16 @@
   b.addEventListener('click',function(){v.muted=false;v.currentTime=0;v.play();b.hidden=true});
   v.addEventListener('volumechange',function(){if(!v.muted)b.hidden=true});
 
-  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbt=document.getElementById('lbt'),lbz=document.getElementById('lbz'),n=1;
-  function show(k){if(k<1)k=1;if(k>15)k=15;n=k;lbi.src='pages/p'+(k<10?'0':'')+k+'.jpg';lbi.alt='Page '+k+' du dossier technique';lbt.textContent='Page '+k+' / 15';lbz.scrollTo(0,0)}
-  function open(k){show(k);lb.classList.add('on');document.body.style.overflow='hidden'}
-  function close(){lb.classList.remove('on');document.body.style.overflow=''}
-  document.querySelectorAll('.pg').forEach(function(a){
-    var p=+a.dataset.p;
-    a.querySelector('img').addEventListener('click',function(){open(p)});
-    a.querySelector('.zoom').addEventListener('click',function(){open(p)});
+  /* pied de page de chaque page : Sommaire · Le procédé · Sources · ← → · 00 / 15 */
+  function id(n){return n===1?'sommaire':'p'+n}
+  document.querySelectorAll('section.p').forEach(function(s){
+    var n=+s.dataset.n,pf=document.createElement('nav');pf.className='pf';pf.setAttribute('aria-label','Navigation');
+    var h='<div class="links"><a href="#sommaire">Sommaire</a><a href="#p3">Le procédé</a><a href="#p15">Sources</a></div><span class="sp"></span>';
+    if(n>1)h+='<a class="ar" href="#'+id(n-1)+'" aria-label="Page précédente">←</a>';
+    if(n<15)h+='<a class="ar" href="#'+id(n+1)+'" aria-label="Page suivante">→</a>';
+    h+='<span class="nb">'+(n<10?'0':'')+n+' / 15</span>';
+    pf.innerHTML=h;s.appendChild(pf);
   });
-  document.getElementById('lbx').onclick=close;
-  document.getElementById('lbp').onclick=function(){show(n-1)};
-  document.getElementById('lbn').onclick=function(){show(n+1)};
-  document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(n-1);if(e.key==='ArrowRight')show(n+1)});
 </script>
 </body>
 </html>
