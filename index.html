@@ -23,12 +23,33 @@
   #son{position:absolute;right:16px;top:16px;background:#e8b04a;color:#1a1405;border:0;border-radius:999px;padding:10px 18px;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:2}
   #son[hidden]{display:none}
   @media (max-width:600px){:root{--r:14px}main{padding:16px 10px 32px}.bar .name{font-size:.85rem}}
+
+  /* Mobile d'abord : pages pleine largeur, appui = lecture en grand */
+  main{padding:10px 8px 40px;gap:12px}
+  .sheet{width:100%;border-radius:14px}
+  .sheet[data-p]:not([data-p="0"]){cursor:zoom-in}
+  .tap{position:absolute;right:10px;bottom:10px;background:rgba(13,20,17,.82);color:#fff;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:999px;pointer-events:none;display:flex;gap:6px;align-items:center}
+  #lb{position:fixed;inset:0;z-index:50;background:#111413;display:none;flex-direction:column}
+  #lb.on{display:flex}
+  #lb .top{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;background:var(--bar);color:var(--fg)}
+  #lb .top b{font-size:.95rem}
+  #lb button{background:#1c1f1e;color:#fff;border:0;border-radius:10px;padding:10px 14px;font-size:1rem;font-weight:600;min-width:46px;min-height:44px}
+  #lb .zone{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;display:flex;align-items:flex-start}
+  #lb img{flex:0 0 auto;width:230vw;max-width:none;height:auto;margin:0}
+  #lb .hint{flex:0 0 auto;text-align:center;color:var(--mut);font-size:.8rem;padding:6px 10px;background:var(--bar)}
+  @media (orientation:landscape){#lb img{width:100vw}#lb .hint{display:none}}
+  @media (min-width:760px){main{padding:28px 16px 48px;gap:28px}.sheet{width:min(100%,1100px);border-radius:var(--r)}#lb img{width:min(100vw,1500px);margin:0 auto}}
 </style>
 </head>
 <body>
   <div class="bar">
     <div class="name">Nabta_Alkon_dossier_technique.pdf</div>
     <div class="pg"><span id="cur">1</span> / 16</div>
+  </div>
+  <div id="lb" role="dialog" aria-modal="true" aria-label="Lecture en grand">
+    <div class="top"><button id="lbp" type="button" aria-label="Page précédente">‹</button><b id="lbt">Page 1 / 15</b><button id="lbn" type="button" aria-label="Page suivante">›</button><button id="lbx" type="button" aria-label="Fermer">✕ Fermer</button></div>
+    <div class="zone" id="lbz"><img id="lbi" alt=""></div>
+    <div class="hint">Faites glisser pour lire · pincez pour zoomer · tournez le téléphone pour voir la page entière</div>
   </div>
   <main>
     <section class="sheet" data-p="0">
@@ -61,6 +82,20 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)cur.textContent=(+e.target.dataset.p)+1})},{rootMargin:'-50% 0px -50% 0px'});
     document.querySelectorAll('.sheet').forEach(function(s){io.observe(s)});
   }
+  /* Lecture en grand */
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbt=document.getElementById('lbt'),lbz=document.getElementById('lbz'),n=0;
+  function show(k){if(k<1)k=1;if(k>15)k=15;n=k;lbi.src='pages/p'+(k<10?'0':'')+k+'.jpg';lbi.alt='Page '+k+' du dossier technique';lbt.textContent='Page '+k+' / 15';lbz.scrollTo(0,0);cur.textContent=k+1}
+  function open(k){show(k);lb.classList.add('on');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('on');document.body.style.overflow=''}
+  document.querySelectorAll('.sheet').forEach(function(s){
+    var p=+s.dataset.p;if(!p)return;
+    var t=document.createElement('div');t.className='tap';t.textContent='🔍 Toucher pour agrandir';s.appendChild(t);
+    s.addEventListener('click',function(){open(p)});
+  });
+  document.getElementById('lbx').onclick=close;
+  document.getElementById('lbp').onclick=function(){show(n-1)};
+  document.getElementById('lbn').onclick=function(){show(n+1)};
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(n-1);if(e.key==='ArrowRight')show(n+1)});
 </script>
 </body>
 </html>
