@@ -25,7 +25,9 @@ img{max-width:100%}
 .deck.tech{--acc:#d71920;--on:#fff;--acc2:#d71920;--pale:#f6dcdc;--kick:#d71920;--kpi:#d71920}
 
 /* en-tête + vidéo */
-.hd{padding:16px 20px;text-align:center;font-family:var(--cond);font-weight:600;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.hd{display:flex;align-items:stretch;justify-content:center;gap:6px;padding:4px 12px;border-bottom:1px solid var(--line)}
+.hd a{flex:1;max-width:200px;display:flex;align-items:center;justify-content:center;min-height:64px;font-family:var(--cond);font-weight:700;font-size:1.65rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:3px solid transparent}
+.hd a:active,.hd a:hover{border-bottom-color:var(--ink)}
 .video{position:relative;background:#000}
 .video video{display:block;width:100%;height:auto;aspect-ratio:1280/558;background:#000}
 #son{position:absolute;top:12px;right:12px;background:rgba(18,18,18,.78);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
@@ -286,7 +288,7 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
 </style>
 </head>
 <body>
-<header class="hd">Pyrolyse · Biochar · CO₂</header>
+<nav class="hd" aria-label="Thèmes"><a href="#nt-3" data-go="nt:3">Pyrolyse</a><a href="#tech-4" data-go="tech:4">Biochar</a><a href="#tech-14" data-go="tech:14">CO₂</a></nav>
 
 <section class="video" id="video">
   <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
