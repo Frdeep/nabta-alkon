@@ -114,12 +114,12 @@
   .ref p{margin:4px 0 0;color:#242c28;font-size:1.05rem}
 
   /* pied de page de chaque page */
-  .pf{display:flex;align-items:center;gap:10px;margin-top:30px;padding:16px 0 0;border-top:2px solid var(--ink);font-family:var(--cond);font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase}
+  .pf{display:flex;flex-wrap:wrap;align-items:center;gap:10px 10px;margin-top:30px;padding:16px 0 0;border-top:2px solid var(--ink);font-family:var(--cond);font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase}
   .pf a{color:var(--ink);text-decoration:none;padding:8px 0}
   .pf .sp{flex:1}
   .pf .ar{font-size:1.4rem;padding:2px 10px;border-radius:10px;background:var(--soft)}
-  .pf .nb{color:var(--red);font-weight:700}
-  .pf .links{display:flex;gap:16px;flex-wrap:wrap}
+  .pf .nb{color:var(--red);font-weight:700;white-space:nowrap;margin-left:4px}
+  .pf .links{display:flex;gap:18px;flex:1 0 100%}
   .pf-wrap{margin-top:0}
 
   footer{margin-top:44px;padding:30px 0 50px;background:var(--ink);color:#c9d0cc;font-family:var(--cond);font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase}
