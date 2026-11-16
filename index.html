@@ -2,458 +2,623 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nabta Alkon – Dossier technique</title>
-<meta name="description" content="Nabta Alkon technical files : matières, procédé, capacité, économie, contrats et carbone.">
-<meta property="og:title" content="Nabta Alkon – Dossier technique">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nabta Alkon – Présentation et dossier technique</title>
+<meta name="description" content="Nabta Alkon : vidéo de présentation, présentation officielle et dossier technique (pyrolyse, biochar, CO₂).">
+<meta property="og:title" content="Nabta Alkon – Présentation et dossier technique">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#121212">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{--fg:#111514;--mut:#5a6660;--line:#dfe3e1;--soft:#f5f6f5;--red:#d71920;--ink:#121212;--gold:#f2b84b;--r:14px;
-    --cond:"Barlow Condensed","Arial Narrow",Impact,system-ui,sans-serif;
-    --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:12px}
-  body{margin:0;background:#fff;color:var(--fg);font-family:var(--body);font-size:19px;line-height:1.5;-webkit-text-size-adjust:100%}
-  a{color:var(--red)}
-  .wrap{max-width:780px;margin:0 auto;padding:0 20px}
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--ink:#121212;--fg:#161a18;--mut:#5b6761;--line:#e2e6e3;--soft:#f4f6f3;--cond:"Barlow Condensed","Arial Narrow",Impact,system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--tabs:56px;--dock:84px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+a.t{text-decoration:none}
+button{font-family:inherit}
+img{max-width:100%}
 
-  /* en-tête + vidéo */
-  header{padding:26px 0 18px}
-  header .k{font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px}
-  header .k::before{content:"";width:4px;height:18px;background:var(--red)}
-  header h1{margin:8px 0 0;font-family:var(--cond);font-weight:700;font-size:3rem;line-height:1;text-transform:uppercase;letter-spacing:-.005em}
-  header p{margin:10px 0 0;color:var(--mut);font-size:1.15rem}
-  .video{position:relative;background:#000}
-  .video video{display:block;width:100%;height:auto;aspect-ratio:1280/558;background:#000}
-  #son{position:absolute;top:10px;right:10px;background:rgba(18,18,18,.78);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 13px;font-family:var(--body);font-size:.85rem;font-weight:600;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
-  #son[hidden]{display:none}
+/* thèmes */
+.deck.nt{--acc:#c4e76b;--on:#121212;--acc2:#8db63c;--pale:#dde4d3;--kick:#121212;--kpi:#121212}
+.deck.tech{--acc:#d71920;--on:#fff;--acc2:#d71920;--pale:#f6dcdc;--kick:#d71920;--kpi:#d71920}
 
-  /* pages */
-  section.p{position:relative;padding:34px 0 0;border-top:1px solid var(--line);margin-top:34px}
-  section.p::after{content:"";position:absolute;right:0;top:34px;width:32px;height:32px;opacity:.9;background:radial-gradient(circle,var(--red) 1.6px,transparent 2px) 0 0/8px 8px}
-  .kick{display:flex;align-items:center;gap:10px;margin:0 44px 12px 0;font-family:var(--cond);font-weight:600;font-size:1.02rem;letter-spacing:.03em;text-transform:uppercase;color:var(--red)}
-  .kick::before{content:"";flex:0 0 4px;height:18px;background:var(--red)}
-  h2{margin:0 0 16px;font-family:var(--cond);font-weight:700;font-size:2.35rem;line-height:1.02;text-transform:uppercase;letter-spacing:-.005em}
-  h2::after{content:"";display:block;width:60px;height:4px;background:var(--red);margin-top:14px}
-  .lead{font-size:1.22rem;line-height:1.45;color:#242c28;margin:0 0 24px}
-  h3{margin:0;font-family:var(--cond);font-weight:700;font-size:1.3rem;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
-  .note{margin:26px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:1.08rem;color:#242c28}
-  .small{margin:12px 0 0;font-size:.95rem;color:var(--mut)}
-  .src{margin:14px 0 0;font-size:.98rem;color:var(--mut)}
-  .src a{font-weight:600}
+/* en-tête + vidéo */
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 20px 18px}
+.hd img{height:40px;width:auto}
+.hd span{font-size:.92rem;color:var(--mut);text-align:right;line-height:1.3}
+.video{position:relative;background:#000}
+.video video{display:block;width:100%;height:auto;aspect-ratio:1280/558;background:#000}
+#son{position:absolute;top:12px;right:12px;background:rgba(18,18,18,.78);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
+#son[hidden]{display:none}
 
-  /* cartes noires arrondies */
-  .cards{display:grid;gap:14px;margin:0}
-  .card{background:var(--ink);color:#fff;border-radius:var(--r);padding:20px 20px 18px;position:relative}
-  .card::before{content:"";position:absolute;left:0;top:20px;width:4px;height:22px;background:var(--red)}
-  .card h3{color:#fff;margin-left:2px}
-  .card h3 .k{color:#ff3d47;margin-right:10px}
-  .card p{margin:8px 0 0;color:#e8ecea;font-size:1.08rem;line-height:1.42}
-  .card.red{background:var(--red)}
-  .card.red::before{background:#fff}
-  .card.red p{color:#fff}
-  .card.light{background:var(--soft);color:var(--fg);border:1px solid var(--line)}
-  .card.light h3{color:var(--fg)}
-  .card.light p{color:#242c28}
-  a.card{display:block;text-decoration:none}
-  .go{display:inline-block;margin-top:12px;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;color:#fff}
+/* onglets */
+.tabs{position:sticky;top:0;z-index:30;display:flex;gap:8px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;height:36px;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;font-family:var(--cond);font-weight:600;font-size:.98rem;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;white-space:nowrap;padding:0 6px}
+.tabs button.on{background:var(--ink);color:#fff}
 
-  .kpis{display:grid;gap:14px;margin:0 0 18px}
-  .kpi{padding:2px 0}
-  .kpi b{display:block;font-family:var(--cond);font-weight:700;font-size:3rem;line-height:1;color:var(--red)}
-  .kpi span{display:block;margin-top:4px;color:#242c28;font-size:1.1rem}
-  .op{font-family:var(--cond);font-weight:700;font-size:2rem;line-height:1;color:var(--red);text-align:left;margin:-4px 0}
+/* decks + carrousel */
+#viewer{display:block}
+.deck[hidden]{display:none}
+.track{display:flex;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}
+.ready .track{transition:height .25s ease}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.inner{max-width:980px;margin:0 auto;padding:34px 20px calc(var(--dock) + 56px)}
 
-  .flow{display:grid;gap:10px}
-  .arrow{text-align:center;font-family:var(--cond);font-size:2rem;line-height:1;color:var(--red);font-weight:700}
-  .outs{display:grid;gap:12px}
+.kick{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-family:var(--cond);font-weight:600;font-size:1.02rem;letter-spacing:.04em;text-transform:uppercase;color:var(--kick)}
+.kick::before{content:"";flex:0 0 4px;height:18px;background:var(--acc2)}
+h1,h2,h3,h4{margin:0}
+h2{font-family:var(--cond);font-weight:700;font-size:2.3rem;line-height:1.04;text-transform:uppercase;margin:0 0 18px;letter-spacing:-.005em}
+h2 .r{color:#d71920}
+.lead{font-size:1.1rem;line-height:1.55;color:#2a322e;margin:0 0 32px}
+h3{font-family:var(--cond);font-weight:700;font-size:1.3rem;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
+h4{font-family:var(--cond);font-weight:700;font-size:1.15rem;line-height:1.15;text-transform:uppercase;letter-spacing:.015em}
+p{margin:0}
+.t p+p{margin-top:10px}
+.t h3+p,.t h4+p{margin-top:10px}
 
-  /* tableaux */
-  .tw{border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
-  table{width:100%;border-collapse:collapse;font-size:1.05rem}
-  thead th{background:var(--ink);color:#fff;text-align:left;font-family:var(--cond);font-weight:600;font-size:.95rem;letter-spacing:.05em;text-transform:uppercase;padding:13px 14px}
-  tbody th,tbody td{padding:15px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
-  tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
-  tbody th{font-weight:700}
-  td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-  .neg{color:var(--red);font-weight:700}
-  table.nm thead th{font-size:.82rem;padding:12px 8px;line-height:1.2}
-  table.nm tbody th,table.nm tbody td{padding:15px 8px;font-size:1.06rem}
-  table.nm tbody th{font-size:1.02rem}
-  @media (max-width:640px){
-    .tw.st{border:0;border-radius:0;overflow:visible}
-    table.st thead{display:none}
-    table.st,table.st tbody,table.st tr,table.st th,table.st td{display:block;width:100%}
-    table.st tr{border-radius:var(--r);margin:0 0 14px;overflow:hidden;background:#fff;border:1px solid var(--line)}
-    table.st th{background:var(--ink);color:#fff;border:0;padding:15px 16px;font-family:var(--cond);font-weight:700;font-size:1.25rem;text-transform:uppercase}
-    table.st td{border:0;border-top:1px solid var(--line);padding:13px 16px}
-    table.st td::before{content:attr(data-l);display:block;font-family:var(--cond);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:3px}
-    table.st tbody tr:last-child th,table.st tbody tr:last-child td{border-bottom:0}
-  }
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bento+.bento{margin-top:16px}
+.bento>*{grid-column:span 2;min-width:0}
+@media (max-width:759px){.bento>.m1{grid-column:span 1}}
+.t{position:relative;border-radius:18px;padding:22px 20px;overflow:hidden}
+.t.lt{background:#fff;border:1px solid var(--line)}
+.t.so{background:var(--soft);border:1px solid var(--line)}
+.t.hi{background:var(--acc);color:var(--on)}
+.t.dk{background:var(--ink);color:#fff}
+.t.dash{background:#fff;border:2px dashed #9aa59f}
+.t.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:6px 18px 18px 6px}
+.t.ph{padding:0;background:#f6f6f4;border:1px solid var(--line)}
+.t.ph img{display:block;width:100%;height:auto}
+.t.ph figcaption{padding:12px 16px;font-size:.88rem;color:var(--mut)}
+.t .lab{display:block;font-family:var(--cond);font-weight:700;font-size:.92rem;letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px;color:var(--mut)}
+.t.hi .lab{color:rgba(18,18,18,.72)}
+.deck.tech .t.hi .lab{color:rgba(255,255,255,.85)}
+.t.dk .lab,.t.dk .lab.a{color:var(--acc)}
+.deck.tech .t.dk .lab{color:#ff6a70}
+.t .kpi,.kpi{display:block;font-family:var(--cond);font-weight:700;font-size:2.7rem;line-height:1;color:var(--kpi);margin:0 0 10px;letter-spacing:-.005em}
+.kpi.s{font-size:1.9rem}
+.t.hi .kpi{color:var(--on)}
+.t.dk .kpi{color:var(--acc)}
+.deck.tech .t.dk .kpi{color:#fff}
+.t .cap,.cap{font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+p.cap{margin:6px 0 -2px}
+.small{font-size:.9rem;color:var(--mut);line-height:1.5}
+.t.dk .small,.t.dk p{color:#ecefed}
+.tag{display:inline-block;margin-top:14px;padding:5px 10px;border-radius:6px;background:rgba(18,18,18,.08);font-family:var(--cond);font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase}
+.tag.w{background:rgba(255,255,255,.15)}
+.t.lot .tag{background:var(--pale)}
+.base{font-size:.9rem;color:var(--mut);line-height:1.55;margin-top:6px}
+.base a{font-weight:600;color:#26302b}
 
-  .bandeau{background:var(--red);color:#fff;font-family:var(--cond);font-weight:700;letter-spacing:.03em;text-transform:uppercase;font-size:1.2rem;line-height:1.2;padding:16px 18px;border-radius:var(--r);margin:16px 0 0}
-  .strong{margin:18px 0 0;padding:16px 18px;border-radius:var(--r);background:var(--soft);border:1px solid var(--line);font-size:1.12rem}
-  .strong b{display:block;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+/* à retenir */
+.t.ret{display:flex;flex-direction:column;gap:18px;background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:6px 18px 18px 6px}
+.t.ret p{font-size:1.1rem;font-weight:500;line-height:1.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:var(--cond);font-weight:700;font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase;padding:14px 20px;border-radius:12px;cursor:pointer;min-height:48px}
+.btn.dk{background:var(--ink);color:#fff;align-self:flex-start}
+.btn.hi{background:var(--acc);color:var(--on)}
+.t.btn.big{min-height:84px;font-size:1.2rem;text-align:center}
+.lnk{display:inline-block;margin-top:16px;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:2px}
+.go{display:inline-block;margin-top:16px;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 
-  /* planning */
-  .months{display:grid;grid-template-columns:repeat(6,1fr);font-family:var(--cond);font-weight:700;font-size:1.05rem;border-bottom:1px solid var(--line)}
-  .months span{padding:4px 0}
-  .g{margin:16px 0 0}
-  .g .t{font-weight:700;margin:0 0 6px;font-size:1.1rem}
-  .track{position:relative;height:46px;background:repeating-linear-gradient(to right,transparent 0,transparent calc(16.666% - 1px),var(--line) calc(16.666% - 1px),var(--line) 16.666%)}
-  .bar2{position:absolute;top:3px;height:40px;border-radius:12px;background:var(--red);color:#fff;font-family:var(--cond);font-weight:700;font-size:1.1rem;display:flex;align-items:center;padding:0 12px;white-space:nowrap}
-  .bar2.k{background:var(--ink)}
+/* puces de navigation */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;padding-top:22px;border-top:2px solid var(--ink)}
+.chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--soft);border:1px solid var(--line);font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
 
-  /* références */
-  .refs{display:grid;gap:12px}
-  .ref{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
-  .ref a{font-family:var(--cond);font-weight:700;font-size:1.3rem;text-transform:uppercase;text-decoration:none}
-  .ref p{margin:4px 0 0;color:#242c28;font-size:1.05rem}
+/* couverture */
+.cover h1{font-family:var(--cond);font-weight:700;font-size:2.7rem;line-height:1.05;text-transform:uppercase;margin:22px 0 18px}
+.cover mark{background:var(--acc);color:var(--ink);padding:0 10px;display:inline-block;margin-top:6px}
+.cover .brand{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.cover .brand img{height:48px;width:auto}
+.cover .brand span{font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.05em;text-transform:uppercase}
+.cover p{font-size:1.1rem;line-height:1.55}
 
-  /* pied de page de chaque page */
-  .pf{display:flex;flex-wrap:wrap;align-items:center;gap:10px 10px;margin-top:30px;padding:16px 0 0;border-top:2px solid var(--ink);font-family:var(--cond);font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase}
-  .pf a{color:var(--ink);text-decoration:none;padding:8px 0}
-  .pf .sp{flex:1}
-  .pf .ar{font-size:1.4rem;padding:2px 10px;border-radius:10px;background:var(--soft)}
-  .pf .nb{color:var(--red);font-weight:700;white-space:nowrap;margin-left:4px}
-  .pf .links{display:flex;gap:18px;flex:1 0 100%}
-  .pf-wrap{margin-top:0}
+/* étapes */
+.step h3{font-size:1.4rem}
+.st5 i{display:block;font-style:normal;font-family:var(--cond);font-weight:700;font-size:2rem;line-height:1;margin-bottom:8px}
+.lot h4 i{font-style:normal;margin-right:8px;color:var(--acc2)}
+.lot .tag{margin-top:16px}
+.big3 .kpi{font-size:4rem}
+.win h4 i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;margin-right:10px;font-size:.95rem}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;font-family:var(--cond);font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.03em}
+.chain em{font-style:normal;color:var(--acc2)}
+.chain span{padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:999px}
 
-  footer{margin-top:44px;padding:30px 0 50px;background:var(--ink);color:#c9d0cc;font-family:var(--cond);font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase}
+/* barres capacité */
+.hb{margin:18px 0 0}
+.hb .hl{font-size:1rem;margin-bottom:8px}
+.hr{display:flex;align-items:center;gap:12px}
+.hr i{display:block;height:30px;border-radius:6px}
+.hr i.a{background:var(--acc)}
+.hr i.k{background:var(--ink)}
+.hr b{font-family:var(--cond);font-size:1.4rem;white-space:nowrap}
+.hr{position:relative}
+.hr i{flex:0 1 auto}
+.bars .small{margin-top:18px}
 
-  @media (min-width:760px){
-    body{font-size:18px}
-    .cards.two{grid-template-columns:1fr 1fr}
-    .kpis.three{grid-template-columns:repeat(3,1fr)}
-    .outs{grid-template-columns:repeat(2,1fr)}
-    .refs{grid-template-columns:1fr 1fr}
-    h2{font-size:2.7rem}
-    header h1{font-size:3.6rem}
-    #son{top:14px;right:14px}
-  }
+/* histogramme Pryme */
+.bchart{display:flex;align-items:flex-end;gap:10px;height:150px;margin:20px 0 16px}
+.bc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.bc b{font-family:var(--cond);font-size:1.1rem;line-height:1}
+.bc i{display:block;width:100%;border-radius:4px 4px 0 0;min-height:3px}
+.bc i.a{background:var(--acc)}
+.bc i.k{background:var(--ink)}
+.bc span{font-family:var(--cond);font-size:.95rem;color:var(--mut)}
+
+/* donut */
+.donutbox{display:flex;flex-direction:column;align-items:center;gap:22px}
+.donut{width:min(250px,76%);height:auto}
+.dn{font-family:var(--cond);font-weight:700;font-size:15px}
+.ds{font-family:var(--body);font-size:7.5px;fill:#5b6761}
+.leg{list-style:none;padding:0;margin:0;display:grid;gap:14px;width:100%}
+.leg li{display:flex;gap:12px;align-items:flex-start;font-size:1.02rem;line-height:1.3}
+.leg i{flex:0 0 16px;height:16px;border-radius:3px;margin-top:3px}
+.leg small{display:block;color:var(--mut);font-size:.88rem;margin-top:2px}
+.eq{margin-top:24px}
+.eq small{font-size:.9rem}
+
+/* graphiques */
+.chart{width:100%;height:auto;display:block}
+.chart .ax{font-family:var(--body);font-size:11px;fill:#5b6761}
+.chart .lb{font-family:var(--cond);font-weight:700;font-size:14px;fill:#121212}
+.chart .gl{stroke:#e2e6e3;stroke-width:1}
+.chart .gl.z{stroke:#121212}
+.stats{display:grid;gap:26px;align-content:center}
+.stats div b.kpi{margin-bottom:4px}
+.stats span{color:#ecefed}
+.nocount p{font-size:1.02rem}
+.nocount p+p{margin-top:14px}
+
+/* Q&R */
+.qa h3{font-size:1.35rem}
+.qa p{margin-top:12px}
+.qh{display:flex;flex-direction:column;gap:6px}
+.cmp .qh{margin-bottom:6px}
+.cg{display:grid;grid-template-columns:1fr;gap:0;margin-top:16px}
+.cg .ch{display:none}
+.cg>div{padding:0}
+.cg .cl{font-family:var(--cond);font-weight:700;font-size:.92rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-top:18px}
+.cg .cl+div{font-weight:600;padding:6px 0 4px;border-bottom:0}
+.cg .cl+div::before{content:"Nabta Alkon · ";font-family:var(--cond);font-weight:700;color:var(--acc2);text-transform:uppercase;letter-spacing:.04em;font-size:.85rem}
+.cg .cl+div+div::before{content:"WASTX P5000 · Biofabrik · ";font-family:var(--cond);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-size:.85rem}
+.cg .cl+div+div{color:#333}
+
+/* final */
+.final h1{font-family:var(--cond);font-weight:700;font-size:2.9rem;line-height:1.05;text-transform:uppercase;margin:0 0 20px}
+.final p{font-size:1.1rem}
+.final .btn{margin-top:24px}
+.contact{display:flex;flex-direction:column;gap:22px}
+.contact h3{color:#fff;font-size:1.6rem}
+.contact p{margin-top:10px}
+.cbox{background:#fff;border-radius:12px;padding:18px 18px;display:grid;gap:12px}
+.cbox a{color:var(--ink);font-weight:600;text-decoration:none;word-break:break-word}
+
+/* tech */
+.t.row h3{margin-bottom:14px}
+.t.row .lab{margin-top:14px;color:var(--acc);margin-bottom:4px}
+.deck.tech .t.row .lab{color:#ff6a70}
+.t.ch h3 i{font-style:normal;color:#ff6a70;margin-right:6px}
+.t.ch .go{color:#fff}
+.deck.tech .t.hi h3{color:#fff}
+.big{font-size:1.15rem;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+.tb{padding:0}
+thead th{background:var(--ink);color:#fff;text-align:left;font-family:var(--cond);font-weight:600;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:16px 8px;line-height:1.2}
+tbody th,tbody td{padding:18px 8px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+tbody th{font-weight:600}
+td.num,th.num{text-align:right}
+thead th:first-child,tbody th{padding-left:14px}
+thead th:last-child,tbody td:last-child{padding-right:14px}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+.neg{color:#d71920;font-weight:700}
+.gantt .months{display:grid;grid-template-columns:repeat(6,1fr);font-family:var(--cond);font-weight:700;font-size:1.05rem;border-bottom:1px solid var(--line)}
+.gantt .months span{padding:4px 0}
+.gantt .g{margin-top:22px}
+.gantt .g p{font-weight:600;margin-bottom:8px}
+.track2{position:relative;height:46px;background:repeating-linear-gradient(to right,transparent 0,transparent calc(16.666% - 1px),var(--line) calc(16.666% - 1px),var(--line) 16.666%)}
+.bar2{position:absolute;top:3px;height:40px;border-radius:12px;background:#d71920;color:#fff;font-family:var(--cond);font-weight:700;font-size:1.1rem;display:flex;align-items:center;padding:0 12px;white-space:nowrap}
+.bar2.k{background:var(--ink)}
+.ref a{font-family:var(--cond);font-weight:700;font-size:1.2rem;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.ref p{margin-top:8px;font-size:1rem}
+
+/* dock */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:stretch;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s ease}
+.dock.on{transform:none}
+.dock button{border:0;cursor:pointer;font-family:var(--cond)}
+.dock #prev,.dock #next{flex:0 0 60px;height:58px;border-radius:14px;background:var(--ink);color:#fff;font-size:2rem;line-height:1}
+.dock #prev[disabled],.dock #next[disabled]{opacity:.3}
+.dock .mid{flex:1;min-width:0;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:6px 12px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:2px;color:var(--ink)}
+.dock .mid span{font-weight:700;font-size:1.25rem;letter-spacing:.04em;line-height:1.1}
+.dock .mid small{font-family:var(--body);font-size:.74rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+.dock .mid em{display:block;height:4px;border-radius:2px;background:#dfe4e0;margin-top:3px;overflow:hidden}
+.dock .mid em i{display:block;height:100%;width:0;background:var(--acc2,#121212);transition:width .2s}
+
+/* sommaire */
+.sheet{position:fixed;inset:0;z-index:60}
+.sheet[hidden]{display:none}
+.sh-bg{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.sh-box{position:absolute;left:0;right:0;bottom:0;max-height:82vh;background:#fff;border-radius:22px 22px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom));overflow:auto}
+.sh-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.sh-top b{font-family:var(--cond);font-size:1.6rem;text-transform:uppercase}
+.sh-top button{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:10px 18px;font-family:var(--cond);font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;cursor:pointer}
+.sheet ol{list-style:none;margin:0;padding:0}
+.sheet ol[hidden]{display:none}
+.sheet li a{display:flex;align-items:center;gap:14px;min-height:56px;padding:10px 4px;border-bottom:1px solid var(--line);text-decoration:none;font-size:1.02rem;line-height:1.3}
+.sheet li a i{flex:0 0 36px;font-style:normal;font-family:var(--cond);font-weight:700;font-size:1.15rem;color:var(--mut)}
+.sheet li a.cur{font-weight:600}
+.sheet li a.cur i{color:var(--ink)}
+.ft{padding:30px 20px calc(var(--dock) + 30px);color:var(--mut);font-size:.9rem;text-align:center}
+
+/* grand écran */
+@media (min-width:760px){
+  body{font-size:17px}
+  .bento{grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+  .bento>*{grid-column:span 6}
+  .bento>.d1{grid-column:span 1}.bento>.d2{grid-column:span 2}.bento>.d3{grid-column:span 3}.bento>.d4{grid-column:span 4}
+  .bento>.d1{min-width:0}
+  .inner{padding:46px 32px calc(var(--dock) + 64px)}
+  h2{font-size:3rem}
+  .t{padding:26px 24px}
+  .cover h1{font-size:3.4rem}
+  .donutbox{flex-direction:row;justify-content:center}
+  .leg{width:auto}
+  .cg{grid-template-columns:150px 1fr 1fr}
+  .cg .ch{display:block;font-family:var(--cond);font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:3px solid var(--ink);padding-bottom:8px}
+  .cg .ch.a{color:var(--ink)}
+  .cg>div{padding:14px 12px 14px 0}
+  .cg .cl{margin:0;border-top:1px solid var(--line)}
+  .cg .cl+div,.cg .cl+div+div{border-top:1px solid var(--line);margin:0;padding:14px 12px 14px 0}
+  .cg .cl+div::before,.cg .cl+div+div::before{content:none}
+  .dock{left:50%;right:auto;width:min(560px,92vw);transform:translate(-50%,110%);border-radius:20px 20px 0 0;border:1px solid var(--line);border-bottom:0}
+  .dock.on{transform:translate(-50%,0)}
+  .sh-box{left:50%;right:auto;width:min(620px,94vw);transform:translateX(-50%)}
+  .contact{flex-direction:row;align-items:center;justify-content:space-between}
+  .cbox{min-width:300px}
+}
+@media (prefers-reduced-motion:reduce){.track,.dock{transition:none}html{scroll-behavior:auto}}
+
+table.w4{table-layout:fixed}
+table.w4 th:nth-child(1){width:17%}
+table.w4 th:nth-child(2){width:26%}
+table.w4 th:nth-child(3),table.w4 th:nth-child(4){width:28.5%}
+table.w4 td.num{white-space:normal}
+table.w4 tbody th,table.w4 td{font-size:.9rem}
 </style>
 </head>
 <body>
+<header class="hd"><img src="img/logo.png" alt="Nabta Alkon" width="112" height="41"><span>Pyrolyse · biochar · captation du CO₂</span></header>
 
-<div class="wrap">
-  <header>
-    <div class="k">Nabta Alkon</div>
-    <h1>Nabta Alkon</h1>
-    <p>Pyrolyse · biochar · captation du CO₂</p>
-  </header>
-</div>
-<div class="video">
+<section class="video" id="video">
   <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
-  <button id="son" type="button">🔊 Son</button>
+  <button id="son" type="button" aria-label="Activer le son">🔊 Son</button>
+</section>
+
+<nav class="tabs" id="tabs" aria-label="Documents">
+  <button type="button" data-deck="nt" class="on">Présentation officielle</button>
+  <button type="button" data-deck="tech">Dossier technique</button>
+</nav>
+
+<main id="viewer">
+  <div class="deck nt" id="deck-nt" data-deck="nt"><div class="track"><article class="slide" id="nt-1" data-n="1" data-t="Vue d’ensemble"><div class="inner">
+<p class="kick">Nabta Alkon · Présentation officielle · Octobre 2026</p>
+<div class="bento">
+ <div class="t lt cover m2 d4"><div class="brand"><img src="img/logo.png" alt="Nabta Alkon" width="140" height="51"><span>Comprendre le projet</span></div>
+  <h1>Vos résidus,<br>votre prochain<br><mark>projet industriel</mark></h1>
+  <p>Des unités de pyrolyse et des partenariats pour transformer des matières sélectionnées en produits à valoriser.</p></div>
+ <figure class="t ph m2 d2"><img src="img/usine.jpg" alt="Illustration conceptuelle de l’installation" width="900" height="846"><figcaption>Illustration conceptuelle de l’installation</figcaption></figure>
+ <a class="t hi m1 d3 btn big" href="#nt-2" data-go="nt:2">L’offre →</a>
+ <a class="t dk m1 d3 btn big" href="#nt-15" data-go="nt:15">Contacter Nabta Alkon →</a>
+</div>
+<nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav>
+</div></article><article class="slide" id="nt-2" data-n="2" data-t="Votre projet, deux façons d’avancer"><div class="inner"><p class="kick">01 / L’offre</p><h2>Votre projet, deux façons d’avancer</h2><p class="lead">Vous achetez une unité ou construisez un partenariat. Le contrat précise qui réalise, exploite et commercialise.</p><div class="bento"><div class="t lt m2 d3"><h3>Acheter une unité</h3><p>L’équipement et les prestations prévus dans votre offre, avec un budget et des étapes de réception.</p></div>
+<div class="t lt m2 d3"><h3>Construire un partenariat</h3><p>Un projet partagé : apports, responsabilités, revenus et conditions de sortie définis ensemble.</p></div>
+<div class="t hi m1 d2"><h4>Installation</h4><p>Préparer le site, intégrer les équipements et organiser les essais.</p></div>
+<div class="t hi m1 d2"><h4>Exploitation</h4><p>Conduire l’unité, entretenir les équipements et suivre la production.</p></div>
+<div class="t hi m2 d2"><h4>Produits</h4><p>Définir la qualité et le conditionnement attendus par les acheteurs.</p></div>
+<div class="t so m2 d6"><p class="cap">En option : étude de faisabilité, analyses de matière et accompagnement.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Votre offre précise qui installe, qui exploite et qui organise la vente.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : offre décrite par Nabta Alkon. Prestations, responsabilités et engagements à préciser dans la proposition contractuelle.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-3" data-n="3" data-t="La pyrolyse, en quelques étapes"><div class="inner"><p class="kick">02 / Comprendre le procédé</p><h2>La pyrolyse, en quelques étapes</h2><p class="lead">La matière est chauffée sans apport d’oxygène. On récupère ensuite des liquides, du gaz et un solide.</p><div class="bento"><div class="t lt m1 d2 step"><h3>Préparer</h3><p>Trier, ajuster la taille et préparer la matière.</p></div>
+<div class="t hi m1 d2 step"><h3>Transformer</h3><p>Chauffer la matière dans un réacteur.</p></div>
+<div class="t lt m2 d2 step"><h3>Séparer</h3><p>Refroidir les vapeurs et collecter les produits.</p></div>
+<div class="t so m2 d3"><span class="lab">Plastiques sélectionnés</span><p>Huile de pyrolyse pour un usage industriel défini ; gaz et résidu solide à caractériser.</p></div>
+<div class="t so m2 d3"><span class="lab">Biomasse sélectionnée</span><p>Biochar, gaz et liquides : la répartition dépend de la matière et du procédé retenu.</p></div>
+<div class="t note m2 d6"><p><b>Le biochar :</b> un charbon d’origine végétale, riche en carbone stable. Utilisé dans les sols ou les matériaux, il stocke du carbone sur le long terme.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Le produit obtenu dépend de la matière choisie et du procédé retenu.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2"><a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R5] IEA Bioenergy · procédé ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-4" data-n="4" data-t="Un budget adapté à votre projet"><div class="inner"><p class="kick">03 / Budget</p><h2>Un budget adapté à votre projet</h2><p class="lead">L’enveloppe se construit avec votre matière, votre site et les produits que vous souhaitez valoriser.</p><div class="bento"><div class="t hi m2 d2 big3"><b class="kpi">3 M€</b><p>Enveloppe de référence communiquée par Nabta Alkon.</p><p>Un repère de cadrage, décomposé ici en quatre lots, à confirmer dans l’offre.</p></div>
+<p class="cap m2 d4 lotscap">Gros plan sur l’enveloppe · 4 lots</p>
+<div class="t lt m2 d2 lot"><h4><i>01</i> Équipements</h4><p>Préparation de la matière, réacteur, condensation et séparation, traitement des gaz, contrôle-commande.</p><span class="tag">Montant : ≈ 1,65 M€ · 55 %</span></div>
+<div class="t lt m2 d2 lot"><h4><i>02</i> Site &amp; utilités</h4><p>Terrain, génie civil et dalle, raccordements en eau et énergie, accès.</p><span class="tag">Montant : ≈ 0,35 M€ · 12 %</span></div>
+<div class="t lt m2 d2 lot"><h4><i>03</i> Installation &amp; lancement</h4><p>Conteneurisation, acheminement, montage, essais, formation et mise en service.</p><span class="tag">Montant : ≈ 0,55 M€ · 18 %</span></div>
+<div class="t lt m2 d2 lot"><h4><i>04</i> Frais périphériques</h4><p>Études, autorisations, assurances et marge pour imprévus.</p><span class="tag">Montant : ≈ 0,45 M€ · 15 %</span></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Les 3 M€ sont une base de cadrage : chaque lot doit être chiffré dans le devis.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : cadrage Nabta Alkon. Répartition indicative par ratios usuels des projets industriels ; montants, exclusions et échéancier à établir dans le devis.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-5" data-n="5" data-t="Huit mois de la fabrication à l’installation"><div class="inner"><p class="kick">04 / Calendrier</p><h2>Huit mois de la fabrication à l’installation</h2><p class="lead">Objectif indicatif : de la fabrication à l’installation. Le site se prépare pendant l’acheminement des unités.</p><div class="bento"><div class="t lt m1 d2 st5"><i>01</i><h4>Fabriquer</h4><p>Produire et contrôler les unités.</p></div>
+<div class="t lt m1 d2 st5"><i>02</i><h4>Conteneuriser</h4><p>Protéger et charger les équipements.</p></div>
+<div class="t lt m1 d2 st5"><i>03</i><h4>Acheminer</h4><p>Exporter vers le pays d’implantation.</p></div>
+<div class="t lt m1 d2 st5"><i>04</i><h4>Mobiliser</h4><p>Faire intervenir l’équipe de montage.</p></div>
+<div class="t lt m2 d2 st5"><i>05</i><h4>Installer</h4><p>Assembler et raccorder les unités.</p></div>
+<p class="cap m2 d6">Durée de chaque étape · objectif global indicatif : 8 mois</p>
+<div class="t dash m2 d2"><h4>À confirmer</h4><p>Durée non communiquée</p><span class="tag">Fabriquer</span></div>
+<div class="t dk m2 d2"><h4>2 à 3 mois</h4><p>Transport, avec préparation du terrain en parallèle</p><span class="tag w">Conteneuriser · Acheminer</span></div>
+<div class="t dk m2 d2"><h4>1 à 2 mois</h4><p>Montage après réception des unités sur site</p><span class="tag w">Mobiliser · Installer</span></div>
+<div class="t hi m2 d6"><h4>En parallèle · environ 6 mois</h4><p>Terrassement, dalle et réseaux ; infrastructures et utilités selon le site</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Préparer le terrain et acheminer les unités en parallèle permet de coordonner le chantier.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : indications Nabta Alkon. Durée de fabrication non communiquée ; paiements, autorisations et contrôle avant expédition à positionner dans le planning.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-6" data-n="6" data-t="Comparer les offres sur les mêmes bases"><div class="inner"><p class="kick">05 / Comparer les offres</p><h2>Comparer les offres sur les mêmes bases</h2><p class="lead">Votre choix se joue sur le coût complet, la qualité des produits et le suivi prévu après l’installation.</p><div class="bento"><div class="t lt m2 d2"><span class="lab">Un choix expliqué</span><p>Matière, capacité et procédé reliés dans un cadrage écrit.</p></div>
+<div class="t lt m2 d2"><span class="lab">Un budget lisible</span><p>Prestations, exclusions et étapes de paiement identifiées.</p></div>
+<div class="t lt m2 d2"><span class="lab">Un suivi organisé</span><p>Mise en service, entretien et contrôles précisés dans l’offre.</p></div>
+<div class="t so m2 d6 bars"><span class="lab">Repères de capacité · tonnes de plastiques entrants par jour</span>
+ <div class="hb"><div class="hl">Scénario Nabta Alkon</div><div class="hr"><i class="a" style="width:100%"></i><b>10 t/j</b></div></div>
+ <div class="hb"><div class="hl">WASTX P5000 · QMRE, 2023</div><div class="hr"><i class="k" style="width:50%"></i><b>5 t/j</b></div></div>
+ <p class="small">Le repère de 5 t/j est une donnée historique du fabricant allemand Biofabrik (2023), pas un concurrent direct.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Comparez la même matière, les mêmes prestations et le même niveau de suivi.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R6] QMRE · présentation 2023, p. 4 ↗</a> · <a href="https://carboliq.com/en/sustainability/chemical-recycling/" target="_blank" rel="noopener">[R7] carboliq · procédé et débouchés ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-7" data-n="7" data-t="Des cas réels pour préparer les ventes"><div class="inner"><p class="kick">06 / Marché &amp; acheteurs</p><h2>Des cas réels pour préparer les ventes</h2><p class="lead">Identifier l’acheteur et valider le produit font partie du projet industriel dès sa préparation.</p><div class="bento"><div class="t dk m2 d2"><span class="lab a">BASF × Quantafuel · 2019</span><b class="kpi">20 M€</b><p>Investissement avec un droit d’achat prioritaire sur l’huile de l’usine de Skive, au Danemark.</p></div>
+<div class="t lt m2 d2"><span class="lab">Pryme · huile produite en 2024</span><p class="small">En tonnes par trimestre · 341 t sur l’année</p><div class="bchart"><div class="bc"><b>6</b><i class="a" style="height:5%"></i><span>T1</span></div><div class="bc"><b>114</b><i class="a" style="height:98%"></i><span>T2</span></div><div class="bc"><b>116</b><i class="a" style="height:100%"></i><span>T3</span></div><div class="bc"><b>105</b><i class="k" style="height:91%"></i><span>T4</span></div></div><p class="small">Après un démarrage lent (6 t), environ 110 t d’huile par trimestre.</p></div>
+<div class="t hi m2 d2"><span class="lab">Shell × RES · Italie · 2026</span><b class="kpi">100 %</b><p>de l’huile d’une usine de 20 000 t/an achetée par Shell, sur plusieurs années, dès juin 2026.</p><p>L’usine sait à qui vendre son huile avant même de produire.</p></div>
+<p class="cap m2 d6">Comment faire partie des gagnants</p>
+<div class="t lt m2 d2 win"><h4><i>1</i> Matière sécurisée</h4><p>Un gisement régulier, sous contrat.</p></div>
+<div class="t lt m2 d2 win"><h4><i>2</i> Produit aux normes</h4><p>Une huile aux spécifications de l’acheteur.</p></div>
+<div class="t lt m2 d2 win"><h4><i>3</i> Acheteur signé tôt</h4><p>Un contrat d’achat avant la construction.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Les gagnants sécurisent la matière, la qualité et l’acheteur avant de construire.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2"><a href="https://www.basf.com/global/en/media/news-releases/2019/10/p-19-356" target="_blank" rel="noopener">[R1] BASF · 07/10/2019 ↗</a> · <a href="https://pryme-cleantech.com/uploads/downloads/Pryme-N.V.-Q4-2024-Report.pdf" target="_blank" rel="noopener">[R2] Pryme · rapport T4 2024 ↗</a> · <a href="https://macplas.it/en/environment/agreement-pyrolysis-oil-chemical-recycling-plastic-waste" target="_blank" rel="noopener">[R10] Shell × RES · 2025 ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-8" data-n="8" data-t="Le CO₂ : une valeur à qualifier par filière"><div class="inner"><p class="kick">07 / Carbone &amp; traçabilité</p><h2>Le CO₂ : une valeur à qualifier par filière</h2><p class="lead">La biomasse et les plastiques suivent des mécanismes différents. Leur certification se prépare dès l’étude.</p><div class="bento"><div class="t hi m2 d3"><h3>Biomasse → Biochar</h3><p>Un retrait carbone peut être certifié si la méthode, les mesures et l’usage du biochar répondent aux critères.</p></div>
+<div class="t dk m2 d3"><h3>Plastiques → Matière circulaire</h3><p>ISCC PLUS organise la traçabilité et le bilan massique. Cette certification n’est pas un crédit CO₂.</p></div>
+<div class="t so m2 d6 chain"><span>Qualifier</span><em>→</em><span>Mesurer</span><em>→</em><span>Faire vérifier</span><em>→</em><span>Contractualiser</span></div>
+<div class="t lt m2 d3"><b class="kpi">1,24 million tCO₂</b><span class="tag">Exemple d’un autre projet, non inclus dans le scénario</span><p>Au moins, sur 10 ans : accord Exomad Green × Microsoft annoncé en mai 2025.</p></div>
+<div class="t note m2 d3"><span class="lab">Où vous situer ?</span><p>Cet accord prouve que de grands acheteurs s’engagent sur 10 ans. Le marché du biochar est passé de 14,6 M$ en 2022 à 181,5 M$ en 2024. Une unité biomasse y entre comme fournisseur de crédits certifiés, à son échelle, une fois la méthode validée.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Biochar et plastiques suivent deux voies distinctes. Aucune recette carbone dans le scénario.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2"><a href="https://www.carbonfuture.com/magazine/exomad-green-announces-worlds-largest-biochar-carbon-removal-agreement-with-microsoft-tracked-by-carbonfuture-mrv" target="_blank" rel="noopener">[R3] Carbonfuture / Exomad · 21/05/2025 ↗</a> · <a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R4] ISCC PLUS · référentiel ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a> · <a href="https://www.cdr.fyi/blog/biochar-carbon-removal-market-snapshot-2025" target="_blank" rel="noopener">[R11] CDR.fyi · biochar ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-9" data-n="9" data-t="Comment la matière devient une vente"><div class="inner"><p class="kick">08 / Scénario plastiques</p><h2>Comment la matière devient une vente</h2><p class="lead">Un exemple pour comprendre le calcul : seuls les revenus de l’huile sont comptés.</p><div class="bento"><div class="t lt m2 d2"><b class="kpi">3 000 t/an</b><p>Plastiques effectivement traités.</p></div>
+<div class="t lt m1 d2"><b class="kpi">× 60 %</b><p>Part supposée transformée en huile.</p></div>
+<div class="t lt m1 d2"><b class="kpi">× 500 €/t</b><p>Prix de vente supposé de l’huile.</p></div>
+<div class="t so m2 d3"><b class="kpi s">1 800 tonnes d’huile</b><p>3 000 tonnes × 60 %</p></div>
+<div class="t hi m2 d3"><b class="kpi">900 000 €/an</b><p>1 800 tonnes × 500 €/t</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>900 k€ de ventes supposent de traiter et vendre les volumes prévus au prix retenu.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : scénario illustratif fourni. Calculs recalculés au 24/10/2026 ; hypothèses à confirmer pour le site.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-10" data-n="10" data-t="Des ventes au solde disponible"><div class="inner"><p class="kick">09 / Dépenses</p><h2>Des ventes au solde disponible</h2><p class="lead">Les ventes financent le fonctionnement. Une réserve annuelle est ensuite mise de côté pour les besoins futurs.</p><div class="bento"><div class="t lt m2 d3 donutbox"><svg viewBox="0 0 120 120" class="donut" role="img" aria-label="Répartition de 600 k€ de charges : matière et transport 40 %, énergie 25 %, personnel 20 %, maintenance 15 %">
+<g transform="rotate(-90 60 60)" fill="none" stroke-width="22">
+<circle cx="60" cy="60" r="40" stroke="#c4e76b" stroke-dasharray="100.53 150.8" stroke-dashoffset="0"/>
+<circle cx="60" cy="60" r="40" stroke="#121212" stroke-dasharray="62.83 188.5" stroke-dashoffset="-100.53"/>
+<circle cx="60" cy="60" r="40" stroke="#8db63c" stroke-dasharray="50.27 201.06" stroke-dashoffset="-163.36"/>
+<circle cx="60" cy="60" r="40" stroke="#dde4d3" stroke-dasharray="37.7 213.63" stroke-dashoffset="-213.63"/>
+</g><text x="60" y="58" text-anchor="middle" class="dn">600 k€</text><text x="60" y="73" text-anchor="middle" class="ds">/ an</text></svg>
+ <ul class="leg"><li><i style="background:#c4e76b"></i><div>Matière &amp; transport<small>240 k€ · 40 %</small></div></li>
+ <li><i style="background:#121212"></i><div>Énergie<small>150 k€ · 25 %</small></div></li>
+ <li><i style="background:#8db63c"></i><div>Personnel<small>120 k€ · 20 %</small></div></li>
+ <li><i style="background:#dde4d3;border:1px solid #c9d0c3"></i><div>Maintenance<small>90 k€ · 15 %</small></div></li></ul></div>
+<div class="t hi m2 d3"><b class="kpi">250 k€/an</b><p>Solde après réserve, avant impôts et financement.</p><p class="eq"><b>900 − 600 − 50 = 250 k€</b><br><small>Ventes − charges − réserve annuelle</small></p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>250 k€/an restent dans le scénario, avant impôts et financement.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : scénario illustratif fourni. Calculs recalculés au 24/10/2026 ; hypothèses à confirmer pour le site.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-11" data-n="11" data-t="Scénario à 3 M€ : 12 ans de récupération"><div class="inner"><p class="kick">10 / Lire le retour</p><h2>Scénario à 3 M€ : 12 ans de récupération</h2><p class="lead">Avec 250 k€/an constants, 1,75 M€ sont récupérés en sept ans. Il reste alors 1,25 M€ à récupérer.</p><div class="bento"><div class="t lt m2 d3"><svg viewBox="0 0 320 208" class="chart" role="img" aria-label="Solde cumulé de −3 000 k€ à 0 en 12 ans ; −1 250 k€ à 7 ans">
+<text x="48" y="10" class="ax">Solde cumulé après investissement (k€)</text><line x1="48" x2="300" y1="22.0" y2="22.0" class="gl"/><text x="42" y="25.0" text-anchor="end" class="ax">0</text><line x1="48" x2="300" y1="72.0" y2="72.0" class="gl"/><text x="42" y="75.0" text-anchor="end" class="ax">−1 000</text><line x1="48" x2="300" y1="122.0" y2="122.0" class="gl"/><text x="42" y="125.0" text-anchor="end" class="ax">−2 000</text><line x1="48" x2="300" y1="172.0" y2="172.0" class="gl"/><text x="42" y="175.0" text-anchor="end" class="ax">−3 000</text><text x="48.0" y="188" text-anchor="middle" class="ax">0</text><text x="90.0" y="188" text-anchor="middle" class="ax">2</text><text x="132.0" y="188" text-anchor="middle" class="ax">4</text><text x="174.0" y="188" text-anchor="middle" class="ax">6</text><text x="216.0" y="188" text-anchor="middle" class="ax">8</text><text x="258.0" y="188" text-anchor="middle" class="ax">10</text><text x="300.0" y="188" text-anchor="middle" class="ax">12</text>
+<polyline points="48.0,172.0 69.0,159.5 90.0,147.0 111.0,134.5 132.0,122.0 153.0,109.5 174.0,97.0 195.0,84.5 216.0,72.0 237.0,59.5 258.0,47.0 279.0,34.5 300.0,22.0" fill="none" stroke="#8db63c" stroke-width="2.4"/><circle cx="48.0" cy="172.0" r="2.2" fill="#8db63c"/><circle cx="69.0" cy="159.5" r="2.2" fill="#8db63c"/><circle cx="90.0" cy="147.0" r="2.2" fill="#8db63c"/><circle cx="111.0" cy="134.5" r="2.2" fill="#8db63c"/><circle cx="132.0" cy="122.0" r="2.2" fill="#8db63c"/><circle cx="153.0" cy="109.5" r="2.2" fill="#8db63c"/><circle cx="174.0" cy="97.0" r="2.2" fill="#8db63c"/><circle cx="195.0" cy="84.5" r="2.2" fill="#8db63c"/><circle cx="216.0" cy="72.0" r="2.2" fill="#8db63c"/><circle cx="237.0" cy="59.5" r="2.2" fill="#8db63c"/><circle cx="258.0" cy="47.0" r="2.2" fill="#8db63c"/><circle cx="279.0" cy="34.5" r="2.2" fill="#8db63c"/><circle cx="300.0" cy="22.0" r="2.2" fill="#8db63c"/>
+<circle cx="195.0" cy="84.5" r="4.6" fill="#121212"/><text x="203.0" y="98.5" class="lb">−1 250 à 7 ans</text>
+<circle cx="300.0" cy="22.0" r="4.6" fill="#121212"/><text x="300.0" y="14.0" text-anchor="end" class="lb">0 à 12 ans</text>
+<text x="174" y="204" text-anchor="middle" class="ax">Années d’exploitation</text></svg></div>
+<div class="t dk m2 d3 stats"><div><b class="kpi">−41,7 %</b><span>ROI cumulé sur 7 ans</span></div><div><b class="kpi">−11,9 %</b><span>TRI sur 7 ans</span></div><div><b class="kpi">−1,783 M€</b><span>VAN à 10 % sur 7 ans</span></div></div>
+<div class="t hi m2 d6 nocount"><span class="lab">Ce que ce calcul ne compte pas</span>
+<p><b>Une demande imposée par la loi.</b> Dès 2030, les emballages plastiques vendus dans l’UE devront contenir 10 à 35 % de recyclé.</p>
+<p><b>Un marché carbone en croissance.</b> Le biochar : 181,5 M$ en 2024, contre 14,6 M$ en 2022.</p>
+<p><b>Des revenus non chiffrés.</b> Gaz, résidu solide et crédits carbone sont à zéro dans ce scénario.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Le scénario est prudent : il ignore la demande réglementaire et les revenus carbone.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : scénario illustratif fourni, recalculé au 24/10/2026. <a href="https://eur-lex.europa.eu/eli/reg/2025/40/oj/eng" target="_blank" rel="noopener">[R9] Règlement (UE) 2025/40 ↗</a> · <a href="https://www.cdr.fyi/blog/biochar-carbon-removal-market-snapshot-2025" target="_blank" rel="noopener">[R11] CDR.fyi · biochar ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-12" data-n="12" data-t="Les leviers qui changent le retour"><div class="inner"><p class="kick">11 / Tester les hypothèses</p><h2>Les leviers qui changent le retour</h2><p class="lead">Le prix de l’huile, le personnel et le volume réellement traité déterminent le solde annuel.</p><div class="bento"><div class="t lt m2 d4"><svg viewBox="0 0 320 236" class="chart" role="img" aria-label="Solde annuel selon le prix de l’huile, avec 120 ou 300 k€ de personnel">
+<text x="44" y="12" class="ax">Solde annuel (k€)</text><line x1="44" x2="296" y1="24.0" y2="24.0" class="gl"/><text x="38" y="27.0" text-anchor="end" class="ax">600</text><line x1="44" x2="296" y1="74.0" y2="74.0" class="gl"/><text x="38" y="77.0" text-anchor="end" class="ax">300</text><line x1="44" x2="296" y1="124.0" y2="124.0" class="gl z"/><text x="38" y="127.0" text-anchor="end" class="ax">0</text><line x1="44" x2="296" y1="174.0" y2="174.0" class="gl"/><text x="38" y="177.0" text-anchor="end" class="ax">−300</text><text x="66.0" y="196" text-anchor="middle" class="ax">300</text><text x="129.4" y="196" text-anchor="middle" class="ax">400</text><text x="192.9" y="196" text-anchor="middle" class="ax">500</text><text x="288.0" y="196" text-anchor="middle" class="ax">650</text>
+<polyline points="66.0,172.3 129.4,142.3 192.9,112.3 288.0,67.3" fill="none" stroke="#121212" stroke-width="2.4"/><circle cx="66.0" cy="172.3" r="3.4" fill="#121212"/><text x="66.0" y="186.3" text-anchor="middle" class="lb">−290</text><circle cx="129.4" cy="142.3" r="3.4" fill="#121212"/><text x="129.4" y="156.3" text-anchor="middle" class="lb">−110</text><circle cx="192.9" cy="112.3" r="3.4" fill="#121212"/><text x="192.9" y="126.3" text-anchor="middle" class="lb">70</text><circle cx="288.0" cy="67.3" r="3.4" fill="#121212"/><text x="288.0" y="81.3" text-anchor="middle" class="lb">340</text><polyline points="66.0,142.3 129.4,112.3 192.9,82.3 288.0,37.3" fill="none" stroke="#8db63c" stroke-width="2.4"/><circle cx="66.0" cy="142.3" r="3.4" fill="#8db63c"/><text x="66.0" y="134.3" text-anchor="middle" class="lb">−110</text><circle cx="129.4" cy="112.3" r="3.4" fill="#8db63c"/><text x="129.4" y="104.3" text-anchor="middle" class="lb">70</text><circle cx="192.9" cy="82.3" r="3.4" fill="#8db63c"/><text x="192.9" y="74.3" text-anchor="middle" class="lb">250</text><circle cx="288.0" cy="37.3" r="3.4" fill="#8db63c"/><text x="288.0" y="29.3" text-anchor="middle" class="lb">520</text>
+<text x="170" y="212" text-anchor="middle" class="ax">Prix de vente de l’huile (€/t)</text>
+<rect x="44" y="222" width="9" height="9" fill="#8db63c"/><text x="57" y="230" class="ax">Personnel 120 k€/an</text><rect x="170" y="222" width="9" height="9" fill="#121212"/><text x="183" y="230" class="ax">Personnel 300 k€/an</text></svg></div>
+<div class="t hi m2 d2"><span class="lab">Récupérer 3 M€</span><b class="kpi">≈ 778 €/t</b><p>Pour viser 4 ans : solde requis de 750 k€/an.</p><b class="kpi">≈ 599 €/t</b><p>Pour viser 7 ans : solde requis de 429 k€/an.</p></div>
+<div class="t so m2 d6"><p>À 500 €/t avec 300 k€ de personnel : 42,9 ans.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>Un prix plus élevé améliore le calcul ; ce prix doit ensuite être soutenu par un contrat.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : scénario illustratif fourni. Calculs recalculés au 24/10/2026 ; hypothèses à confirmer pour le site.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-13" data-n="13" data-t="Vos questions sur l’économie"><div class="inner"><p class="kick">12 / Questions–réponses</p><h2>Vos questions sur l’économie</h2><p class="lead">Comprendre ce que les chiffres disent, et les conditions qui les font évoluer.</p><div class="bento"><div class="t lt m2 d2 qa"><h3>Quel retour attendre ?</h3><p>Avec 3 M€ investis et 250 k€/an constants : 12 ans de récupération simple. Sur sept ans, 1,25 M€ de la mise restent à récupérer.</p><a class="lnk" href="#nt-11" data-go="nt:11">Voir le calcul →</a></div>
+<div class="t hi m2 d2 qa"><h3>Comment l’activité gagne-t-elle de l’argent ?</h3><p>En vendant l’huile à des industriels qui en achètent déjà : <b>BASF</b> en Allemagne, <b>SHELL</b> aux Pays-Bas et en Italie, <b>LYONDELLBASELL</b>, <b>SABIC</b>.</p><p>Pays qui y gagnent : l’Union européenne, où le recyclé devient obligatoire en 2030, et les pays où les plastiques finissent en décharge. L’exemple chiffre uniquement l’huile.</p><a class="lnk" href="#nt-9" data-go="nt:9">Voir les ventes →</a></div>
+<div class="t lt m2 d2 qa"><h3>Quelle marge si l’activité ralentit ?</h3><p>À 75 % de remplissage, le solde tombe à 122,5 k€/an. À 50 %, il atteint −5 k€/an dans ce modèle.</p><a class="lnk" href="#nt-12" data-go="nt:12">Voir les leviers →</a></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>La rentabilité de l’unité et le revenu d’un associé sont deux calculs différents.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : scénario illustratif fourni. <a href="https://macplas.it/en/environment/agreement-pyrolysis-oil-chemical-recycling-plastic-waste" target="_blank" rel="noopener">[R10] Shell × RES ↗</a> · <a href="https://www.packagingeurope.com/basf-signs-purchase-agreement-for-pyrolysis-oil-derived-from-mixed-plastic-waste/" target="_blank" rel="noopener">[R12] BASF × ARCUS ↗</a> · <a href="https://www.circularonline.co.uk/news/9-of-global-plastic-waste-is-recycled-while-22-is-mismanaged-oecd/" target="_blank" rel="noopener">[R13] OCDE · plastiques ↗</a> · <a href="https://eur-lex.europa.eu/eli/reg/2025/40/oj/eng" target="_blank" rel="noopener">[R9] Règlement (UE) 2025/40 ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-14" data-n="14" data-t="Vos questions avant de vous engager"><div class="inner"><p class="kick">13 / Questions–réponses</p><h2>Vos questions avant de vous engager</h2><p class="lead">Une offre convaincante relie chaque engagement à une preuve et à une responsabilité.</p><div class="bento"><div class="t lt m2 d6 qa cmp"><div class="qh"><h3>Pourquoi choisir Nabta Alkon plutôt qu’un concurrent ?</h3><a class="lnk" href="#nt-2" data-go="nt:2">Voir l’offre →</a></div>
+ <div class="cg"><div class="ch"></div><div class="ch a">Nabta Alkon</div><div class="ch">WASTX P5000 · Biofabrik</div>
+ <div class="cl">Capacité</div><div class="a">10 t/j visées, deux fois le repère</div><div>5 t/j (repère 2023)</div>
+ <div class="cl">Calendrier</div><div class="a">8 mois visés, de la fabrication à l’installation</div><div>Non communiqué</div>
+ <div class="cl">Interlocuteur</div><div class="a">Un seul, de l’équipement à la qualité produit</div><div>Fabricant et distributeur local</div></div></div>
+<div class="t lt m2 d3 qa"><div class="qh"><h3>Comment fixer le budget et les délais ?</h3></div><p>3 M€ pour 10 t/j, répartis en 4 lots chiffrés dans le devis ; 8 mois visés ; paiements liés aux étapes de réception.</p><a class="lnk" href="#nt-5" data-go="nt:5">Voir le déploiement →</a></div>
+<div class="t lt m2 d3 qa"><div class="qh"><h3>Quelle place pour le carbone ?</h3></div><p>Biochar : l’UE a adopté en février 2026 les premières règles de certification des retraits de carbone permanents [R14]. Objectif UE 2040 : −90 % d’émissions nettes, jusqu’à 5 % par crédits internationaux [R15]. Plastiques : traçabilité seulement, zéro recette carbone dans le modèle.</p><a class="lnk" href="#nt-8" data-go="nt:8">Voir le CO₂ →</a></div></div><div class=bento><div class="t ret m2"><div><span class="lab">À retenir</span><p>L’engagement se prouve par écrit : devis par lot, planning et échéancier de paiement signés.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">Votre projet →</a></div><p class="base m2">Base : offre décrite par Nabta Alkon ; engagements à confirmer dans la proposition contractuelle.</p><p class="base m2"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R6] QMRE · 2023 ↗</a> · <a href="https://climate.ec.europa.eu/news-other-reads/news/eu-sets-worlds-first-voluntary-standard-permanent-carbon-removals-2026-02-03_en" target="_blank" rel="noopener">[R14] Commission UE ↗</a> · <a href="https://www.consilium.europa.eu/en/press/press-releases/2025/12/10/2040-climate-target-council-and-parliament-agree-on-a-90-emissions-reduction/" target="_blank" rel="noopener">[R15] Conseil UE · 2040 ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav></div></article><article class="slide" id="nt-15" data-n="15" data-t="Donnez une valeur industrielle à vos matières"><div class="inner">
+<p class="kick">14 / Construire la suite</p><h2>Donnez une valeur industrielle à vos matières</h2>
+<div class="bento">
+ <div class="t lt m2 d3 final"><h1>Une matière.<br>Un site.<br>Un projet à chiffrer.</h1><p>Avec Nabta Alkon, préparez une proposition qui relie votre ressource, les équipements et les produits à vendre.</p><a class="btn hi" href="#nt-1" data-go="nt:1">Revenir à l’accueil →</a></div>
+ <div class="t lt m1 d1"><span class="lab">Matière</span><p>Nature, origine et qualité</p></div>
+ <div class="t lt m1 d1"><span class="lab">Volume</span><p>Quantité et régularité</p></div>
+ <div class="t lt m1 d1"><span class="lab">Site</span><p>Localisation, accès et énergie</p></div>
+ <div class="t lt m1 d1"><span class="lab">Objectif</span><p>Produit, usage et budget disponible</p></div>
+ <div class="t dk m2 d6 contact"><div><h3>Contacter Nabta Alkon</h3><p>Partagez ces quatre repères pour préparer votre offre.</p></div>
+  <div class="cbox"><a href="tel:+17373179014">Téléphone · +1 737 317 9014</a><a href="mailto:contact@nabta-alkon.com">E-mail · contact@nabta-alkon.com</a></div></div>
+</div>
+<nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav>
+</div></article></div></div>
+  <div class="deck tech" id="deck-tech" data-deck="tech" hidden><div class="track"><article class="slide" id="tech-1" data-n="1" data-t="Nabta Alkon technical files"><div class="inner">
+<p class="kick">Nabta Alkon / Approfondir, point par point</p><h2>Nabta Alkon <span class="r">technical files</span></h2>
+<p class="lead">Les mêmes hypothèses, avec les calculs, les livrables et les bases de décision détaillés.</p>
+<div class="bento">
+ <a class="t dk m1 d3 ch" href="#tech-2" data-go="tech:2"><h3><i>01</i> Matières &amp; produits</h3><p>Matière entrante, procédé et qualité des sortants.</p><span class="go">Consulter →</span></a>
+ <a class="t dk m1 d3 ch" href="#tech-5" data-go="tech:5"><h3><i>02</i> Capacité &amp; déploiement</h3><p>Volumes, investissement et étapes de réalisation.</p><span class="go">Consulter →</span></a>
+ <a class="t dk m1 d3 ch" href="#tech-8" data-go="tech:8"><h3><i>03</i> Économie &amp; sensibilités</h3><p>Ventes, charges, récupération et seuils du modèle.</p><span class="go">Consulter →</span></a>
+ <a class="t dk m1 d3 ch" href="#tech-13" data-go="tech:13"><h3><i>04</i> Contrats &amp; carbone</h3><p>Responsabilités, débouchés et certification.</p><span class="go">Consulter →</span></a>
+ <div class="t so m2 d6"><span class="lab">Scénario de référence</span><p class="big">3 M€ au départ · 3 000 t/an · 60 % d’huile · 500 €/t · 250 k€/an de solde</p></div>
+ <div class="t note m2 d6"><p>Un cadre illustratif. Le devis, les essais sur matière et les contrats permettront de construire le cas réel.</p></div>
+</div>
+<nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-2" data-n="2" data-t="Qualifier la matière avant de dimensionner"><div class="inner"><p class="kick">Nabta Alkon / Matières</p><h2>Qualifier la matière avant de dimensionner</h2><p class="lead">La composition et la régularité de l’approvisionnement orientent le procédé, les coûts et la qualité du produit.</p><div class="bento"><div class="t dk m2 d3 row"><h3>Origine et composition</h3><span class="lab">Ce qui est mesuré</span><p>Familles de plastiques ou biomasse ; mélanges et matières étrangères.</p><span class="lab">Ce que cela prépare</span><p>Choix de la filière et compatibilité du procédé.</p></div>
+<div class="t dk m2 d3 row"><h3>Humidité et taille</h3><span class="lab">Ce qui est mesuré</span><p>Eau, granulométrie et préparation nécessaire.</p><span class="lab">Ce que cela prépare</span><p>Tri, broyage, séchage et alimentation.</p></div>
+<div class="t dk m2 d3 row"><h3>Qualité et contaminants</h3><span class="lab">Ce qui est mesuré</span><p>Analyses adaptées au flux : inertes, cendres, contaminants ciblés.</p><span class="lab">Ce que cela prépare</span><p>Traitement et spécifications des sortants.</p></div>
+<div class="t dk m2 d3 row"><h3>Volume et régularité</h3><span class="lab">Ce qui est mesuré</span><p>Tonnes mobilisables, saisonnalité, distances et fournisseurs.</p><span class="lab">Ce que cela prépare</span><p>Plan d’approvisionnement et coût livré.</p></div>
+<div class="t note m2 d6"><p><b>Livrable :</b> une fiche de matière et un plan d’analyses. Les seuils d’acceptation sont définis avec le procédé retenu et l’usage visé, à partir d’échantillons représentatifs.</p></div></div><div class=bento><p class="base m2">Sources : <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · purification des huiles ↗</a> · <a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R10] IEA Bioenergy · qualité biomasse, 2024 ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-3" data-n="3" data-t="Le procédé : trois sorties, des circuits dédiés"><div class="inner"><p class="kick">Nabta Alkon / Chaîne de transformation</p><h2>Le procédé : trois sorties, des circuits dédiés</h2><p class="lead">La chaleur transforme la matière. Les vapeurs sont refroidies ; gaz et solides suivent leurs propres circuits.</p><div class="bento"><div class="t dk m1 d3"><h3>Préparer</h3><p>Trier, broyer et ajuster l’humidité selon le besoin.</p></div>
+<div class="t dk m1 d3"><h3>Réacteur</h3><p>Chauffer et piloter le temps de séjour.</p></div>
+<div class="t hi m2 d3"><h3>Chaleur de procédé</h3><p>Gaz utilisé selon la configuration. Cette chaleur est renvoyée vers le réacteur.</p></div>
+<div class="t dk m1 d1"><h3>Solide</h3><p>Refroidir, caractériser et conditionner.</p></div>
+<div class="t dk m1 d1"><h3>Vapeurs</h3><p>Condenser en liquide, puis collecter.</p></div>
+<div class="t dk m2 d2"><h3>Gaz</h3><p>Traiter et orienter vers l’usage prévu.</p></div><div class="t note m2 d6"><p>Schéma fonctionnel simplifié. Pesée, traçabilité des lots, entretien et suivi des émissions accompagnent le procédé. Le gaz utilisé pour la chaleur réduit un besoin énergétique ; sa valeur ne se compte pas deux fois.</p></div></div><div class=bento><p class="base m2">Source : <a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R5] IEA Bioenergy · procédé ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-4" data-n="4" data-t="Les sortants à préparer pour les acheteurs"><div class="inner"><p class="kick">Nabta Alkon / Qualité produit</p><h2>Les sortants à préparer pour les acheteurs</h2><p class="lead">Un produit se commercialise avec une qualité définie, des contrôles et un usage identifié.</p><div class="bento"><div class="t dk m2 d2 row"><h3>Plastiques : huile de pyrolyse</h3><span class="lab">Usage à qualifier</span><p>Matière première pour un acheteur industriel compatible.</p><span class="lab">Base avant livraison</span><p>Fiche produit, analyses ciblées, stockage et critères d’acceptation.</p></div>
+<div class="t dk m2 d2 row"><h3>Biomasse : biochar</h3><span class="lab">Usage à qualifier</span><p>Applications compatibles avec la qualité du lot et le cadre local.</p><span class="lab">Base avant livraison</span><p>Origine, composition, qualité et, si visé, dossier de certification.</p></div>
+<div class="t dk m2 d2 row"><h3>Gaz, liquides de biomasse et résidus</h3><span class="lab">Usage à qualifier</span><p>Usage interne ou débouché spécifique selon le procédé.</p><span class="lab">Base avant livraison</span><p>Caractérisation, traitement, conditions de valorisation ou de gestion.</p></div>
+<div class="t hi m2 d6"><h3>L’acheteur valide les spécifications avant la première livraison</h3></div><div class="t note m2 d6"><p>L’huile de pyrolyse peut nécessiter une purification pour l’usage choisi. Le biochar issu de biomasse et le résidu solide de plastiques ne désignent pas le même produit. Les co-produits restent hors recettes du modèle.</p></div></div><div class=bento><p class="base m2">Sources : <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · purification des huiles ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-5" data-n="5" data-t="Du débit annoncé aux tonnes réellement traitées"><div class="inner"><p class="kick">Nabta Alkon / Capacité &amp; exploitation</p><h2>Du débit annoncé aux tonnes réellement traitées</h2><p class="lead">La capacité du scénario se lit sur une même base de temps, puis s’ajuste à l’utilisation réelle.</p><div class="bento"><div class="t lt m1 d2"><b class="kpi">10 t/j</b><p>Débit journalier du scénario.</p></div>
+<div class="t lt m1 d2"><b class="kpi">× 300 jours</b><p>Base annuelle retenue.</p></div>
+<div class="t hi m2 d2"><b class="kpi">= 3 000 t/an</b><p>Capacité annuelle de calcul.</p></div>
+<div class="t dk m2 d3"><h3>Disponibilité</h3><p>Part du temps programmé où l’unité est en état de fonctionner.</p></div>
+<div class="t dk m2 d3"><h3>Utilisation de la capacité</h3><p>Tonnes réellement traitées / 3 000 t. Elle reflète aussi l’alimentation et l’organisation.</p></div><div class="t note m2 d6"><p>Exemple de conversion uniquement : 10 t/j sur 24 h = 0,417 t/h. Les horaires réels restent à confirmer. Le modèle fait varier le volume par un facteur d’utilisation global : ne pas retrancher deux fois les mêmes arrêts.</p></div></div><div class=bento><p class="base m2">Base : hypothèses du scénario fourni. Capacités constructeur déclarées et production réelle mesurée sont des indicateurs différents.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-6" data-n="6" data-t="Les 3 M€ : un périmètre à écrire"><div class="inner"><p class="kick">Nabta Alkon / CAPEX &amp; paiements</p><h2>Les 3 M€ : un périmètre à écrire</h2><p class="lead">Un montant global devient exploitable lorsqu’il est relié à une capacité, à des lots et à des étapes de réception.</p><div class="bento"><div class="t dk m2 d3 row"><h3>Équipements</h3><span class="lab">À détailler dans le devis</span><p>Procédé, capacité, accessoires et préparation des matières.</p><span class="lab">Point de validation</span><p>Choix technique et contenu de fourniture.</p></div>
+<div class="t dk m2 d3 row"><h3>Site et utilités</h3><span class="lab">À détailler dans le devis</span><p>Génie civil, dalle, réseaux, énergie, eau et stockage.</p><span class="lab">Point de validation</span><p>Limites de fourniture et interfaces du chantier.</p></div>
+<div class="t dk m2 d3 row"><h3>Installation et lancement</h3><span class="lab">À détailler dans le devis</span><p>Transport, montage, essais, formation et pièces de départ.</p><span class="lab">Point de validation</span><p>Réception, essais et transfert de responsabilité.</p></div>
+<div class="t dk m2 d3 row"><h3>Frais périphériques</h3><span class="lab">À détailler dans le devis</span><p>Étude, autorisations et trésorerie de démarrage : montants à établir.</p><span class="lab">Point de validation</span><p>Inclusions, exclusions et financement du lancement.</p></div><div class="t note m2 d6"><p><b>Échéancier à négocier :</b> commande, fabrication, contrôle avant expédition, réception et essais. Les pourcentages de paiement, garanties éventuelles et conséquences d’un retard sont à contractualiser.</p></div></div><div class=bento><p class="base m2">3 M€ : cadrage communiqué par Nabta Alkon ; aucun découpage budgétaire par lot ni échéancier chiffré n’a été fourni.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-7" data-n="7" data-t="Un planning avec des tâches parallèles"><div class="inner"><p class="kick">Nabta Alkon / Calendrier détaillé</p><h2>Un planning avec des tâches parallèles</h2><p class="lead">Vue illustrative à partir du lancement transport / chantier. La fabrication et les autorisations se positionnent en amont.</p><div class="bento"><div class="t lt m2 d6 gantt" role="img" aria-label="Planning : transport 2 à 3 mois, terrassement et dalle 2 à 3 mois, montage après réception 1 à 2 mois, infrastructures et utilités environ 6 mois">
+<div class="months"><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
+<div class="g"><p>Transport des unités</p><div class="track2"><div class="bar2" style="left:0;width:50%">2 à 3 mois</div></div></div>
+<div class="g"><p>Terrassement et dalle</p><div class="track2"><div class="bar2" style="left:0;width:50%">2 à 3 mois</div></div></div>
+<div class="g"><p>Montage après réception</p><div class="track2"><div class="bar2 k" style="left:50%;width:33.33%">1 à 2 mois</div></div></div>
+<div class="g"><p>Infrastructures et utilités</p><div class="track2"><div class="bar2" style="left:0;width:100%">Environ 6 mois</div></div></div></div><div class="t note m2 d6"><p>Cible globale communiquée : 8 mois de fabrication à installation, à confirmer par un planning complet. Les utilités peuvent conditionner le démarrage. Étude, autorisations, essais et montée en charge ont chacun leurs jalons.</p></div></div><div class=bento><p class="base m2">Durées indicatives Nabta Alkon : transport/site 2–3 mois ; montage 1–2 mois ; utilités environ 6 mois. Le graphique utilise les bornes hautes pour illustrer le chevauchement.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-8" data-n="8" data-t="Les ventes : volume × rendement × prix"><div class="inner"><p class="kick">Nabta Alkon / Calcul du chiffre d’affaires</p><h2>Les ventes : volume × rendement × prix</h2><p class="lead">Le modèle plastique suit une seule recette pour rendre le calcul vérifiable : l’huile vendue.</p><div class="bento"><div class="t lt m2 d2"><b class="kpi">3 000 t/an</b><p>Matière effectivement traitée.</p></div>
+<div class="t lt m1 d2"><b class="kpi">1 800 t/an</b><p>Huile obtenue à 60 % de rendement.</p></div>
+<div class="t hi m1 d2"><b class="kpi">900 k€/an</b><p>Ventes à 500 €/t d’huile.</p></div>
+<div class="t so m2 d3"><span class="lab">Pour 1 tonne entrante</span><p>0,6 t d’huile × 500 €/t = 300 € de ventes.</p></div>
+<div class="t so m2 d3"><span class="lab">Les autres sortants</span><p>Les 40 % restants du bilan simplifié restent à caractériser. Aucun revenu de gaz, char, services ou carbone n’est ajouté.</p></div><div class="t note m2 d6"><p>Le rendement de 60 % et le prix de 500 €/t sont des hypothèses. Le prix net, la quantité acceptée et la qualité doivent être reliés à la matière testée et au contrat d’achat. Le scénario biomasse demande un modèle distinct.</p></div></div><div class=bento><p class="base m2">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-9" data-n="9" data-t="Les charges et le personnel à confirmer"><div class="inner"><p class="kick">Nabta Alkon / Calcul du solde annuel</p><h2>Les charges et le personnel à confirmer</h2><p class="lead">La simulation distingue les coûts liés au volume et les coûts maintenus quand le volume baisse.</p><div class="bento"><div class="t dk m1 d3 row"><h3>Matière et transport</h3><span class="lab">Base à 100 %</span><p>240 k€/an · 80 €/t traitée</p><span class="lab">Règle du modèle</span><p>Variable avec le tonnage.</p></div>
+<div class="t dk m1 d3 row"><h3>Énergie</h3><span class="lab">Base à 100 %</span><p>150 k€/an · 50 €/t traitée</p><span class="lab">Règle du modèle</span><p>Variable avec le tonnage.</p></div>
+<div class="t dk m1 d3 row"><h3>Personnel</h3><span class="lab">Base à 100 %</span><p>120 k€/an</p><span class="lab">Règle du modèle</span><p>Fixe ; variante testée à 300 k€/an.</p></div>
+<div class="t dk m1 d3 row"><h3>Maintenance</h3><span class="lab">Base à 100 %</span><p>90 k€/an</p><span class="lab">Règle du modèle</span><p>Fixe dans la sensibilité.</p></div>
+<div class="t lt m1 d2"><b class="kpi">600 k€</b><p>OPEX dans le cas de base.</p></div>
+<div class="t lt m1 d2"><b class="kpi">50 k€</b><p>Réserve annuelle maintenue.</p></div>
+<div class="t hi m2 d2"><b class="kpi">250 k€</b><p>900 − 600 − 50 : solde annuel.</p></div><div class="t note m2 d6"><p>Avec 300 k€ de personnel, les OPEX atteignent 780 k€/an et le solde tombe à 70 k€/an. Ces budgets ne définissent pas un effectif : couverture horaire, rotations, coût employeur et supervision restent à chiffrer.</p></div></div><div class=bento><p class="base m2">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-10" data-n="10" data-t="Le recalcul complet à 3 M€"><div class="inner"><p class="kick">Nabta Alkon / Rendement du scénario</p><h2>Le recalcul complet à 3 M€</h2><p class="lead">Même solde de 250 k€/an. Seule la mise initiale change dans cette comparaison arithmétique.</p><div class="bento"><div class="t lt m2 d6 tb"><table class="nm"><thead><tr><th>Indicateur</th><th class=num>Ancien calcul : 1 M€</th><th class=num>Mise retenue : 3 M€</th></tr></thead><tbody><tr><th>Récupération simple</th><td class="num">4 ans</td><td class="num">12 ans</td></tr><tr><th>Solde net cumulé sur 7 ans</th><td class="num">+750 k€</td><td class="num neg">−1 250 k€</td></tr><tr><th>ROI cumulé sur 7 ans</th><td class="num">+75 %</td><td class="num neg">−41,7 %</td></tr><tr><th>TRI sur 7 ans</th><td class="num">16,3 %</td><td class="num neg">−11,9 %</td></tr><tr><th>VAN à 10 % sur 7 ans</th><td class="num">+217 k€</td><td class="num neg">−1 783 k€</td></tr></tbody></table></div><div class="t note m2 d6"><p>Base : mise au départ, sept flux de fin d’année, valeur finale nulle, avant impôts et financement. Les 12 ans prolongent le solde constant au-delà des sept ans modélisés. Construction et montée en charge sont à ajouter au calendrier réel.</p></div></div><div class=bento><p class="base m2">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-11" data-n="11" data-t="Sensibilité : prix de l’huile × personnel"><div class="inner"><p class="kick">Nabta Alkon / Hypothèses comparées</p><h2>Sensibilité : prix de l’huile × personnel</h2><p class="lead">Solde annuel après réserve, en k€. Entrée : 3 000 t/an ; huile : 1 800 t/an ; CAPEX : 3 M€.</p><div class="bento"><div class="t lt m2 d4 tb"><table class="nm"><thead><tr><th>Prix de l’huile</th><th class=num>Personnel 120 k€/an</th><th class=num>Personnel 300 k€/an</th></tr></thead><tbody><tr><th>300 €/t</th><td class="num neg">−110</td><td class="num neg">−290</td></tr><tr><th>400 €/t</th><td class="num">70</td><td class="num neg">−110</td></tr><tr><th>500 €/t</th><td class="num">250</td><td class="num">70</td></tr><tr><th>650 €/t</th><td class="num">520</td><td class="num">340</td></tr></tbody></table></div><div class="t hi m2 d2"><span class="lab">Récupération à 500 €/t</span><p>12 ans avec 120 k€ de personnel ; 42,9 ans avec 300 k€.</p></div><div class="t note m2 d6"><p>À dépenses inchangées : pour récupérer 3 M€ en 4 ans, il faut environ 778 €/t avec 120 k€ de personnel, ou 878 €/t avec 300 k€. Pour viser 7 ans : environ 599 €/t ou 699 €/t. Ce sont des seuils de calcul, pas des tarifs de marché.</p></div></div><div class=bento><p class="base m2">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-12" data-n="12" data-t="Sensibilité : le volume réellement traité"><div class="inner"><p class="kick">Nabta Alkon / Remplissage &amp; seuils</p><h2>Sensibilité : le volume réellement traité</h2><p class="lead">Le volume fait varier les ventes, la matière et l’énergie. Personnel, maintenance et réserve restent fixes.</p><div class="bento"><div class="t lt m2 d4 tb"><table class="nm w4"><thead><tr><th>Utilisation</th><th class=num>Tonnes traitées</th><th class=num>Solde · pers. 120 k€</th><th class=num>Solde · pers. 300 k€</th></tr></thead><tbody><tr><th>100 %</th><td class="num">3 000 t/an</td><td class="num">250 k€/an</td><td class="num">70 k€/an</td></tr><tr><th>85 %</th><td class="num">2 550 t/an</td><td class="num">173,5 k€/an</td><td class="num neg">−6,5 k€/an</td></tr><tr><th>75 %</th><td class="num">2 250 t/an</td><td class="num">122,5 k€/an</td><td class="num neg">−57,5 k€/an</td></tr><tr><th>50 %</th><td class="num">1 500 t/an</td><td class="num neg">−5 k€/an</td><td class="num neg">−185 k€/an</td></tr></tbody></table></div><div class="t hi m2 d2"><span class="lab">Seuil du solde positif</span><p>≈ 51 % avec 120 k€ de personnel · ≈ 86 % avec 300 k€.</p></div><div class="t note m2 d6"><p>À 75 % et 120 k€ de personnel : récupération de 3 M€ en 24,5 ans par extrapolation. Tripler la capacité ne garantit pas de tripler le solde : équipements, énergie, personnel, matière et débouchés doivent être recalculés.</p></div></div><div class=bento><p class="base m2">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-13" data-n="13" data-t="Les réponses à obtenir avant la signature"><div class="inner"><p class="kick">Nabta Alkon / Engagements &amp; responsabilités</p><h2>Les réponses à obtenir avant la signature</h2><p class="lead">Ces éléments constituent le dossier de décision ; leur validation se formalise avec les responsables concernés.</p><div class="bento"><div class="t dk m2 d3"><h3>1–4 · Périmètre &amp; budget</h3><p>Contenu des 3 M€, capacité et coût par tonne ; exclusions ; paiements et garanties en cas de retard.</p></div>
+<div class="t dk m2 d3"><h3>5–8 · Performance &amp; qualité</h3><p>Rendement mesuré et visite ; résultat sur votre matière ; disponibilité ; qualité d’huile et contrôle.</p></div>
+<div class="t dk m2 d3"><h3>9–10 · Acheteurs &amp; prix</h3><p>Acheteur identifié, contrat, rôle de Nabta Alkon dans la vente ; prix plancher ou protection à négocier.</p></div>
+<div class="t dk m2 d3"><h3>11–12 · Exploitation &amp; conformité</h3><p>Exploitant et effectifs chiffrés ; responsable des autorisations, de la sécurité et de la conformité locale.</p></div>
+<div class="t dk m1 d3"><h3>13 · Partenariat</h3><p>Apports, droits économiques, partage des revenus et clauses de sortie.</p></div>
+<div class="t dk m1 d3"><h3>14 · Références</h3><p>Échanges avec des clients ou références vérifiables, en précisant le rôle réalisé par Nabta Alkon.</p></div><div class="t note m2 d6"><p>L’étude de site précise aussi son coût, son contenu et le moment de facturation. Une autorisation relève de l’autorité compétente. Performance, délais et partage du risque doivent être définis au contrat, avec leurs conditions.</p></div></div><div class=bento><p class="base m2">Grille de validation issue des 14 questions transmises. Les réponses propres au projet restent à documenter ; aucun engagement non fourni n’est présenté comme acquis.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-14" data-n="14" data-t="Carbone : une chaîne de preuves par filière"><div class="inner"><p class="kick">Nabta Alkon / Certification &amp; valeur</p><h2>Carbone : une chaîne de preuves par filière</h2><p class="lead">D’abord qualifier l’éligibilité et l’usage ; ensuite mesurer, vérifier et contractualiser la valeur correspondante.</p><div class="bento"><div class="t dk m1 d1"><h3><i>1</i> Qualifier</h3><p>Matière, procédé et usage final.</p></div>
+<div class="t dk m1 d1"><h3><i>2</i> Mesurer</h3><p>Lots et données de suivi.</p></div>
+<div class="t dk m1 d1"><h3><i>3</i> Vérifier</h3><p>Contrôle indépendant.</p></div>
+<div class="t dk m1 d1"><h3><i>4</i> Contractualiser</h3><p>Valeur, volume et livraison.</p></div>
+<div class="t lt m2 d3"><h3>Biochar : retrait carbone</h3><p>Le biochar peut stocker du carbone. L’émission de crédits suit une méthode, un retrait net vérifié et un suivi des usages.</p></div>
+<div class="t lt m2 d3"><h3>Plastiques : bilan massique</h3><p>ISCC PLUS suit l’attribution de matières dans une chaîne certifiée. Ce mécanisme ne constitue pas un crédit de retrait CO₂.</p></div><div class="t note m2 d6"><p>MRV = mesure, documentation et vérification. Pour le biochar, une vente future de crédits peut être encadrée avant émission. Prix, frais et éligibilité sont à établir. Le scénario plastique maintient les recettes carbone à zéro.</p></div></div><div class=bento><p class="base m2">Sources : <a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R4] ISCC PLUS · référentiel ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article><article class="slide" id="tech-15" data-n="15" data-t="Les sources et les bases du dossier"><div class="inner"><p class="kick">Nabta Alkon / Références</p><h2>Les sources et les bases du dossier</h2><p class="lead">Les cas de marché éclairent le secteur. Ils ne démontrent ni les performances ni la rentabilité de Nabta Alkon.</p><div class="bento"><div class="t lt m2 d3 ref"><a href="https://www.basf.com/global/en/media/news-releases/2019/10/p-19-356" target="_blank" rel="noopener">[R1] BASF × Quantafuel ↗</a><p>20 M€ et droit de premier refus · 2019.</p></div><div class="t lt m2 d3 ref"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R6] QMRE · présentation 2023 ↗</a><p>Capacité WASTX P5000 déclarée ; repère historique.</p></div><div class="t lt m2 d3 ref"><a href="https://pryme-cleantech.com/uploads/downloads/Pryme-N.V.-Q4-2024-Report.pdf" target="_blank" rel="noopener">[R2] Pryme · rapport T4 2024 ↗</a><p>Production d’huile : 341 t sur l’année.</p></div><div class="t lt m2 d3 ref"><a href="https://carboliq.com/en/sustainability/chemical-recycling/" target="_blank" rel="noopener">[R7] carboliq ↗</a><p>Présentation du procédé et des débouchés.</p></div><div class="t lt m2 d3 ref"><a href="https://www.carbonfuture.com/magazine/exomad-green-announces-worlds-largest-biochar-carbon-removal-agreement-with-microsoft-tracked-by-carbonfuture-mrv" target="_blank" rel="noopener">[R3] Exomad × Microsoft ↗</a><p>Accord annoncé : ≥ 1,24 MtCO₂ sur 10 ans.</p></div><div class="t lt m2 d3 ref"><a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · biochar ↗</a><p>Méthode de certification du retrait carbone.</p></div><div class="t lt m2 d3 ref"><a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R4] ISCC PLUS ↗</a><p>Traçabilité et chaîne de contrôle des matières.</p></div><div class="t lt m2 d3 ref"><a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · PuriCycle ↗</a><p>Purification et contaminants des huiles.</p></div><div class="t lt m2 d3 ref"><a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R5] IEA Bioenergy · Task 34 ↗</a><p>Principe et étapes de la pyrolyse.</p></div><div class="t lt m2 d3 ref"><a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R10] IEA Bioenergy · Task 43 ↗</a><p>Qualité de la biomasse · janvier 2024.</p></div><div class="t note m2 d6"><p>Données projet : cadrage transmis par Nabta Alkon (3 M€, cible de 8 mois). Données économiques : scénario fourni, recalculé et testé. Chaque hypothèse est distincte d’un résultat mesuré ou d’un engagement contractuel.</p></div></div><div class=bento><p class="base m2">Sources consultées le 24/10/2026. Les liens sont cliquables ; les documents historiques peuvent évoluer ou devenir indisponibles chez leur éditeur.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">Sommaire</a><a href="#tech-3" data-go="tech:3">Le procédé</a><a href="#tech-15" data-go="tech:15">Sources</a></nav></div></article></div></div>
+</main>
+
+<div class="dock" id="dock" aria-label="Navigation entre les pages">
+  <button type="button" id="prev" aria-label="Page précédente">‹</button>
+  <button type="button" id="menu" class="mid" aria-label="Sommaire"><span id="cnt">01 / 15</span><small id="ttl"></small><em id="bar"><i></i></em></button>
+  <button type="button" id="next" aria-label="Page suivante">›</button>
 </div>
 
-<main class="wrap">
-
-<!-- 01 -->
-<section class="p" id="sommaire" data-n="1">
-  <p class="kick">Nabta Alkon / Approfondir, point par point</p>
-  <h2>Nabta Alkon <span style="color:var(--red)">technical files</span></h2>
-  <p class="lead">Les mêmes hypothèses, avec les calculs, les livrables et les bases de décision détaillés.</p>
-  <div class="cards two">
-    <a class="card" href="#p2"><h3><span class="k">01</span>Matières &amp; produits</h3><p>Matière entrante, procédé et qualité des sortants.</p><span class="go">CONSULTER →</span></a>
-    <a class="card" href="#p5"><h3><span class="k">02</span>Capacité &amp; déploiement</h3><p>Volumes, investissement et étapes de réalisation.</p><span class="go">CONSULTER →</span></a>
-    <a class="card" href="#p8"><h3><span class="k">03</span>Économie &amp; sensibilités</h3><p>Ventes, charges, récupération et seuils du modèle.</p><span class="go">CONSULTER →</span></a>
-    <a class="card" href="#p13"><h3><span class="k">04</span>Contrats &amp; carbone</h3><p>Responsabilités, débouchés et certification.</p><span class="go">CONSULTER →</span></a>
+<div class="sheet" id="sheet" hidden>
+  <div class="sh-bg" data-close></div>
+  <div class="sh-box" role="dialog" aria-modal="true" aria-label="Sommaire">
+    <div class="sh-top"><b>Sommaire</b><button type="button" data-close>Fermer</button></div>
+    <ol data-for="nt"><li><a href="#nt-1" data-go="nt:1"><i>01</i>Vue d’ensemble</a></li><li><a href="#nt-2" data-go="nt:2"><i>02</i>Votre projet, deux façons d’avancer</a></li><li><a href="#nt-3" data-go="nt:3"><i>03</i>La pyrolyse, en quelques étapes</a></li><li><a href="#nt-4" data-go="nt:4"><i>04</i>Un budget adapté à votre projet</a></li><li><a href="#nt-5" data-go="nt:5"><i>05</i>Huit mois de la fabrication à l’installation</a></li><li><a href="#nt-6" data-go="nt:6"><i>06</i>Comparer les offres sur les mêmes bases</a></li><li><a href="#nt-7" data-go="nt:7"><i>07</i>Des cas réels pour préparer les ventes</a></li><li><a href="#nt-8" data-go="nt:8"><i>08</i>Le CO₂ : une valeur à qualifier par filière</a></li><li><a href="#nt-9" data-go="nt:9"><i>09</i>Comment la matière devient une vente</a></li><li><a href="#nt-10" data-go="nt:10"><i>10</i>Des ventes au solde disponible</a></li><li><a href="#nt-11" data-go="nt:11"><i>11</i>Scénario à 3 M€ : 12 ans de récupération</a></li><li><a href="#nt-12" data-go="nt:12"><i>12</i>Les leviers qui changent le retour</a></li><li><a href="#nt-13" data-go="nt:13"><i>13</i>Vos questions sur l’économie</a></li><li><a href="#nt-14" data-go="nt:14"><i>14</i>Vos questions avant de vous engager</a></li><li><a href="#nt-15" data-go="nt:15"><i>15</i>Donnez une valeur industrielle à vos matières</a></li></ol>
+    <ol data-for="tech" hidden><li><a href="#tech-1" data-go="tech:1"><i>01</i>Nabta Alkon technical files</a></li><li><a href="#tech-2" data-go="tech:2"><i>02</i>Qualifier la matière avant de dimensionner</a></li><li><a href="#tech-3" data-go="tech:3"><i>03</i>Le procédé : trois sorties, des circuits dédiés</a></li><li><a href="#tech-4" data-go="tech:4"><i>04</i>Les sortants à préparer pour les acheteurs</a></li><li><a href="#tech-5" data-go="tech:5"><i>05</i>Du débit annoncé aux tonnes réellement traitées</a></li><li><a href="#tech-6" data-go="tech:6"><i>06</i>Les 3 M€ : un périmètre à écrire</a></li><li><a href="#tech-7" data-go="tech:7"><i>07</i>Un planning avec des tâches parallèles</a></li><li><a href="#tech-8" data-go="tech:8"><i>08</i>Les ventes : volume × rendement × prix</a></li><li><a href="#tech-9" data-go="tech:9"><i>09</i>Les charges et le personnel à confirmer</a></li><li><a href="#tech-10" data-go="tech:10"><i>10</i>Le recalcul complet à 3 M€</a></li><li><a href="#tech-11" data-go="tech:11"><i>11</i>Sensibilité : prix de l’huile × personnel</a></li><li><a href="#tech-12" data-go="tech:12"><i>12</i>Sensibilité : le volume réellement traité</a></li><li><a href="#tech-13" data-go="tech:13"><i>13</i>Les réponses à obtenir avant la signature</a></li><li><a href="#tech-14" data-go="tech:14"><i>14</i>Carbone : une chaîne de preuves par filière</a></li><li><a href="#tech-15" data-go="tech:15"><i>15</i>Les sources et les bases du dossier</a></li></ol>
   </div>
-  <div class="strong"><b>Scénario de référence</b>3 M€ au départ · 3 000 t/an · 60 % d’huile · 500 €/t · 250 k€/an de solde</div>
-  <p class="note">Un cadre illustratif. Le devis, les essais sur matière et les contrats permettront de construire le cas réel.</p>
-</section>
+</div>
 
-<!-- 02 -->
-<section class="p" id="p2" data-n="2">
-  <p class="kick">Nabta Alkon / Matières</p>
-  <h2>Qualifier la matière avant de dimensionner</h2>
-  <p class="lead">La composition et la régularité de l’approvisionnement orientent le procédé, les coûts et la qualité du produit.</p>
-  <div class="tw st"><table class="st">
-    <thead><tr><th>À examiner</th><th>Ce qui est mesuré</th><th>Ce que cela prépare</th></tr></thead>
-    <tbody>
-      <tr><th>Origine et composition</th><td data-l="Ce qui est mesuré">Familles de plastiques ou biomasse ; mélanges et matières étrangères.</td><td data-l="Ce que cela prépare">Choix de la filière et compatibilité du procédé.</td></tr>
-      <tr><th>Humidité et taille</th><td data-l="Ce qui est mesuré">Eau, granulométrie et préparation nécessaire.</td><td data-l="Ce que cela prépare">Tri, broyage, séchage et alimentation.</td></tr>
-      <tr><th>Qualité et contaminants</th><td data-l="Ce qui est mesuré">Analyses adaptées au flux : inertes, cendres, contaminants ciblés.</td><td data-l="Ce que cela prépare">Traitement et spécifications des sortants.</td></tr>
-      <tr><th>Volume et régularité</th><td data-l="Ce qui est mesuré">Tonnes mobilisables, saisonnalité, distances et fournisseurs.</td><td data-l="Ce que cela prépare">Plan d’approvisionnement et coût livré.</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note"><b>Livrable :</b> une fiche de matière et un plan d’analyses. Les seuils d’acceptation sont définis avec le procédé retenu et l’usage visé, à partir d’échantillons représentatifs.</p>
-  <p class="src">Sources : <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · purification des huiles ↗</a> · <a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R10] IEA Bioenergy · qualité biomasse, 2024 ↗</a></p>
-</section>
+<footer class="ft">Nabta Alkon</footer>
+<script>(function(){
+  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 
-<!-- 03 -->
-<section class="p" id="p3" data-n="3">
-  <p class="kick">Nabta Alkon / Chaîne de transformation</p>
-  <h2>Le procédé : trois sorties, des circuits dédiés</h2>
-  <p class="lead">La chaleur transforme la matière. Les vapeurs sont refroidies ; gaz et solides suivent leurs propres circuits.</p>
-  <div class="flow">
-    <div class="card"><h3>Préparer</h3><p>Trier, broyer et ajuster l’humidité selon le besoin.</p></div>
-    <div class="arrow">↓</div>
-    <div class="card"><h3>Réacteur</h3><p>Chauffer et piloter le temps de séjour.</p></div>
-    <div class="arrow">↓</div>
-    <div class="outs">
-      <div class="card red"><h3>Chaleur de procédé</h3><p>Gaz utilisé selon la configuration. Cette chaleur est renvoyée vers le réacteur.</p></div>
-      <div class="card"><h3>Solide</h3><p>Refroidir, caractériser et conditionner.</p></div>
-      <div class="card"><h3>Vapeurs</h3><p>Condenser en liquide, puis collecter.</p></div>
-      <div class="card"><h3>Gaz</h3><p>Traiter et orienter vers l’usage prévu.</p></div>
-    </div>
-  </div>
-  <p class="note">Schéma fonctionnel simplifié. Pesée, traçabilité des lots, entretien et suivi des émissions accompagnent le procédé. Le gaz utilisé pour la chaleur réduit un besoin énergétique ; sa valeur ne se compte pas deux fois.</p>
-  <p class="src">Source : <a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R5] IEA Bioenergy · procédé ↗</a></p>
-</section>
-
-<!-- 04 -->
-<section class="p" id="p4" data-n="4">
-  <p class="kick">Nabta Alkon / Qualité produit</p>
-  <h2>Les sortants à préparer pour les acheteurs</h2>
-  <p class="lead">Un produit se commercialise avec une qualité définie, des contrôles et un usage identifié.</p>
-  <div class="tw st"><table class="st">
-    <thead><tr><th>Filière / sortant</th><th>Usage à qualifier</th><th>Base avant livraison</th></tr></thead>
-    <tbody>
-      <tr><th>Plastiques : huile de pyrolyse</th><td data-l="Usage à qualifier">Matière première pour un acheteur industriel compatible.</td><td data-l="Base avant livraison">Fiche produit, analyses ciblées, stockage et critères d’acceptation.</td></tr>
-      <tr><th>Biomasse : biochar</th><td data-l="Usage à qualifier">Applications compatibles avec la qualité du lot et le cadre local.</td><td data-l="Base avant livraison">Origine, composition, qualité et, si visé, dossier de certification.</td></tr>
-      <tr><th>Gaz, liquides de biomasse et résidus</th><td data-l="Usage à qualifier">Usage interne ou débouché spécifique selon le procédé.</td><td data-l="Base avant livraison">Caractérisation, traitement, conditions de valorisation ou de gestion.</td></tr>
-    </tbody>
-  </table></div>
-  <div class="bandeau">L’acheteur valide les spécifications avant la première livraison</div>
-  <p class="note">L’huile de pyrolyse peut nécessiter une purification pour l’usage choisi. Le biochar issu de biomasse et le résidu solide de plastiques ne désignent pas le même produit. Les co-produits restent hors recettes du modèle.</p>
-  <p class="src">Sources : <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · purification des huiles ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a></p>
-</section>
-
-<!-- 05 -->
-<section class="p" id="p5" data-n="5">
-  <p class="kick">Nabta Alkon / Capacité &amp; exploitation</p>
-  <h2>Du débit annoncé aux tonnes réellement traitées</h2>
-  <p class="lead">La capacité du scénario se lit sur une même base de temps, puis s’ajuste à l’utilisation réelle.</p>
-  <div class="kpis">
-    <div class="kpi"><b>10 t/j</b><span>Débit journalier du scénario.</span></div>
-    <div class="op">×</div>
-    <div class="kpi"><b>300 jours</b><span>Base annuelle retenue.</span></div>
-    <div class="op">=</div>
-    <div class="kpi"><b>3 000 t/an</b><span>Capacité annuelle de calcul.</span></div>
-  </div>
-  <div class="cards two">
-    <div class="card"><h3>Disponibilité</h3><p>Part du temps programmé où l’unité est en état de fonctionner.</p></div>
-    <div class="card"><h3>Utilisation de la capacité</h3><p>Tonnes réellement traitées / 3 000 t. Elle reflète aussi l’alimentation et l’organisation.</p></div>
-  </div>
-  <p class="note">Exemple de conversion uniquement : 10 t/j sur 24 h = 0,417 t/h. Les horaires réels restent à confirmer. Le modèle fait varier le volume par un facteur d’utilisation global : ne pas retrancher deux fois les mêmes arrêts.</p>
-  <p class="small">Base : hypothèses du scénario fourni. Capacités constructeur déclarées et production réelle mesurée sont des indicateurs différents.</p>
-</section>
-
-<!-- 06 -->
-<section class="p" id="p6" data-n="6">
-  <p class="kick">Nabta Alkon / CAPEX &amp; paiements</p>
-  <h2>Les 3 M€ : un périmètre à écrire</h2>
-  <p class="lead">Un montant global devient exploitable lorsqu’il est relié à une capacité, à des lots et à des étapes de réception.</p>
-  <div class="tw st"><table class="st">
-    <thead><tr><th>Lot</th><th>À détailler dans le devis</th><th>Point de validation</th></tr></thead>
-    <tbody>
-      <tr><th>Équipements</th><td data-l="À détailler dans le devis">Procédé, capacité, accessoires et préparation des matières.</td><td data-l="Point de validation">Choix technique et contenu de fourniture.</td></tr>
-      <tr><th>Site et utilités</th><td data-l="À détailler dans le devis">Génie civil, dalle, réseaux, énergie, eau et stockage.</td><td data-l="Point de validation">Limites de fourniture et interfaces du chantier.</td></tr>
-      <tr><th>Installation et lancement</th><td data-l="À détailler dans le devis">Transport, montage, essais, formation et pièces de départ.</td><td data-l="Point de validation">Réception, essais et transfert de responsabilité.</td></tr>
-      <tr><th>Frais périphériques</th><td data-l="À détailler dans le devis">Étude, autorisations et trésorerie de démarrage : montants à établir.</td><td data-l="Point de validation">Inclusions, exclusions et financement du lancement.</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note"><b>Échéancier à négocier :</b> commande, fabrication, contrôle avant expédition, réception et essais. Les pourcentages de paiement, garanties éventuelles et conséquences d’un retard sont à contractualiser.</p>
-  <p class="small">3 M€ : cadrage communiqué par Nabta Alkon ; aucun découpage budgétaire par lot ni échéancier chiffré n’a été fourni.</p>
-</section>
-
-<!-- 07 -->
-<section class="p" id="p7" data-n="7">
-  <p class="kick">Nabta Alkon / Calendrier détaillé</p>
-  <h2>Un planning avec des tâches parallèles</h2>
-  <p class="lead">Vue illustrative à partir du lancement transport / chantier. La fabrication et les autorisations se positionnent en amont.</p>
-  <div role="img" aria-label="Planning : transport 2 à 3 mois, terrassement et dalle 2 à 3 mois, montage après réception 1 à 2 mois, infrastructures et utilités environ 6 mois">
-    <div class="months"><span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span></div>
-    <div class="g"><p class="t">Transport des unités</p><div class="track"><div class="bar2" style="left:0;width:50%">2 à 3 mois</div></div></div>
-    <div class="g"><p class="t">Terrassement et dalle</p><div class="track"><div class="bar2" style="left:0;width:50%">2 à 3 mois</div></div></div>
-    <div class="g"><p class="t">Montage après réception</p><div class="track"><div class="bar2 k" style="left:50%;width:33.33%">1 à 2 mois</div></div></div>
-    <div class="g"><p class="t">Infrastructures et utilités</p><div class="track"><div class="bar2" style="left:0;width:100%">Environ 6 mois</div></div></div>
-  </div>
-  <p class="note">Cible globale communiquée : 8 mois de fabrication à installation, à confirmer par un planning complet. Les utilités peuvent conditionner le démarrage. Étude, autorisations, essais et montée en charge ont chacun leurs jalons.</p>
-  <p class="small">Durées indicatives Nabta Alkon : transport/site 2–3 mois ; montage 1–2 mois ; utilités environ 6 mois. Le graphique utilise les bornes hautes pour illustrer le chevauchement.</p>
-</section>
-
-<!-- 08 -->
-<section class="p" id="p8" data-n="8">
-  <p class="kick">Nabta Alkon / Calcul du chiffre d’affaires</p>
-  <h2>Les ventes : volume × rendement × prix</h2>
-  <p class="lead">Le modèle plastique suit une seule recette pour rendre le calcul vérifiable : l’huile vendue.</p>
-  <div class="kpis">
-    <div class="kpi"><b>3 000 t/an</b><span>Matière effectivement traitée.</span></div>
-    <div class="op">↓</div>
-    <div class="kpi"><b>1 800 t/an</b><span>Huile obtenue à 60 % de rendement.</span></div>
-    <div class="op">↓</div>
-    <div class="kpi"><b>900 k€/an</b><span>Ventes à 500 €/t d’huile.</span></div>
-  </div>
-  <div class="cards two">
-    <div class="card light"><h3>Pour 1 tonne entrante</h3><p>0,6 t d’huile × 500 €/t = 300 € de ventes.</p></div>
-    <div class="card light"><h3>Les autres sortants</h3><p>Les 40 % restants du bilan simplifié restent à caractériser. Aucun revenu de gaz, char, services ou carbone n’est ajouté.</p></div>
-  </div>
-  <p class="note">Le rendement de 60 % et le prix de 500 €/t sont des hypothèses. Le prix net, la quantité acceptée et la qualité doivent être reliés à la matière testée et au contrat d’achat. Le scénario biomasse demande un modèle distinct.</p>
-  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
-</section>
-
-<!-- 09 -->
-<section class="p" id="p9" data-n="9">
-  <p class="kick">Nabta Alkon / Calcul du solde annuel</p>
-  <h2>Les charges et le personnel à confirmer</h2>
-  <p class="lead">La simulation distingue les coûts liés au volume et les coûts maintenus quand le volume baisse.</p>
-  <div class="tw st"><table class="st">
-    <thead><tr><th>Poste</th><th>Base à 100 %</th><th>Règle du modèle</th></tr></thead>
-    <tbody>
-      <tr><th>Matière et transport</th><td data-l="Base à 100 %">240 k€/an · 80 €/t traitée</td><td data-l="Règle du modèle">Variable avec le tonnage.</td></tr>
-      <tr><th>Énergie</th><td data-l="Base à 100 %">150 k€/an · 50 €/t traitée</td><td data-l="Règle du modèle">Variable avec le tonnage.</td></tr>
-      <tr><th>Personnel</th><td data-l="Base à 100 %">120 k€/an</td><td data-l="Règle du modèle">Fixe ; variante testée à 300 k€/an.</td></tr>
-      <tr><th>Maintenance</th><td data-l="Base à 100 %">90 k€/an</td><td data-l="Règle du modèle">Fixe dans la sensibilité.</td></tr>
-    </tbody>
-  </table></div>
-  <div class="kpis three" style="margin-top:24px">
-    <div class="kpi"><b>600 k€</b><span>OPEX dans le cas de base.</span></div>
-    <div class="kpi"><b>50 k€</b><span>Réserve annuelle maintenue.</span></div>
-    <div class="kpi"><b>250 k€</b><span>900 − 600 − 50 : solde annuel.</span></div>
-  </div>
-  <p class="note">Avec 300 k€ de personnel, les OPEX atteignent 780 k€/an et le solde tombe à 70 k€/an. Ces budgets ne définissent pas un effectif : couverture horaire, rotations, coût employeur et supervision restent à chiffrer.</p>
-  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
-</section>
-
-<!-- 10 -->
-<section class="p" id="p10" data-n="10">
-  <p class="kick">Nabta Alkon / Rendement du scénario</p>
-  <h2>Le recalcul complet à 3 M€</h2>
-  <p class="lead">Même solde de 250 k€/an. Seule la mise initiale change dans cette comparaison arithmétique.</p>
-  <div class="tw"><table class="nm">
-    <thead><tr><th>Indicateur</th><th class="num">Ancien calcul : 1 M€</th><th class="num">Mise retenue : 3 M€</th></tr></thead>
-    <tbody>
-      <tr><th>Récupération simple</th><td class="num">4 ans</td><td class="num">12 ans</td></tr>
-      <tr><th>Solde net cumulé sur 7 ans</th><td class="num">+750 k€</td><td class="num neg">−1 250 k€</td></tr>
-      <tr><th>ROI cumulé sur 7 ans</th><td class="num">+75 %</td><td class="num neg">−41,7 %</td></tr>
-      <tr><th>TRI sur 7 ans</th><td class="num">16,3 %</td><td class="num neg">−11,9 %</td></tr>
-      <tr><th>VAN à 10 % sur 7 ans</th><td class="num">+217 k€</td><td class="num neg">−1 783 k€</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note">Base : mise au départ, sept flux de fin d’année, valeur finale nulle, avant impôts et financement. Les 12 ans prolongent le solde constant au-delà des sept ans modélisés. Construction et montée en charge sont à ajouter au calendrier réel.</p>
-  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
-</section>
-
-<!-- 11 -->
-<section class="p" id="p11" data-n="11">
-  <p class="kick">Nabta Alkon / Hypothèses comparées</p>
-  <h2>Sensibilité : prix de l’huile × personnel</h2>
-  <p class="lead">Solde annuel après réserve, en k€. Entrée : 3 000 t/an ; huile : 1 800 t/an ; CAPEX : 3 M€.</p>
-  <div class="tw"><table class="nm">
-    <thead><tr><th>Prix de l’huile</th><th class="num">Personnel 120 k€/an</th><th class="num">Personnel 300 k€/an</th></tr></thead>
-    <tbody>
-      <tr><th>300 €/t</th><td class="num neg">−110</td><td class="num neg">−290</td></tr>
-      <tr><th>400 €/t</th><td class="num">70</td><td class="num neg">−110</td></tr>
-      <tr><th>500 €/t</th><td class="num">250</td><td class="num">70</td></tr>
-      <tr><th>650 €/t</th><td class="num">520</td><td class="num">340</td></tr>
-    </tbody>
-  </table></div>
-  <div class="strong"><b>Récupération à 500 €/t</b>12 ans avec 120 k€ de personnel ; 42,9 ans avec 300 k€.</div>
-  <p class="note">À dépenses inchangées : pour récupérer 3 M€ en 4 ans, il faut environ 778 €/t avec 120 k€ de personnel, ou 878 €/t avec 300 k€. Pour viser 7 ans : environ 599 €/t ou 699 €/t. Ce sont des seuils de calcul, pas des tarifs de marché.</p>
-  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
-</section>
-
-<!-- 12 -->
-<section class="p" id="p12" data-n="12">
-  <p class="kick">Nabta Alkon / Remplissage &amp; seuils</p>
-  <h2>Sensibilité : le volume réellement traité</h2>
-  <p class="lead">Le volume fait varier les ventes, la matière et l’énergie. Personnel, maintenance et réserve restent fixes.</p>
-  <div class="tw"><table class="nm">
-    <thead><tr><th>Utilisation</th><th class="num">Tonnes traitées</th><th class="num">Solde · personnel 120 k€</th><th class="num">Solde · personnel 300 k€</th></tr></thead>
-    <tbody>
-      <tr><th>100 %</th><td class="num">3 000 t/an</td><td class="num">250 k€/an</td><td class="num">70 k€/an</td></tr>
-      <tr><th>85 %</th><td class="num">2 550 t/an</td><td class="num">173,5 k€/an</td><td class="num neg">−6,5 k€/an</td></tr>
-      <tr><th>75 %</th><td class="num">2 250 t/an</td><td class="num">122,5 k€/an</td><td class="num neg">−57,5 k€/an</td></tr>
-      <tr><th>50 %</th><td class="num">1 500 t/an</td><td class="num neg">−5 k€/an</td><td class="num neg">−185 k€/an</td></tr>
-    </tbody>
-  </table></div>
-  <div class="strong"><b>Seuil du solde positif</b>≈ 51 % avec 120 k€ de personnel · ≈ 86 % avec 300 k€.</div>
-  <p class="note">À 75 % et 120 k€ de personnel : récupération de 3 M€ en 24,5 ans par extrapolation. Tripler la capacité ne garantit pas de tripler le solde : équipements, énergie, personnel, matière et débouchés doivent être recalculés.</p>
-  <p class="small">Hypothèses de calcul fournies ; calculs recalculés à 3 M€. Aucune performance Nabta Alkon mesurée n’est déduite du modèle.</p>
-</section>
-
-<!-- 13 -->
-<section class="p" id="p13" data-n="13">
-  <p class="kick">Nabta Alkon / Engagements &amp; responsabilités</p>
-  <h2>Les réponses à obtenir avant la signature</h2>
-  <p class="lead">Ces éléments constituent le dossier de décision ; leur validation se formalise avec les responsables concernés.</p>
-  <div class="cards two">
-    <div class="card"><h3>1–4 · Périmètre &amp; budget</h3><p>Contenu des 3 M€, capacité et coût par tonne ; exclusions ; paiements et garanties en cas de retard.</p></div>
-    <div class="card"><h3>5–8 · Performance &amp; qualité</h3><p>Rendement mesuré et visite ; résultat sur votre matière ; disponibilité ; qualité d’huile et contrôle.</p></div>
-    <div class="card"><h3>9–10 · Acheteurs &amp; prix</h3><p>Acheteur identifié, contrat, rôle de Nabta Alkon dans la vente ; prix plancher ou protection à négocier.</p></div>
-    <div class="card"><h3>11–12 · Exploitation &amp; conformité</h3><p>Exploitant et effectifs chiffrés ; responsable des autorisations, de la sécurité et de la conformité locale.</p></div>
-    <div class="card"><h3>13 · Partenariat</h3><p>Apports, droits économiques, partage des revenus et clauses de sortie.</p></div>
-    <div class="card"><h3>14 · Références</h3><p>Échanges avec des clients ou références vérifiables, en précisant le rôle réalisé par Nabta Alkon.</p></div>
-  </div>
-  <p class="note">L’étude de site précise aussi son coût, son contenu et le moment de facturation. Une autorisation relève de l’autorité compétente. Performance, délais et partage du risque doivent être définis au contrat, avec leurs conditions.</p>
-  <p class="small">Grille de validation issue des 14 questions transmises. Les réponses propres au projet restent à documenter ; aucun engagement non fourni n’est présenté comme acquis.</p>
-</section>
-
-<!-- 14 -->
-<section class="p" id="p14" data-n="14">
-  <p class="kick">Nabta Alkon / Certification &amp; valeur</p>
-  <h2>Carbone : une chaîne de preuves par filière</h2>
-  <p class="lead">D’abord qualifier l’éligibilité et l’usage ; ensuite mesurer, vérifier et contractualiser la valeur correspondante.</p>
-  <div class="cards two">
-    <div class="card"><h3><span class="k">1</span>Qualifier</h3><p>Matière, procédé et usage final.</p></div>
-    <div class="card"><h3><span class="k">2</span>Mesurer</h3><p>Lots et données de suivi.</p></div>
-    <div class="card"><h3><span class="k">3</span>Vérifier</h3><p>Contrôle indépendant.</p></div>
-    <div class="card"><h3><span class="k">4</span>Contractualiser</h3><p>Valeur, volume et livraison.</p></div>
-  </div>
-  <div class="cards two" style="margin-top:14px">
-    <div class="card light"><h3>Biochar : retrait carbone</h3><p>Le biochar peut stocker du carbone. L’émission de crédits suit une méthode, un retrait net vérifié et un suivi des usages.</p></div>
-    <div class="card light"><h3>Plastiques : bilan massique</h3><p>ISCC PLUS suit l’attribution de matières dans une chaîne certifiée. Ce mécanisme ne constitue pas un crédit de retrait CO₂.</p></div>
-  </div>
-  <p class="note">MRV = mesure, documentation et vérification. Pour le biochar, une vente future de crédits peut être encadrée avant émission. Prix, frais et éligibilité sont à établir. Le scénario plastique maintient les recettes carbone à zéro.</p>
-  <p class="src">Sources : <a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R4] ISCC PLUS · référentiel ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · méthode biochar ↗</a></p>
-</section>
-
-<!-- 15 -->
-<section class="p" id="p15" data-n="15">
-  <p class="kick">Nabta Alkon / Références</p>
-  <h2>Les sources et les bases du dossier</h2>
-  <p class="lead">Les cas de marché éclairent le secteur. Ils ne démontrent ni les performances ni la rentabilité de Nabta Alkon.</p>
-  <div class="refs">
-    <div class="ref"><a href="https://www.basf.com/global/en/media/news-releases/2019/10/p-19-356" target="_blank" rel="noopener">[R1] BASF × Quantafuel ↗</a><p>20 M€ et droit de premier refus · 2019.</p></div>
-    <div class="ref"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R6] QMRE · présentation 2023 ↗</a><p>Capacité WASTX P5000 déclarée ; repère historique.</p></div>
-    <div class="ref"><a href="https://pryme-cleantech.com/uploads/downloads/Pryme-N.V.-Q4-2024-Report.pdf" target="_blank" rel="noopener">[R2] Pryme · rapport T4 2024 ↗</a><p>Production d’huile : 341 t sur l’année.</p></div>
-    <div class="ref"><a href="https://carboliq.com/en/sustainability/chemical-recycling/" target="_blank" rel="noopener">[R7] carboliq ↗</a><p>Présentation du procédé et des débouchés.</p></div>
-    <div class="ref"><a href="https://www.carbonfuture.com/magazine/exomad-green-announces-worlds-largest-biochar-carbon-removal-agreement-with-microsoft-tracked-by-carbonfuture-mrv" target="_blank" rel="noopener">[R3] Exomad × Microsoft ↗</a><p>Accord annoncé : ≥ 1,24 MtCO₂ sur 10 ans.</p></div>
-    <div class="ref"><a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R8] Puro.earth · biochar ↗</a><p>Méthode de certification du retrait carbone.</p></div>
-    <div class="ref"><a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R4] ISCC PLUS ↗</a><p>Traçabilité et chaîne de contrôle des matières.</p></div>
-    <div class="ref"><a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R9] BASF · PuriCycle ↗</a><p>Purification et contaminants des huiles.</p></div>
-    <div class="ref"><a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R5] IEA Bioenergy · Task 34 ↗</a><p>Principe et étapes de la pyrolyse.</p></div>
-    <div class="ref"><a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R10] IEA Bioenergy · Task 43 ↗</a><p>Qualité de la biomasse · janvier 2024.</p></div>
-  </div>
-  <p class="note">Données projet : cadrage transmis par Nabta Alkon (3 M€, cible de 8 mois). Données économiques : scénario fourni, recalculé et testé. Chaque hypothèse est distincte d’un résultat mesuré ou d’un engagement contractuel.</p>
-  <p class="small">Sources consultées le 24/10/2026. Les liens sont cliquables ; les documents historiques peuvent évoluer ou devenir indisponibles chez leur éditeur.</p>
-</section>
-
-</main>
-<footer><div class="wrap">Nabta Alkon · dossier technique</div></footer>
-
-<script>
-  var v=document.getElementById('v'),b=document.getElementById('son');
-  v.play&&v.play().catch(function(){});
-  b.addEventListener('click',function(){v.muted=false;v.currentTime=0;v.play();b.hidden=true});
-  v.addEventListener('volumechange',function(){if(!v.muted)b.hidden=true});
-
-  /* pied de page de chaque page : Sommaire · Le procédé · Sources · ← → · 00 / 15 */
-  function id(n){return n===1?'sommaire':'p'+n}
-  document.querySelectorAll('section.p').forEach(function(s){
-    var n=+s.dataset.n,pf=document.createElement('nav');pf.className='pf';pf.setAttribute('aria-label','Navigation');
-    var h='<div class="links"><a href="#sommaire">Sommaire</a><a href="#p3">Le procédé</a><a href="#p15">Sources</a></div><span class="sp"></span>';
-    if(n>1)h+='<a class="ar" href="#'+id(n-1)+'" aria-label="Page précédente">←</a>';
-    if(n<15)h+='<a class="ar" href="#'+id(n+1)+'" aria-label="Page suivante">→</a>';
-    h+='<span class="nb">'+(n<10?'0':'')+n+' / 15</span>';
-    pf.innerHTML=h;s.appendChild(pf);
+  /* ---------- vidéo : lecture auto muette, le son s'active au premier geste / à l'appui sur les touches de volume ---------- */
+  var v=$('#v'),son=$('#son'),unmuted=false,vis=false;
+  if(v.play){var p0=v.play();if(p0&&p0.catch)p0.catch(function(){})}
+  function unmute(restart){
+    if(unmuted)return;unmuted=true;
+    v.muted=false;v.volume=1;if(restart)v.currentTime=0;
+    var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;unmuted=false;son.hidden=false});
+    son.hidden=true;
+  }
+  son.addEventListener('click',function(e){e.stopPropagation();unmute(true)});
+  v.addEventListener('volumechange',function(){if(!v.muted){son.hidden=true;unmuted=true}});
+  document.addEventListener('keydown',function(e){
+    var k=e.key||'',c=e.keyCode;
+    if(k==='AudioVolumeUp'||k==='AudioVolumeDown'||k==='VolumeUp'||k==='VolumeDown'||c===175||c===174||c===183)unmute(false);
   });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){vis=es[0].intersectionRatio>=.5},{threshold:[0,.5,1]}).observe($('#video'));
+  }
+  ['pointerup','touchend'].forEach(function(ev){
+    document.addEventListener(ev,function(e){
+      if(unmuted||!vis)return;
+      if(e.target.closest&&e.target.closest('.tabs,.dock,.sheet,a,#son'))return;
+      unmute(false);
+    },{passive:true});
+  });
+
+  /* ---------- decks (cartes à faire glisser) ---------- */
+  var decks={},cur='nt';
+  $$('.deck').forEach(function(el){
+    var k=el.dataset.deck;
+    decks[k]={el:el,track:$('.track',el),slides:$$('.slide',el),idx:0};
+  });
+  var tabs=$('#tabs'),viewer=$('#viewer'),dock=$('#dock'),cnt=$('#cnt'),ttl=$('#ttl'),bar=$('#bar i'),prev=$('#prev'),next=$('#next'),sheet=$('#sheet');
+  function pad(n){return (n<10?'0':'')+n}
+  function D(){return decks[cur]}
+  function setH(d){d=d||D();var s=d.slides[d.idx];if(s&&!d.el.hidden)d.track.style.height=s.offsetHeight+'px'}
+  function update(){
+    var d=D(),n=d.slides.length;
+    cnt.textContent=pad(d.idx+1)+' / '+n;
+    ttl.textContent=d.slides[d.idx].dataset.t||'';
+    bar.style.width=((d.idx+1)/n*100)+'%';
+    prev.disabled=d.idx<=0;next.disabled=d.idx>=n-1;
+  }
+  function ensureTop(){
+    var d=D(),r=d.track.getBoundingClientRect(),top=r.top+window.pageYOffset-tabs.offsetHeight;
+    if(window.pageYOffset>top+4)window.scrollTo({top:top,behavior:'smooth'});
+  }
+  function go(i,smooth,keepScroll){
+    var d=D();i=Math.max(0,Math.min(d.slides.length-1,i));
+    var changed=i!==d.idx;d.idx=i;
+    d.track.scrollTo({left:i*d.track.clientWidth,behavior:smooth?'smooth':'auto'});
+    setH(d);update();
+    if(changed&&!keepScroll)ensureTop();
+    try{history.replaceState(null,'','#'+cur+'-'+(i+1))}catch(e){}
+  }
+  function switchDeck(k,noScroll){
+    if(k===cur)return;
+    cur=k;
+    Object.keys(decks).forEach(function(n){decks[n].el.hidden=n!==k});
+    $$('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.deck===k)});
+    $$('.sheet ol').forEach(function(o){o.hidden=o.dataset.for!==k});
+    var d=D();d.track.scrollLeft=d.idx*d.track.clientWidth;setH(d);update();
+    if(!noScroll)ensureTop();
+  }
+  /* défilement au doigt */
+  Object.keys(decks).forEach(function(k){
+    var d=decks[k],t;
+    d.track.addEventListener('scroll',function(){
+      clearTimeout(t);
+      t=setTimeout(function(){
+        if(d.el.hidden)return;
+        var i=Math.round(d.track.scrollLeft/d.track.clientWidth);
+        if(i!==d.idx){d.idx=i;setH(d);update();ensureTop();try{history.replaceState(null,'','#'+k+'-'+(i+1))}catch(e){}}
+      },80);
+    },{passive:true});
+    if('ResizeObserver' in window){
+      var ro=new ResizeObserver(function(){if(k===cur)setH(d)});
+      d.slides.forEach(function(s){ro.observe(s)});
+    }
+  });
+  window.addEventListener('resize',function(){var d=D();d.track.scrollLeft=d.idx*d.track.clientWidth;setH(d)});
+  function allH(){Object.keys(decks).forEach(function(k){if(k===cur)setH(decks[k])})}
+  window.addEventListener('load',function(){allH();setTimeout(function(){document.body.classList.add('ready')},700);setTimeout(allH,400);setTimeout(allH,1500)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(allH);
+  $$('img').forEach(function(im){if(!im.complete)im.addEventListener('load',allH)});
+
+  prev.addEventListener('click',function(){go(D().idx-1,true)});
+  next.addEventListener('click',function(){go(D().idx+1,true)});
+  $$('.tabs button').forEach(function(b){b.addEventListener('click',function(){switchDeck(b.dataset.deck)})});
+
+  /* liens internes */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-go]');
+    if(!a)return;
+    e.preventDefault();
+    var parts=a.dataset.go.split(':');
+    closeSheet();
+    switchDeck(parts[0],true);
+    go((+parts[1])-1,true);
+    var top=D().track.getBoundingClientRect().top+window.pageYOffset-tabs.offsetHeight;
+    window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+  });
+
+  /* sommaire */
+  function openSheet(){
+    var d=D();
+    $$('.sheet ol[data-for="'+cur+'"] a').forEach(function(a,i){a.classList.toggle('cur',i===d.idx)});
+    sheet.hidden=false;document.body.style.overflow='hidden';
+    var c=$('.sheet ol:not([hidden]) a.cur');if(c&&c.scrollIntoView)c.scrollIntoView({block:'center'});
+  }
+  function closeSheet(){sheet.hidden=true;document.body.style.overflow=''}
+  $('#menu').addEventListener('click',openSheet);
+  $$('[data-close]',sheet).forEach(function(b){b.addEventListener('click',closeSheet)});
+
+  /* barre de navigation visible quand les documents sont à l'écran */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){dock.classList.toggle('on',es[0].isIntersecting)},{rootMargin:'0px 0px -35% 0px',threshold:0}).observe(viewer);
+  }else dock.classList.add('on');
+
+  /* clavier */
+  document.addEventListener('keydown',function(e){
+    if(!sheet.hidden){if(e.key==='Escape')closeSheet();return}
+    if(!dock.classList.contains('on'))return;
+    if(e.key==='ArrowLeft')go(D().idx-1,true);
+    if(e.key==='ArrowRight')go(D().idx+1,true);
+  });
+
+  /* lien direct #nt-5 / #tech-3 */
+  var m=/^#(nt|tech)-(\d+)$/.exec(location.hash);
+  update();setH();
+  if(m){
+    switchDeck(m[1],true);
+    requestAnimationFrame(function(){go((+m[2])-1,false,true);
+      var top=D().track.getBoundingClientRect().top+window.pageYOffset-tabs.offsetHeight;window.scrollTo(0,Math.max(0,top))});
+  }
+})();
 </script>
 </body>
 </html>
