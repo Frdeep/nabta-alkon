@@ -29,9 +29,10 @@ img{max-width:100%}
 .hd a{flex:1;max-width:200px;display:flex;align-items:center;justify-content:center;min-height:64px;font-family:var(--cond);font-weight:700;font-size:1.65rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:3px solid transparent}
 .hd a:active,.hd a:hover{border-bottom-color:var(--ink)}
 .video{position:relative;background:#000}
-.video video{display:block;width:100%;height:auto;aspect-ratio:1280/558;background:#000}
+.video video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;object-fit:contain}
 #son{position:absolute;top:12px;right:12px;background:rgba(18,18,18,.78);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
 #son[hidden]{display:none}
+#son{display:flex;align-items:center;gap:6px}
 
 /* onglets */
 .tabs{position:sticky;top:0;z-index:30;display:flex;gap:8px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line)}
@@ -285,14 +286,26 @@ table.w4 th:nth-child(2){width:26%}
 table.w4 th:nth-child(3),table.w4 th:nth-child(4){width:28.5%}
 table.w4 td.num{white-space:normal}
 table.w4 tbody th,table.w4 td{font-size:.9rem}
+
+/* zones tactiles confortables */
+.base a{display:inline-block;padding:9px 2px;margin:-4px 0}
+.lnk{padding:10px 0 6px}
+.slide a[target=_blank]{display:inline-block;padding:8px 0}
+a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
+
+/* barre du haut : répartie régulièrement */
+.hd{justify-content:space-evenly;gap:0;padding:4px 8px}
+.hd a{flex:0 1 auto;max-width:none;padding:0 14px}
+/* vidéo : jamais plus haute que l'écran */
+#v{max-height:72vh;background:#000}
 </style>
 </head>
 <body>
 <nav class="hd" aria-label="Thèmes"><a href="#nt-3" data-go="nt:3">Pyrolyse</a><a href="#tech-4" data-go="tech:4">Biochar</a><a href="#tech-14" data-go="tech:14">CO₂</a></nav>
 
 <section class="video" id="video">
-  <video id="v" src="video2.mp4" poster="poster2.jpg" autoplay muted loop playsinline controls preload="auto"></video>
-  <button id="son" type="button" aria-label="Activer le son">🔊 Son</button>
+  <video id="v" src="video3.mp4" poster="poster3.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+  <button id="son" type="button" aria-label="Activer le son"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Son</button>
 </section>
 
 <nav class="tabs" id="tabs" aria-label="Documents">
@@ -484,6 +497,8 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
   /* ---------- vidéo : lecture auto muette, le son s'active au premier geste / à l'appui sur les touches de volume ---------- */
   var v=$('#v'),son=$('#son'),unmuted=false,vis=false;
   if(v.play){var p0=v.play();if(p0&&p0.catch)p0.catch(function(){})}
+  function fit(){if(v.videoWidth)v.style.aspectRatio=v.videoWidth+'/'+v.videoHeight}
+  v.addEventListener('loadedmetadata',fit);fit();
   function unmute(restart){
     if(unmuted)return;unmuted=true;
     v.muted=false;v.volume=1;if(restart)v.currentTime=0;
@@ -538,7 +553,7 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
     if(changed&&!keepScroll)ensureTop();
     try{history.replaceState(null,'','#'+cur+'-'+(i+1))}catch(e){}
   }
-  var VID={nt:['video2.mp4','poster2.jpg'],tech:['video.mp4','poster.jpg']},vcur='nt';
+  var VID={nt:['video3.mp4','poster3.jpg'],tech:['video.mp4','poster.jpg']},vcur='nt';
   function setVideo(k){
     if(k===vcur)return;vcur=k;
     v.poster=VID[k][1];v.src=VID[k][0];v.load();
