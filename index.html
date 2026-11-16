@@ -8,89 +8,146 @@
 <meta property="og:title" content="Nabta Alkon – Dossier technique">
 <meta property="og:type" content="website">
 <style>
-  :root{--bar:#2b2f2d;--desk:#4a4f4c;--fg:#f2f5f3;--mut:#b6c0bb;--r:22px}
+  :root{--fg:#101614;--mut:#55625c;--line:#e3e8e5;--acc:#c8102e;--gold:#f2b84b}
   *{box-sizing:border-box}
   html,body{margin:0;min-height:100%}
-  body{background:var(--desk);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-  .bar{position:sticky;top:0;z-index:5;height:52px;background:var(--bar);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 16px;box-shadow:0 2px 10px rgba(0,0,0,.35)}
-  .bar .name{font-size:.95rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .bar .pg{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:.9rem;white-space:nowrap}
-  .bar .pg span{background:#1c1f1e;border-radius:8px;padding:4px 12px;color:var(--fg)}
-  main{padding:28px 16px 48px;display:flex;flex-direction:column;align-items:center;gap:28px}
-  .sheet{position:relative;width:min(100%,1100px);aspect-ratio:16/9;background:#0d1411;border-radius:var(--r);overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.4)}
-  .sheet img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-  .sheet video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
-  #son{position:absolute;right:16px;top:16px;background:#e8b04a;color:#1a1405;border:0;border-radius:999px;padding:10px 18px;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:2}
+  body{background:#fff;color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:18px;line-height:1.4;-webkit-text-size-adjust:100%}
+  header{padding:22px 18px 14px}
+  header h1{margin:0;font-size:1.9rem;line-height:1.15;font-weight:800;letter-spacing:-.01em}
+  header p{margin:8px 0 0;color:var(--mut);font-size:1.05rem}
+  .video{position:relative;background:#000}
+  .video video{display:block;width:100%;height:auto;aspect-ratio:1280/558;background:#000}
+  #son{position:absolute;left:12px;right:12px;bottom:56px;background:var(--gold);color:#1a1405;border:0;border-radius:12px;padding:16px;font-size:1.15rem;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35)}
   #son[hidden]{display:none}
-  @media (max-width:600px){:root{--r:14px}main{padding:16px 10px 32px}.bar .name{font-size:.85rem}}
-
-  /* Mobile d'abord : pages pleine largeur, appui = lecture en grand */
-  main{padding:10px 8px 40px;gap:12px}
-  .sheet{width:100%;border-radius:14px}
-  .sheet[data-p]:not([data-p="0"]){cursor:zoom-in}
-  .tap{position:absolute;right:8px;top:8px;background:rgba(13,20,17,.82);color:#fff;font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:999px;pointer-events:none;display:flex;gap:6px;align-items:center}
-  #lb{position:fixed;inset:0;z-index:50;background:#111413;display:none;flex-direction:column}
+  .count{padding:22px 18px 8px;font-size:1.15rem;font-weight:700;color:var(--mut)}
+  .pg{border-top:1px solid var(--line);margin:0}
+  .pg img{display:block;width:100%;height:auto;cursor:zoom-in}
+  .zoom{display:block;width:100%;background:#fff;color:var(--fg);border:0;border-top:1px solid var(--line);padding:18px;font-size:1.15rem;font-weight:700;text-align:center;cursor:pointer}
+  .zoom:active{background:#f1f4f2}
+  footer{padding:28px 18px 40px;color:var(--mut);font-size:.95rem;text-align:center;border-top:1px solid var(--line)}
+  /* lecture en grand */
+  #lb{position:fixed;inset:0;z-index:50;background:#fff;display:none;flex-direction:column}
   #lb.on{display:flex}
-  #lb .top{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;background:var(--bar);color:var(--fg)}
-  #lb .top b{font-size:.95rem}
-  #lb button{background:#1c1f1e;color:#fff;border:0;border-radius:10px;padding:10px 14px;font-size:1rem;font-weight:600;min-width:46px;min-height:44px}
-  #lb .zone{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;display:flex;align-items:flex-start}
-  #lb img{flex:0 0 auto;width:230vw;max-width:none;height:auto;margin:0}
-  #lb .hint{flex:0 0 auto;text-align:center;color:var(--mut);font-size:.8rem;padding:6px 10px;background:var(--bar)}
+  #lb .top{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);background:#fff}
+  #lb .top b{flex:1;text-align:center;font-size:1.1rem}
+  #lb button{background:#eef2f0;color:var(--fg);border:0;border-radius:12px;min-width:54px;min-height:54px;padding:0 16px;font-size:1.3rem;font-weight:800}
+  #lb button.x{background:var(--acc);color:#fff;font-size:1.05rem}
+  #lb .zone{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;background:#fff}
+  #lb img{display:block;width:260vw;max-width:none;height:auto}
+  #lb .hint{flex:0 0 auto;text-align:center;color:var(--mut);font-size:.9rem;padding:8px 12px;border-top:1px solid var(--line)}
   @media (orientation:landscape){#lb img{width:100vw}#lb .hint{display:none}}
-  @media (min-width:760px){main{padding:28px 16px 48px;gap:28px}.sheet{width:min(100%,1100px);border-radius:var(--r)}#lb img{width:min(100vw,1500px);margin:0 auto}}
+  @media (min-width:900px){
+    body{font-size:17px}
+    header,.count,footer{max-width:1100px;margin:0 auto}
+    .video,.pg{max-width:1100px;margin:0 auto}
+    .video video{border-radius:0}
+    #lb img{width:min(100vw,1500px);margin:0 auto}
+    #son{left:auto;right:16px;width:auto;padding:12px 22px}
+  }
 </style>
 </head>
 <body>
-  <div class="bar">
-    <div class="name">Nabta_Alkon_dossier_technique.pdf</div>
-    <div class="pg"><span id="cur">1</span> / 16</div>
-  </div>
-  <div id="lb" role="dialog" aria-modal="true" aria-label="Lecture en grand">
-    <div class="top"><button id="lbp" type="button" aria-label="Page précédente">‹</button><b id="lbt">Page 1 / 15</b><button id="lbn" type="button" aria-label="Page suivante">›</button><button id="lbx" type="button" aria-label="Fermer">✕ Fermer</button></div>
-    <div class="zone" id="lbz"><img id="lbi" alt=""></div>
-    <div class="hint">Faites glisser pour lire · pincez pour zoomer · tournez le téléphone pour voir la page entière</div>
-  </div>
+  <header>
+    <h1>Nabta Alkon</h1>
+    <p>Pyrolyse · biochar · captation du CO₂</p>
+  </header>
+
+  <section class="video">
+    <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+    <button id="son" type="button">🔊 Activer le son</button>
+  </section>
+
+  <div class="count">Dossier technique · 15 pages</div>
   <main>
-    <section class="sheet" data-p="0">
-      <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
-      <button id="son" type="button">🔊 Activer le son</button>
-    </section>
-    <section class="sheet" data-p="1"><img src="pages/p01.jpg" alt="Page 1 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="2"><img src="pages/p02.jpg" alt="Page 2 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="3"><img src="pages/p03.jpg" alt="Page 3 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="4"><img src="pages/p04.jpg" alt="Page 4 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="5"><img src="pages/p05.jpg" alt="Page 5 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="6"><img src="pages/p06.jpg" alt="Page 6 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="7"><img src="pages/p07.jpg" alt="Page 7 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="8"><img src="pages/p08.jpg" alt="Page 8 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="9"><img src="pages/p09.jpg" alt="Page 9 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="10"><img src="pages/p10.jpg" alt="Page 10 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="11"><img src="pages/p11.jpg" alt="Page 11 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="12"><img src="pages/p12.jpg" alt="Page 12 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="13"><img src="pages/p13.jpg" alt="Page 13 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="14"><img src="pages/p14.jpg" alt="Page 14 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
-    <section class="sheet" data-p="15"><img src="pages/p15.jpg" alt="Page 15 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async"></section>
+    <article class="pg" data-p="1">
+      <img src="pages/p01.jpg" alt="Page 1 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="1">🔍 Agrandir la page 1</button>
+    </article>
+    <article class="pg" data-p="2">
+      <img src="pages/p02.jpg" alt="Page 2 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="2">🔍 Agrandir la page 2</button>
+    </article>
+    <article class="pg" data-p="3">
+      <img src="pages/p03.jpg" alt="Page 3 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="3">🔍 Agrandir la page 3</button>
+    </article>
+    <article class="pg" data-p="4">
+      <img src="pages/p04.jpg" alt="Page 4 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="4">🔍 Agrandir la page 4</button>
+    </article>
+    <article class="pg" data-p="5">
+      <img src="pages/p05.jpg" alt="Page 5 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="5">🔍 Agrandir la page 5</button>
+    </article>
+    <article class="pg" data-p="6">
+      <img src="pages/p06.jpg" alt="Page 6 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="6">🔍 Agrandir la page 6</button>
+    </article>
+    <article class="pg" data-p="7">
+      <img src="pages/p07.jpg" alt="Page 7 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="7">🔍 Agrandir la page 7</button>
+    </article>
+    <article class="pg" data-p="8">
+      <img src="pages/p08.jpg" alt="Page 8 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="8">🔍 Agrandir la page 8</button>
+    </article>
+    <article class="pg" data-p="9">
+      <img src="pages/p09.jpg" alt="Page 9 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="9">🔍 Agrandir la page 9</button>
+    </article>
+    <article class="pg" data-p="10">
+      <img src="pages/p10.jpg" alt="Page 10 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="10">🔍 Agrandir la page 10</button>
+    </article>
+    <article class="pg" data-p="11">
+      <img src="pages/p11.jpg" alt="Page 11 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="11">🔍 Agrandir la page 11</button>
+    </article>
+    <article class="pg" data-p="12">
+      <img src="pages/p12.jpg" alt="Page 12 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="12">🔍 Agrandir la page 12</button>
+    </article>
+    <article class="pg" data-p="13">
+      <img src="pages/p13.jpg" alt="Page 13 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="13">🔍 Agrandir la page 13</button>
+    </article>
+    <article class="pg" data-p="14">
+      <img src="pages/p14.jpg" alt="Page 14 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="14">🔍 Agrandir la page 14</button>
+    </article>
+    <article class="pg" data-p="15">
+      <img src="pages/p15.jpg" alt="Page 15 du dossier technique" width="1920" height="1080" loading="lazy" decoding="async">
+      <button class="zoom" type="button" data-p="15">🔍 Agrandir la page 15</button>
+    </article>
   </main>
+
+  <footer>Nabta Alkon · dossier technique</footer>
+
+  <div id="lb" role="dialog" aria-modal="true" aria-label="Lecture en grand">
+    <div class="top">
+      <button id="lbp" type="button" aria-label="Page précédente">‹</button>
+      <b id="lbt">Page 1 / 15</b>
+      <button id="lbn" type="button" aria-label="Page suivante">›</button>
+      <button id="lbx" class="x" type="button" aria-label="Fermer">Fermer</button>
+    </div>
+    <div class="zone" id="lbz"><img id="lbi" alt=""></div>
+    <div class="hint">Glissez pour lire · pincez pour zoomer · tournez le téléphone pour voir la page entière</div>
+  </div>
+
 <script>
   var v=document.getElementById('v'),b=document.getElementById('son');
   v.play&&v.play().catch(function(){});
   b.addEventListener('click',function(){v.muted=false;v.currentTime=0;v.play();b.hidden=true});
   v.addEventListener('volumechange',function(){if(!v.muted)b.hidden=true});
-  var cur=document.getElementById('cur');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)cur.textContent=(+e.target.dataset.p)+1})},{rootMargin:'-50% 0px -50% 0px'});
-    document.querySelectorAll('.sheet').forEach(function(s){io.observe(s)});
-  }
-  /* Lecture en grand */
-  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbt=document.getElementById('lbt'),lbz=document.getElementById('lbz'),n=0;
-  function show(k){if(k<1)k=1;if(k>15)k=15;n=k;lbi.src='pages/p'+(k<10?'0':'')+k+'.jpg';lbi.alt='Page '+k+' du dossier technique';lbt.textContent='Page '+k+' / 15';lbz.scrollTo(0,0);cur.textContent=k+1}
+
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbt=document.getElementById('lbt'),lbz=document.getElementById('lbz'),n=1;
+  function show(k){if(k<1)k=1;if(k>15)k=15;n=k;lbi.src='pages/p'+(k<10?'0':'')+k+'.jpg';lbi.alt='Page '+k+' du dossier technique';lbt.textContent='Page '+k+' / 15';lbz.scrollTo(0,0)}
   function open(k){show(k);lb.classList.add('on');document.body.style.overflow='hidden'}
   function close(){lb.classList.remove('on');document.body.style.overflow=''}
-  document.querySelectorAll('.sheet').forEach(function(s){
-    var p=+s.dataset.p;if(!p)return;
-    var t=document.createElement('div');t.className='tap';t.textContent='🔍 Toucher pour agrandir';s.appendChild(t);
-    s.addEventListener('click',function(){open(p)});
+  document.querySelectorAll('.pg').forEach(function(a){
+    var p=+a.dataset.p;
+    a.querySelector('img').addEventListener('click',function(){open(p)});
+    a.querySelector('.zoom').addEventListener('click',function(){open(p)});
   });
   document.getElementById('lbx').onclick=close;
   document.getElementById('lbp').onclick=function(){show(n-1)};
