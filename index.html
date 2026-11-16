@@ -291,7 +291,7 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
 <nav class="hd" aria-label="Thèmes"><a href="#nt-3" data-go="nt:3">Pyrolyse</a><a href="#tech-4" data-go="tech:4">Biochar</a><a href="#tech-14" data-go="tech:14">CO₂</a></nav>
 
 <section class="video" id="video">
-  <video id="v" src="video.mp4" poster="poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+  <video id="v" src="video2.mp4" poster="poster2.jpg" autoplay muted loop playsinline controls preload="auto"></video>
   <button id="son" type="button" aria-label="Activer le son">🔊 Son</button>
 </section>
 
@@ -538,9 +538,16 @@ table.w4 tbody th,table.w4 td{font-size:.9rem}
     if(changed&&!keepScroll)ensureTop();
     try{history.replaceState(null,'','#'+cur+'-'+(i+1))}catch(e){}
   }
+  var VID={nt:['video2.mp4','poster2.jpg'],tech:['video.mp4','poster.jpg']},vcur='nt';
+  function setVideo(k){
+    if(k===vcur)return;vcur=k;
+    v.poster=VID[k][1];v.src=VID[k][0];v.load();
+    v.muted=!unmuted;
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+  }
   function switchDeck(k,noScroll){
     if(k===cur)return;
-    cur=k;
+    cur=k;setVideo(k);
     Object.keys(decks).forEach(function(n){decks[n].el.hidden=n!==k});
     $$('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.deck===k)});
     $$('.sheet ol').forEach(function(o){o.hidden=o.dataset.for!==k});
