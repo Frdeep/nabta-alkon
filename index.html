@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -227,8 +227,8 @@ td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
 .ref p{margin-top:8px;font-size:1rem}
 
 /* dock : discret, sans texte */
-.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,0,0,.08);box-shadow:0 4px 18px rgba(0,0,0,.12);transform:translate(-50%,160%);transition:transform .25s ease}
-.dock.on{transform:translate(-50%,0)}
+.dock{position:fixed;left:0;right:0;margin:0 auto;width:max-content;bottom:calc(14px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,0,0,.08);box-shadow:0 4px 18px rgba(0,0,0,.12);transform:translateY(160%);transition:transform .25s ease}
+.dock.on{transform:none}
 .dock button{border:0;background:transparent;cursor:pointer;color:var(--ink);padding:0}
 .dock #prev,.dock #next{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .dock #prev:active,.dock #next:active{background:rgba(0,0,0,.07)}
@@ -298,14 +298,58 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
 .hd a{flex:0 1 auto;max-width:none;padding:0 14px}
 /* vidéo : jamais plus haute que l'écran */
 #v{max-height:72vh;background:#000}
+
+/* sélecteur de langue */
+.top{background:#fff}
+.langs{display:flex;justify-content:flex-end;gap:8px;padding:12px 14px 0}
+.langs a{display:flex;align-items:center;gap:8px;padding:0 14px 0 10px;min-height:40px;border:1px solid var(--line);border-radius:999px;font-family:var(--body);font-weight:600;font-size:.92rem;text-decoration:none;color:var(--ink);background:#fff}
+.langs a.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.langs svg{width:24px;height:16px;display:block;border-radius:3px;flex:none}
+
+/* arabe : lecture de droite à gauche */
+html[lang=ar]{--cond:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;--body:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif}
+html[lang=ar] *{letter-spacing:0!important;text-transform:none!important}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3{line-height:1.3}
+html[dir=rtl] .t.note,html[dir=rtl] .t.ret{border-left:1px solid var(--line);border-right:4px solid var(--acc2);border-radius:18px 6px 6px 18px}
+html[dir=rtl] i:not([class]){margin-right:0;margin-left:10px}
+html[dir=rtl] #dots i{margin:0}
+html[dir=rtl] th,html[dir=rtl] td{text-align:right}
+html[dir=rtl] th.num,html[dir=rtl] td.num{text-align:left}
+html[dir=rtl] #son{right:auto;left:12px}
+html[dir=rtl] .dock svg{transform:scaleX(-1)}
+html[dir=rtl] .hd a{font-size:1.25rem}
+html[dir=rtl] .gantt,html[dir=rtl] .chart,html[dir=rtl] .bars,html[dir=rtl] .cols,html[dir=rtl] svg.chart{direction:ltr}
+
+/* carte de choix de langue (après 10 s) */
+.lp{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:20px}
+.lp[hidden]{display:none}
+.lp-bg{position:absolute;inset:0;background:rgba(0,0,0,.5);animation:lpf .3s ease}
+.lp-card{position:relative;width:min(380px,100%);background:#fff;border-radius:24px;padding:30px 22px 22px;box-shadow:0 20px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:12px;animation:lpu .35s cubic-bezier(.2,.9,.3,1.2)}
+.lp-x{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;background:transparent;font-size:1.9rem;line-height:1;color:#555;cursor:pointer;border-radius:50%}
+.lp-t{margin:0 0 6px;text-align:center;display:flex;flex-direction:column;gap:2px;font-family:var(--body)}
+.lp-t b{font-size:1.25rem;font-weight:600}
+.lp-t span{font-size:1rem;color:var(--mut)}
+.lp-card a{display:flex;align-items:center;gap:14px;min-height:58px;padding:0 18px;border:1.5px solid var(--line);border-radius:16px;font-family:var(--body);font-weight:600;font-size:1.1rem;color:var(--ink);text-decoration:none;background:#fff}
+.lp-card a.on{border-color:var(--ink);background:#f4f6f3}
+.lp-card a svg{width:32px;height:22px;border-radius:3px;flex:none}
+.lp-card a[lang=ar]{direction:rtl}
+@keyframes lpf{from{opacity:0}to{opacity:1}}
+@keyframes lpu{from{opacity:0;transform:translateY(24px) scale(.94)}to{opacity:1;transform:none}}
+.lp-card{direction:ltr}
+
+svg.chart{overflow:visible}
+bdi[dir=ltr]{unicode-bidi:isolate}
+html[dir=rtl] .months,html[dir=rtl] .track2,html[dir=rtl] .bchart{direction:ltr}
+html[dir=rtl] .bar2{direction:rtl;display:block;line-height:40px;text-align:center;white-space:nowrap;padding:0 6px;font-size:1rem}
+html[dir=rtl] .bar2,html[dir=rtl] .bar2 *{white-space:nowrap!important}
 </style>
 </head>
 <body>
-<nav class="hd" aria-label="Thèmes"><a href="#nt-3" data-go="nt:3">Pyrolyse</a><a href="#tech-4" data-go="tech:4">Biochar</a><a href="#tech-14" data-go="tech:14">CO₂</a></nav>
+<header class="top"><div class="langs" role="group" aria-label="Langue"><a href="./" hreflang="fr" lang="fr" aria-label="Français" class="on"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg><span>FR</span></a><a href="en/" hreflang="en" lang="en" aria-label="English"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.6"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6.5"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3.6"/></svg><span>EN</span></a><a href="ar/" hreflang="ar" lang="ar" aria-label="العربية"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#1B6B3A"/><text x="15" y="15.5" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" font-family="IBM Plex Sans Arabic,Arial,sans-serif">ع</text></svg><span>عربي</span></a></div><nav class="hd" aria-label="Thèmes"><a href="#nt-3" data-go="nt:3">Pyrolyse</a><a href="#tech-4" data-go="tech:4">Biochar</a><a href="#tech-14" data-go="tech:14">CO₂</a></nav></header>
 
 <section class="video" id="video">
   <video id="v" src="video3.mp4" poster="poster3.jpg" autoplay muted loop playsinline controls preload="auto"></video>
-  <button id="son" type="button" aria-label="Activer le son"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Son</button>
+  <button id="son" type="button" aria-label="Activer le son"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Son</span></button>
 </section>
 
 <nav class="tabs" id="tabs" aria-label="Documents">
@@ -413,7 +457,7 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
  <div class="t lt m1 d1"><span class="lab">Site</span><p>Localisation, accès et énergie</p></div>
  <div class="t lt m1 d1"><span class="lab">Objectif</span><p>Produit, usage et budget disponible</p></div>
  <div class="t dk m2 d6 contact"><div><h3>Contacter Nabta Alkon</h3><p>Partagez ces quatre repères pour préparer votre offre.</p></div>
-  <div class="cbox"><a href="tel:+17373179014">Téléphone · +1 737 317 9014</a><a href="mailto:contact@nabta-alkon.com">E-mail · contact@nabta-alkon.com</a></div></div>
+  <div class="cbox"><a href="tel:+17373179014">Téléphone · +1 737 317 9014</a><a href="mailto:contact@nabta-alkon.com">E-mail · contact@nabta-alkon.com</a><a href="mailto:negzbls@proton.me">E-mail · negzbls@proton.me</a></div></div>
 </div>
 <nav class="chips"><a href="#nt-1" data-go="nt:1">Vue d’ensemble</a><a href="#nt-2" data-go="nt:2">Notre offre</a><a href="#nt-13" data-go="nt:13">Questions</a></nav>
 </div></article></div></div>
@@ -490,8 +534,10 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
   </div>
 </div>
 
+<div class="lp" id="lp" hidden role="dialog" aria-modal="true" aria-label="Langue / Language / اللغة"><div class="lp-bg" data-lpclose></div><div class="lp-card"><button type="button" class="lp-x" data-lpclose aria-label="Close">×</button><p class="lp-t"><b lang="fr">Choisissez votre langue</b><span lang="en">Choose your language</span><span lang="ar" dir="rtl">اختر لغتك</span></p><a href="./" hreflang="fr" lang="fr" class="on"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg><span>Français</span></a><a href="en/" hreflang="en" lang="en"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.6"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6.5"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3.6"/></svg><span>English</span></a><a href="ar/" hreflang="ar" lang="ar"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#1B6B3A"/><text x="15" y="15.5" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" font-family="IBM Plex Sans Arabic,Arial,sans-serif">ع</text></svg><span>العربية</span></a></div></div>
+
 <footer class="ft">Nabta Alkon</footer>
-<script>(function(){
+<script>window.CFG={"vid": {"nt": ["video3.mp4", "poster3.jpg"], "tech": ["video.mp4", "poster.jpg"]}};(function(){
   var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 
   /* ---------- vidéo : lecture auto muette, le son s'active au premier geste / à l'appui sur les touches de volume ---------- */
@@ -548,12 +594,13 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
   function go(i,smooth,keepScroll){
     var d=D();i=Math.max(0,Math.min(d.slides.length-1,i));
     var changed=i!==d.idx;d.idx=i;
-    d.track.scrollTo({left:i*d.track.clientWidth,behavior:smooth?'smooth':'auto'});
+    d.track.scrollTo({left:SG*i*d.track.clientWidth,behavior:smooth?'smooth':'auto'});
     setH(d);update();
     if(changed&&!keepScroll)ensureTop();
     try{history.replaceState(null,'','#'+cur+'-'+(i+1))}catch(e){}
   }
-  var VID={nt:['video3.mp4','poster3.jpg'],tech:['video.mp4','poster.jpg']},vcur='nt';
+  var C=window.CFG||{},VID=C.vid||{nt:['video3.mp4','poster3.jpg'],tech:['video.mp4','poster.jpg']},vcur='nt';
+  var SG=document.documentElement.dir==='rtl'?-1:1;
   function setVideo(k){
     if(k===vcur)return;vcur=k;
     v.poster=VID[k][1];v.src=VID[k][0];v.load();
@@ -566,7 +613,7 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
     Object.keys(decks).forEach(function(n){decks[n].el.hidden=n!==k});
     $$('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.deck===k)});
     $$('.sheet ol').forEach(function(o){o.hidden=o.dataset.for!==k});
-    var d=D();d.track.scrollLeft=d.idx*d.track.clientWidth;setH(d);update();
+    var d=D();d.track.scrollLeft=SG*d.idx*d.track.clientWidth;setH(d);update();
     if(!noScroll)ensureTop();
   }
   /* défilement au doigt */
@@ -576,7 +623,7 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
       clearTimeout(t);
       t=setTimeout(function(){
         if(d.el.hidden)return;
-        var i=Math.round(d.track.scrollLeft/d.track.clientWidth);
+        var i=Math.round(Math.abs(d.track.scrollLeft)/d.track.clientWidth);
         if(i!==d.idx){d.idx=i;setH(d);update();ensureTop();try{history.replaceState(null,'','#'+k+'-'+(i+1))}catch(e){}}
       },80);
     },{passive:true});
@@ -585,7 +632,7 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
       d.slides.forEach(function(s){ro.observe(s)});
     }
   });
-  window.addEventListener('resize',function(){var d=D();d.track.scrollLeft=d.idx*d.track.clientWidth;setH(d)});
+  window.addEventListener('resize',function(){var d=D();d.track.scrollLeft=SG*d.idx*d.track.clientWidth;setH(d)});
   function allH(){Object.keys(decks).forEach(function(k){if(k===cur)setH(decks[k])})}
   window.addEventListener('load',function(){allH();setTimeout(function(){document.body.classList.add('ready')},700);setTimeout(allH,400);setTimeout(allH,1500)});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(allH);
@@ -628,8 +675,8 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
   document.addEventListener('keydown',function(e){
     if(!sheet.hidden){if(e.key==='Escape')closeSheet();return}
     if(!dock.classList.contains('on'))return;
-    if(e.key==='ArrowLeft')go(D().idx-1,true);
-    if(e.key==='ArrowRight')go(D().idx+1,true);
+    if(e.key==='ArrowLeft')go(D().idx-SG,true);
+    if(e.key==='ArrowRight')go(D().idx+SG,true);
   });
 
   /* lien direct #nt-5 / #tech-3 */
@@ -640,6 +687,15 @@ a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
     requestAnimationFrame(function(){go((+m[2])-1,false,true);
       var top=D().track.getBoundingClientRect().top+window.pageYOffset-tabs.offsetHeight;window.scrollTo(0,Math.max(0,top))});
   }
+
+  /* carte de choix de langue : 10 s après l'arrivée, une seule fois */
+  var LP=$('#lp');
+  function lpClose(){LP.hidden=true;try{localStorage.setItem('lp','1')}catch(e){}}
+  $$('[data-lpclose]',LP).forEach(function(b){b.addEventListener('click',lpClose)});
+  $$('.langs a,.lp-card a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('lp','1')}catch(e){}})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!LP.hidden)lpClose()});
+  var seen=false;try{seen=!!localStorage.getItem('lp')}catch(e){}
+  if(!seen)setTimeout(function(){LP.hidden=false},10000);
 })();
 </script>
 </body>

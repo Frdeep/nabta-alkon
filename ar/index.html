@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nabta Alkon – العرض والملف التقني</title>
+<meta name="description" content="Nabta Alkon: فيديو تعريفي والعرض الرسمي والملف التقني (الانحلال الحراري، الفحم الحيوي، CO₂).">
+<meta property="og:title" content="Nabta Alkon – العرض والملف التقني">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#121212">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--ink:#121212;--fg:#161a18;--mut:#5b6761;--line:#e2e6e3;--soft:#f4f6f3;--cond:"Barlow Condensed","Arial Narrow",Impact,system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--tabs:56px;--dock:76px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+a.t{text-decoration:none}
+button{font-family:inherit}
+img{max-width:100%}
+
+/* thèmes */
+.deck.nt{--acc:#c4e76b;--on:#121212;--acc2:#8db63c;--pale:#dde4d3;--kick:#121212;--kpi:#121212}
+.deck.tech{--acc:#d71920;--on:#fff;--acc2:#d71920;--pale:#f6dcdc;--kick:#d71920;--kpi:#d71920}
+
+/* en-tête + vidéo */
+.hd{display:flex;align-items:stretch;justify-content:center;gap:6px;padding:4px 12px;border-bottom:1px solid var(--line)}
+.hd a{flex:1;max-width:200px;display:flex;align-items:center;justify-content:center;min-height:64px;font-family:var(--cond);font-weight:700;font-size:1.65rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:3px solid transparent}
+.hd a:active,.hd a:hover{border-bottom-color:var(--ink)}
+.video{position:relative;background:#000}
+.video video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;object-fit:contain}
+#son{position:absolute;top:12px;right:12px;background:rgba(18,18,18,.78);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
+#son[hidden]{display:none}
+#son{display:flex;align-items:center;gap:6px}
+
+/* onglets */
+.tabs{position:sticky;top:0;z-index:30;display:flex;gap:8px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;height:36px;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;font-family:var(--cond);font-weight:600;font-size:.98rem;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;white-space:nowrap;padding:0 6px}
+.tabs button.on{background:var(--ink);color:#fff}
+
+/* decks + carrousel */
+#viewer{display:block}
+.deck[hidden]{display:none}
+.track{display:flex;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}
+.ready .track{transition:height .25s ease}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.inner{max-width:980px;margin:0 auto;padding:34px 20px calc(var(--dock) + 56px)}
+
+.kick{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-family:var(--cond);font-weight:600;font-size:1.02rem;letter-spacing:.04em;text-transform:uppercase;color:var(--kick)}
+.kick::before{content:"";flex:0 0 4px;height:18px;background:var(--acc2)}
+h1,h2,h3,h4{margin:0}
+h2{font-family:var(--cond);font-weight:700;font-size:2.3rem;line-height:1.04;text-transform:uppercase;margin:0 0 18px;letter-spacing:-.005em}
+h2 .r{color:#d71920}
+.lead{font-size:1.1rem;line-height:1.55;color:#2a322e;margin:0 0 32px}
+h3{font-family:var(--cond);font-weight:700;font-size:1.3rem;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
+h4{font-family:var(--cond);font-weight:700;font-size:1.15rem;line-height:1.15;text-transform:uppercase;letter-spacing:.015em}
+p{margin:0}
+.t p+p{margin-top:10px}
+.t h3+p,.t h4+p{margin-top:10px}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bento+.bento{margin-top:16px}
+.bento>*{grid-column:span 2;min-width:0}
+@media (max-width:759px){.bento>.m1{grid-column:span 1}}
+.t{position:relative;border-radius:18px;padding:22px 20px;overflow:hidden}
+.t.lt{background:#fff;border:1px solid var(--line)}
+.t.so{background:var(--soft);border:1px solid var(--line)}
+.t.hi{background:var(--acc);color:var(--on)}
+.t.dk{background:var(--ink);color:#fff}
+.t.dash{background:#fff;border:2px dashed #9aa59f}
+.t.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:6px 18px 18px 6px}
+.t.ph{padding:0;background:#f6f6f4;border:1px solid var(--line)}
+.t.ph img{display:block;width:100%;height:auto}
+.t.ph figcaption{padding:12px 16px;font-size:.88rem;color:var(--mut)}
+.t .lab{display:block;font-family:var(--cond);font-weight:700;font-size:.92rem;letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px;color:var(--mut)}
+.t.hi .lab{color:rgba(18,18,18,.72)}
+.deck.tech .t.hi .lab{color:rgba(255,255,255,.85)}
+.t.dk .lab,.t.dk .lab.a{color:var(--acc)}
+.deck.tech .t.dk .lab{color:#ff6a70}
+.t .kpi,.kpi{display:block;font-family:var(--cond);font-weight:700;font-size:2.7rem;line-height:1;color:var(--kpi);margin:0 0 10px;letter-spacing:-.005em}
+.kpi.s{font-size:1.9rem}
+.t.hi .kpi{color:var(--on)}
+.t.dk .kpi{color:var(--acc)}
+.deck.tech .t.dk .kpi{color:#fff}
+.t .cap,.cap{font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+p.cap{margin:6px 0 -2px}
+.small{font-size:.9rem;color:var(--mut);line-height:1.5}
+.t.dk .small,.t.dk p{color:#ecefed}
+.tag{display:inline-block;margin-top:14px;padding:5px 10px;border-radius:6px;background:rgba(18,18,18,.08);font-family:var(--cond);font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase}
+.tag.w{background:rgba(255,255,255,.15)}
+.t.lot .tag{background:var(--pale)}
+.base{font-size:.9rem;color:var(--mut);line-height:1.55;margin-top:6px}
+.base a{font-weight:600;color:#26302b}
+
+/* à retenir */
+.t.ret{display:flex;flex-direction:column;gap:18px;background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:6px 18px 18px 6px}
+.t.ret p{font-size:1.1rem;font-weight:500;line-height:1.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:var(--cond);font-weight:700;font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase;padding:14px 20px;border-radius:12px;cursor:pointer;min-height:48px}
+.btn.dk{background:var(--ink);color:#fff;align-self:flex-start}
+.btn.hi{background:var(--acc);color:var(--on)}
+.t.btn.big{min-height:84px;font-size:1.2rem;text-align:center}
+.lnk{display:inline-block;margin-top:16px;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:2px}
+.go{display:inline-block;margin-top:16px;font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+
+/* puces de navigation */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;padding-top:22px;border-top:2px solid var(--ink)}
+.chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--soft);border:1px solid var(--line);font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+
+/* couverture */
+.cover h1{font-family:var(--cond);font-weight:700;font-size:2.7rem;line-height:1.05;text-transform:uppercase;margin:22px 0 18px}
+.cover mark{background:var(--acc);color:var(--ink);padding:0 10px;display:inline-block;margin-top:6px}
+.cover .brand{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.cover .brand img{height:48px;width:auto}
+.cover .brand span{font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.05em;text-transform:uppercase}
+.cover p{font-size:1.1rem;line-height:1.55}
+
+/* étapes */
+.step h3{font-size:1.4rem}
+.st5 i{display:block;font-style:normal;font-family:var(--cond);font-weight:700;font-size:2rem;line-height:1;margin-bottom:8px}
+.lot h4 i{font-style:normal;margin-right:8px;color:var(--acc2)}
+.lot .tag{margin-top:16px}
+.big3 .kpi{font-size:4rem}
+.win h4 i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;margin-right:10px;font-size:.95rem}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;font-family:var(--cond);font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.03em}
+.chain em{font-style:normal;color:var(--acc2)}
+.chain span{padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:999px}
+
+/* barres capacité */
+.hb{margin:18px 0 0}
+.hb .hl{font-size:1rem;margin-bottom:8px}
+.hr{display:flex;align-items:center;gap:12px}
+.hr i{display:block;height:30px;border-radius:6px}
+.hr i.a{background:var(--acc)}
+.hr i.k{background:var(--ink)}
+.hr b{font-family:var(--cond);font-size:1.4rem;white-space:nowrap}
+.hr{position:relative}
+.hr i{flex:0 1 auto}
+.bars .small{margin-top:18px}
+
+/* histogramme Pryme */
+.bchart{display:flex;align-items:flex-end;gap:10px;height:150px;margin:20px 0 16px}
+.bc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.bc b{font-family:var(--cond);font-size:1.1rem;line-height:1}
+.bc i{display:block;width:100%;border-radius:4px 4px 0 0;min-height:3px}
+.bc i.a{background:var(--acc)}
+.bc i.k{background:var(--ink)}
+.bc span{font-family:var(--cond);font-size:.95rem;color:var(--mut)}
+
+/* donut */
+.donutbox{display:flex;flex-direction:column;align-items:center;gap:22px}
+.donut{width:min(250px,76%);height:auto}
+.dn{font-family:var(--cond);font-weight:700;font-size:15px}
+.ds{font-family:var(--body);font-size:7.5px;fill:#5b6761}
+.leg{list-style:none;padding:0;margin:0;display:grid;gap:14px;width:100%}
+.leg li{display:flex;gap:12px;align-items:flex-start;font-size:1.02rem;line-height:1.3}
+.leg i{flex:0 0 16px;height:16px;border-radius:3px;margin-top:3px}
+.leg small{display:block;color:var(--mut);font-size:.88rem;margin-top:2px}
+.eq{margin-top:24px}
+.eq small{font-size:.9rem}
+
+/* graphiques */
+.chart{width:100%;height:auto;display:block}
+.chart .ax{font-family:var(--body);font-size:11px;fill:#5b6761}
+.chart .lb{font-family:var(--cond);font-weight:700;font-size:14px;fill:#121212}
+.chart .gl{stroke:#e2e6e3;stroke-width:1}
+.chart .gl.z{stroke:#121212}
+.stats{display:grid;gap:26px;align-content:center}
+.stats div b.kpi{margin-bottom:4px}
+.stats span{color:#ecefed}
+.nocount p{font-size:1.02rem}
+.nocount p+p{margin-top:14px}
+
+/* Q&R */
+.qa h3{font-size:1.35rem}
+.qa p{margin-top:12px}
+.qh{display:flex;flex-direction:column;gap:6px}
+.cmp .qh{margin-bottom:6px}
+.cg{display:grid;grid-template-columns:1fr;gap:0;margin-top:16px}
+.cg .ch{display:none}
+.cg>div{padding:0}
+.cg .cl{font-family:var(--cond);font-weight:700;font-size:.92rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-top:18px}
+.cg .cl+div{font-weight:600;padding:6px 0 4px;border-bottom:0}
+.cg .cl+div::before{content:"Nabta Alkon · ";font-family:var(--cond);font-weight:700;color:var(--acc2);text-transform:uppercase;letter-spacing:.04em;font-size:.85rem}
+.cg .cl+div+div::before{content:"WASTX P5000 · Biofabrik · ";font-family:var(--cond);font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-size:.85rem}
+.cg .cl+div+div{color:#333}
+
+/* final */
+.final h1{font-family:var(--cond);font-weight:700;font-size:2.9rem;line-height:1.05;text-transform:uppercase;margin:0 0 20px}
+.final p{font-size:1.1rem}
+.final .btn{margin-top:24px}
+.contact{display:flex;flex-direction:column;gap:22px}
+.contact h3{color:#fff;font-size:1.6rem}
+.contact p{margin-top:10px}
+.cbox{background:#fff;border-radius:12px;padding:18px 18px;display:grid;gap:12px}
+.cbox a{color:var(--ink);font-weight:600;text-decoration:none;word-break:break-word}
+
+/* tech */
+.t.row h3{margin-bottom:14px}
+.t.row .lab{margin-top:14px;color:var(--acc);margin-bottom:4px}
+.deck.tech .t.row .lab{color:#ff6a70}
+.t.ch h3 i{font-style:normal;color:#ff6a70;margin-right:6px}
+.t.ch .go{color:#fff}
+.deck.tech .t.hi h3{color:#fff}
+.big{font-size:1.15rem;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+.tb{padding:0}
+thead th{background:var(--ink);color:#fff;text-align:left;font-family:var(--cond);font-weight:600;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:16px 8px;line-height:1.2}
+tbody th,tbody td{padding:18px 8px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+tbody th{font-weight:600}
+td.num,th.num{text-align:right}
+thead th:first-child,tbody th{padding-left:14px}
+thead th:last-child,tbody td:last-child{padding-right:14px}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+.neg{color:#d71920;font-weight:700}
+.gantt .months{display:grid;grid-template-columns:repeat(6,1fr);font-family:var(--cond);font-weight:700;font-size:1.05rem;border-bottom:1px solid var(--line)}
+.gantt .months span{padding:4px 0}
+.gantt .g{margin-top:22px}
+.gantt .g p{font-weight:600;margin-bottom:8px}
+.track2{position:relative;height:46px;background:repeating-linear-gradient(to right,transparent 0,transparent calc(16.666% - 1px),var(--line) calc(16.666% - 1px),var(--line) 16.666%)}
+.bar2{position:absolute;top:3px;height:40px;border-radius:12px;background:#d71920;color:#fff;font-family:var(--cond);font-weight:700;font-size:1.1rem;display:flex;align-items:center;padding:0 12px;white-space:nowrap}
+.bar2.k{background:var(--ink)}
+.ref a{font-family:var(--cond);font-weight:700;font-size:1.2rem;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.ref p{margin-top:8px;font-size:1rem}
+
+/* dock : discret, sans texte */
+.dock{position:fixed;left:0;right:0;margin:0 auto;width:max-content;bottom:calc(14px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,0,0,.08);box-shadow:0 4px 18px rgba(0,0,0,.12);transform:translateY(160%);transition:transform .25s ease}
+.dock.on{transform:none}
+.dock button{border:0;background:transparent;cursor:pointer;color:var(--ink);padding:0}
+.dock #prev,.dock #next{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.dock #prev:active,.dock #next:active{background:rgba(0,0,0,.07)}
+.dock #prev[disabled],.dock #next[disabled]{opacity:.25}
+.dock .dots{height:40px;padding:0 6px;display:flex;align-items:center}
+#dots{display:flex;align-items:center;gap:5px}
+#dots i{display:block;width:6px;height:6px;border-radius:3px;background:rgba(0,0,0,.2);transition:width .2s,background .2s}
+#dots i.on{width:18px;background:var(--ink)}
+
+/* sommaire */
+.sheet{position:fixed;inset:0;z-index:60}
+.sheet[hidden]{display:none}
+.sh-bg{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.sh-box{position:absolute;left:0;right:0;bottom:0;max-height:82vh;background:#fff;border-radius:22px 22px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom));overflow:auto}
+.sh-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.sh-top b{font-family:var(--cond);font-size:1.6rem;text-transform:uppercase}
+.sh-top button{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:10px 18px;font-family:var(--cond);font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;cursor:pointer}
+.sheet ol{list-style:none;margin:0;padding:0}
+.sheet ol[hidden]{display:none}
+.sheet li a{display:flex;align-items:center;gap:14px;min-height:56px;padding:10px 4px;border-bottom:1px solid var(--line);text-decoration:none;font-size:1.02rem;line-height:1.3}
+.sheet li a i{flex:0 0 36px;font-style:normal;font-family:var(--cond);font-weight:700;font-size:1.15rem;color:var(--mut)}
+.sheet li a.cur{font-weight:600}
+.sheet li a.cur i{color:var(--ink)}
+.ft{padding:30px 20px calc(var(--dock) + 30px);color:var(--mut);font-size:.9rem;text-align:center}
+
+/* grand écran */
+@media (min-width:760px){
+  body{font-size:17px}
+  .bento{grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+  .bento>*{grid-column:span 6}
+  .bento>.d1{grid-column:span 1}.bento>.d2{grid-column:span 2}.bento>.d3{grid-column:span 3}.bento>.d4{grid-column:span 4}
+  .bento>.d1{min-width:0}
+  .inner{padding:46px 32px calc(var(--dock) + 64px)}
+  h2{font-size:3rem}
+  .t{padding:26px 24px}
+  .cover h1{font-size:3.4rem}
+  .donutbox{flex-direction:row;justify-content:center}
+  .leg{width:auto}
+  .cg{grid-template-columns:150px 1fr 1fr}
+  .cg .ch{display:block;font-family:var(--cond);font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:3px solid var(--ink);padding-bottom:8px}
+  .cg .ch.a{color:var(--ink)}
+  .cg>div{padding:14px 12px 14px 0}
+  .cg .cl{margin:0;border-top:1px solid var(--line)}
+  .cg .cl+div,.cg .cl+div+div{border-top:1px solid var(--line);margin:0;padding:14px 12px 14px 0}
+  .cg .cl+div::before,.cg .cl+div+div::before{content:none}
+  .sh-box{left:50%;right:auto;width:min(620px,94vw);transform:translateX(-50%)}
+  .contact{flex-direction:row;align-items:center;justify-content:space-between}
+  .cbox{min-width:300px}
+}
+@media (prefers-reduced-motion:reduce){.track,.dock{transition:none}html{scroll-behavior:auto}}
+
+table.w4{table-layout:fixed}
+table.w4 th:nth-child(1){width:17%}
+table.w4 th:nth-child(2){width:26%}
+table.w4 th:nth-child(3),table.w4 th:nth-child(4){width:28.5%}
+table.w4 td.num{white-space:normal}
+table.w4 tbody th,table.w4 td{font-size:.9rem}
+
+/* zones tactiles confortables */
+.base a{display:inline-block;padding:9px 2px;margin:-4px 0}
+.lnk{padding:10px 0 6px}
+.slide a[target=_blank]{display:inline-block;padding:8px 0}
+a[href^="tel:"],a[href^="mailto:"]{display:block;padding:10px 0}
+
+/* barre du haut : répartie régulièrement */
+.hd{justify-content:space-evenly;gap:0;padding:4px 8px}
+.hd a{flex:0 1 auto;max-width:none;padding:0 14px}
+/* vidéo : jamais plus haute que l'écran */
+#v{max-height:72vh;background:#000}
+
+/* sélecteur de langue */
+.top{background:#fff}
+.langs{display:flex;justify-content:flex-end;gap:8px;padding:12px 14px 0}
+.langs a{display:flex;align-items:center;gap:8px;padding:0 14px 0 10px;min-height:40px;border:1px solid var(--line);border-radius:999px;font-family:var(--body);font-weight:600;font-size:.92rem;text-decoration:none;color:var(--ink);background:#fff}
+.langs a.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.langs svg{width:24px;height:16px;display:block;border-radius:3px;flex:none}
+
+/* arabe : lecture de droite à gauche */
+html[lang=ar]{--cond:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;--body:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif}
+html[lang=ar] *{letter-spacing:0!important;text-transform:none!important}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3{line-height:1.3}
+html[dir=rtl] .t.note,html[dir=rtl] .t.ret{border-left:1px solid var(--line);border-right:4px solid var(--acc2);border-radius:18px 6px 6px 18px}
+html[dir=rtl] i:not([class]){margin-right:0;margin-left:10px}
+html[dir=rtl] #dots i{margin:0}
+html[dir=rtl] th,html[dir=rtl] td{text-align:right}
+html[dir=rtl] th.num,html[dir=rtl] td.num{text-align:left}
+html[dir=rtl] #son{right:auto;left:12px}
+html[dir=rtl] .dock svg{transform:scaleX(-1)}
+html[dir=rtl] .hd a{font-size:1.25rem}
+html[dir=rtl] .gantt,html[dir=rtl] .chart,html[dir=rtl] .bars,html[dir=rtl] .cols,html[dir=rtl] svg.chart{direction:ltr}
+
+/* carte de choix de langue (après 10 s) */
+.lp{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:20px}
+.lp[hidden]{display:none}
+.lp-bg{position:absolute;inset:0;background:rgba(0,0,0,.5);animation:lpf .3s ease}
+.lp-card{position:relative;width:min(380px,100%);background:#fff;border-radius:24px;padding:30px 22px 22px;box-shadow:0 20px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:12px;animation:lpu .35s cubic-bezier(.2,.9,.3,1.2)}
+.lp-x{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;background:transparent;font-size:1.9rem;line-height:1;color:#555;cursor:pointer;border-radius:50%}
+.lp-t{margin:0 0 6px;text-align:center;display:flex;flex-direction:column;gap:2px;font-family:var(--body)}
+.lp-t b{font-size:1.25rem;font-weight:600}
+.lp-t span{font-size:1rem;color:var(--mut)}
+.lp-card a{display:flex;align-items:center;gap:14px;min-height:58px;padding:0 18px;border:1.5px solid var(--line);border-radius:16px;font-family:var(--body);font-weight:600;font-size:1.1rem;color:var(--ink);text-decoration:none;background:#fff}
+.lp-card a.on{border-color:var(--ink);background:#f4f6f3}
+.lp-card a svg{width:32px;height:22px;border-radius:3px;flex:none}
+.lp-card a[lang=ar]{direction:rtl}
+@keyframes lpf{from{opacity:0}to{opacity:1}}
+@keyframes lpu{from{opacity:0;transform:translateY(24px) scale(.94)}to{opacity:1;transform:none}}
+.lp-card{direction:ltr}
+
+svg.chart{overflow:visible}
+bdi[dir=ltr]{unicode-bidi:isolate}
+html[dir=rtl] .months,html[dir=rtl] .track2,html[dir=rtl] .bchart{direction:ltr}
+html[dir=rtl] .bar2{direction:rtl;display:block;line-height:40px;text-align:center;white-space:nowrap;padding:0 6px;font-size:1rem}
+html[dir=rtl] .bar2,html[dir=rtl] .bar2 *{white-space:nowrap!important}
+</style>
+</head>
+<body>
+<header class="top"><div class="langs" role="group" aria-label="اللغة"><a href="../" hreflang="fr" lang="fr" aria-label="Français"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg><span>FR</span></a><a href="../en/" hreflang="en" lang="en" aria-label="English"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.6"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6.5"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3.6"/></svg><span>EN</span></a><a href="./" hreflang="ar" lang="ar" aria-label="العربية" class="on"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#1B6B3A"/><text x="15" y="15.5" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" font-family="IBM Plex Sans Arabic,Arial,sans-serif">ع</text></svg><span>عربي</span></a></div><nav class="hd" aria-label="المحاور"><a href="#nt-3" data-go="nt:3">الانحلال الحراري</a><a href="#tech-4" data-go="tech:4">الفحم الحيوي</a><a href="#tech-14" data-go="tech:14">CO₂</a></nav></header>
+
+<section class="video" id="video">
+  <video id="v" src="../video_en.mp4" poster="../poster_en.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+  <button id="son" type="button" aria-label="تشغيل الصوت"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>الصوت</span></button>
+</section>
+
+<nav class="tabs" id="tabs" aria-label="المستندات">
+  <button type="button" data-deck="nt" class="on">العرض الرسمي</button>
+  <button type="button" data-deck="tech">الملف التقني</button>
+</nav>
+
+<main id="viewer">
+  <div class="deck nt" id="deck-nt" data-deck="nt"><div class="track"><article class="slide" id="nt-1" data-n="1" data-t="نظرة عامة"><div class="inner">
+<p class="kick">Nabta Alkon · العرض الرسمي · أكتوبر <bdi dir="ltr">2026</bdi></p>
+<div class="bento">
+ <div class="t lt cover m2 d4"><div class="brand"><img src="../img/logo.png" alt="Nabta Alkon" width="140" height="51"><span>فهم المشروع</span></div>
+  <h1>مخلفاتكم، <mark>مشروعكم الصناعي</mark> القادم</h1>
+  <p>وحدات للانحلال الحراري وشراكات تحوّل مواد مختارة إلى منتجات ذات قيمة.</p></div>
+ <figure class="t ph m2 d2"><img src="../img/usine.jpg" alt="رسم توضيحي للمنشأة" width="900" height="846"><figcaption>رسم توضيحي للمنشأة</figcaption></figure>
+ <a class="t hi m1 d3 btn big" href="#nt-2" data-go="nt:2">العرض ←</a>
+ <a class="t dk m1 d3 btn big" href="#nt-15" data-go="nt:15">تواصلوا مع Nabta Alkon ←</a>
+</div>
+<nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav>
+</div></article><article class="slide" id="nt-2" data-n="2" data-t="مشروعكم، طريقان للمضي قدمًا"><div class="inner"><p class="kick"><bdi dir="ltr">01</bdi> / العرض</p><h2>مشروعكم، طريقان للمضي قدمًا</h2><p class="lead">إما أن تشتروا وحدة، وإما أن تبنوا شراكة. ويحدد العقد من ينفّذ ومن يشغّل ومن يبيع.</p><div class="bento"><div class="t lt m2 d3"><h3>شراء وحدة</h3><p>المعدات والخدمات المشمولة في عرضكم، مع ميزانية ومراحل للاستلام.</p></div>
+<div class="t lt m2 d3"><h3>بناء شراكة</h3><p>مشروع مشترك: المساهمات والمسؤوليات والإيرادات وشروط الخروج تُحدَّد معًا.</p></div>
+<div class="t hi m1 d2"><h4>التركيب</h4><p>تجهيز الموقع ودمج المعدات وتنظيم التجارب.</p></div>
+<div class="t hi m1 d2"><h4>التشغيل</h4><p>تشغيل الوحدة وصيانة المعدات ومتابعة الإنتاج.</p></div>
+<div class="t hi m2 d2"><h4>المنتجات</h4><p>تحديد الجودة والتعبئة التي يتوقعها المشترون.</p></div>
+<div class="t so m2 d6"><p class="cap">اختياري: دراسة جدوى وتحاليل للمواد ومرافقة.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>يوضح عرضكم من يركّب ومن يشغّل ومن ينظّم المبيعات.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: العرض كما وصفته Nabta Alkon. تُحدَّد الخدمات والمسؤوليات والالتزامات في العرض التعاقدي.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-3" data-n="3" data-t="الانحلال الحراري في خطوات قليلة"><div class="inner"><p class="kick"><bdi dir="ltr">02</bdi> / فهم العملية</p><h2>الانحلال الحراري في خطوات قليلة</h2><p class="lead">تُسخَّن المادة دون إمداد بالأكسجين، ثم يُستخلص منها سوائل وغاز ومادة صلبة.</p><div class="bento"><div class="t lt m1 d2 step"><h3>التحضير</h3><p>الفرز وضبط الحجم وتجهيز المادة.</p></div>
+<div class="t hi m1 d2 step"><h3>التحويل</h3><p>تسخين المادة داخل مفاعل.</p></div>
+<div class="t lt m2 d2 step"><h3>الفصل</h3><p>تبريد الأبخرة وتجميع المنتجات.</p></div>
+<div class="t so m2 d3"><span class="lab">البلاستيك المختار</span><p>زيت الانحلال الحراري لاستخدام صناعي محدد؛ ويُحدَّد توصيف الغاز والمخلفات الصلبة لاحقًا.</p></div>
+<div class="t so m2 d3"><span class="lab">الكتلة الحيوية المختارة</span><p>الفحم الحيوي والغاز والسوائل: يعتمد توزيعها على المادة والعملية المختارة.</p></div>
+<div class="t note m2 d6"><p><b>الفحم الحيوي:</b> فحم نباتي المصدر غني بالكربون المستقر. وعند استخدامه في التربة أو المواد، فإنه يخزّن الكربون على المدى الطويل.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>يعتمد المنتج الناتج على المادة المختارة والعملية المعتمدة.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2"><a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R<bdi dir="ltr">5</bdi>] IEA Bioenergy · العملية ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R<bdi dir="ltr">8</bdi>] Puro.earth · منهجية الفحم الحيوي ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-4" data-n="4" data-t="ميزانية تناسب مشروعكم"><div class="inner"><p class="kick"><bdi dir="ltr">03</bdi> / الميزانية</p><h2>ميزانية تناسب مشروعكم</h2><p class="lead">تُبنى الميزانية بحسب مادتكم وموقعكم والمنتجات التي ترغبون في تسويقها.</p><div class="bento"><div class="t hi m2 d2 big3"><b class="kpi"><bdi dir="ltr">3</bdi> ملايين يورو</b><p>الميزانية المرجعية التي أعلنتها Nabta Alkon.</p><p>معيار للتخطيط، مقسّم هنا إلى أربع حزم، ويُؤكَّد في العرض.</p></div>
+<p class="cap m2 d4 lotscap">الميزانية بالتفصيل · <bdi dir="ltr">4</bdi> حزم</p>
+<div class="t lt m2 d2 lot"><h4><i><bdi dir="ltr">01</bdi></i> المعدات</h4><p>تحضير المادة، المفاعل، التكثيف والفصل، معالجة الغاز، نظام التحكم.</p><span class="tag">المبلغ: ≈ <bdi dir="ltr">1.65</bdi> مليون يورو · <bdi dir="ltr">55%</bdi></span></div>
+<div class="t lt m2 d2 lot"><h4><i><bdi dir="ltr">02</bdi></i> الموقع والمرافق</h4><p>الأرض، الأعمال المدنية والأرضية الخرسانية، توصيلات المياه والطاقة، الطرق المؤدية.</p><span class="tag">المبلغ: ≈ <bdi dir="ltr">0.35</bdi> مليون يورو · <bdi dir="ltr">12%</bdi></span></div>
+<div class="t lt m2 d2 lot"><h4><i><bdi dir="ltr">03</bdi></i> التركيب والتشغيل الأولي</h4><p>التعبئة في حاويات، الشحن، التجميع، التجارب، التدريب والتشغيل الفعلي.</p><span class="tag">المبلغ: ≈ <bdi dir="ltr">0.55</bdi> مليون يورو · <bdi dir="ltr">18%</bdi></span></div>
+<div class="t lt m2 d2 lot"><h4><i><bdi dir="ltr">04</bdi></i> التكاليف الجانبية</h4><p>الدراسات والتراخيص والتأمين وهامش للطوارئ.</p><span class="tag">المبلغ: ≈ <bdi dir="ltr">0.45</bdi> مليون يورو · <bdi dir="ltr">15%</bdi></span></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>الـ <bdi dir="ltr">3</bdi> ملايين يورو أساس للتخطيط: يجب تسعير كل حزمة في عرض الأسعار.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: تخطيط Nabta Alkon. توزيع إرشادي وفق النسب المعتادة للمشاريع الصناعية؛ وتُحدَّد المبالغ والاستثناءات وجدول الدفعات في عرض الأسعار.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-5" data-n="5" data-t="ثمانية أشهر من التصنيع إلى التركيب"><div class="inner"><p class="kick"><bdi dir="ltr">04</bdi> / الجدول الزمني</p><h2>ثمانية أشهر من التصنيع إلى التركيب</h2><p class="lead">هدف إرشادي: من التصنيع إلى التركيب. يُجهَّز الموقع أثناء شحن الوحدات.</p><div class="bento"><div class="t lt m1 d2 st5"><i><bdi dir="ltr">01</bdi></i><h4>التصنيع</h4><p>إنتاج الوحدات وفحصها.</p></div>
+<div class="t lt m1 d2 st5"><i><bdi dir="ltr">02</bdi></i><h4>التعبئة في حاويات</h4><p>حماية المعدات وتحميلها.</p></div>
+<div class="t lt m1 d2 st5"><i><bdi dir="ltr">03</bdi></i><h4>الشحن</h4><p>التصدير إلى بلد التنفيذ.</p></div>
+<div class="t lt m1 d2 st5"><i><bdi dir="ltr">04</bdi></i><h4>حشد الفريق</h4><p>استقدام فريق التجميع.</p></div>
+<div class="t lt m2 d2 st5"><i><bdi dir="ltr">05</bdi></i><h4>التركيب</h4><p>تجميع الوحدات وربطها.</p></div>
+<p class="cap m2 d6">مدة كل مرحلة · الهدف الإجمالي الإرشادي: <bdi dir="ltr">8</bdi> أشهر</p>
+<div class="t dash m2 d2"><h4>يُؤكَّد لاحقًا</h4><p>المدة غير معلنة</p><span class="tag">التصنيع</span></div>
+<div class="t dk m2 d2"><h4><bdi dir="ltr">2</bdi> إلى <bdi dir="ltr">3</bdi> أشهر</h4><p>النقل، مع تجهيز الموقع بالتوازي</p><span class="tag w">التعبئة في حاويات · الشحن</span></div>
+<div class="t dk m2 d2"><h4><bdi dir="ltr">1</bdi> إلى <bdi dir="ltr">2</bdi> شهر</h4><p>التجميع بعد وصول الوحدات إلى الموقع</p><span class="tag w">حشد الفريق · التركيب</span></div>
+<div class="t hi m2 d6"><h4>بالتوازي · نحو <bdi dir="ltr">6</bdi> أشهر</h4><p>أعمال الحفر والأرضية والشبكات؛ والبنية التحتية والمرافق بحسب الموقع</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>تجهيز الموقع أثناء شحن الوحدات يساعد على تنسيق الأعمال.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: معلومات Nabta Alkon. مدة التصنيع غير معلنة؛ وتُدرج الدفعات والتراخيص والفحص قبل الشحن في الجدول الزمني.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-6" data-n="6" data-t="قارنوا العروض على الأسس نفسها"><div class="inner"><p class="kick"><bdi dir="ltr">05</bdi> / مقارنة العروض</p><h2>قارنوا العروض على الأسس نفسها</h2><p class="lead">يتوقف اختياركم على التكلفة الكاملة وجودة المنتجات والمتابعة المقررة بعد التركيب.</p><div class="bento"><div class="t lt m2 d2"><span class="lab">خيار مُعلَّل</span><p>المادة والطاقة الاستيعابية والعملية مترابطة في نطاق عمل مكتوب.</p></div>
+<div class="t lt m2 d2"><span class="lab">ميزانية واضحة</span><p>الخدمات والاستثناءات ومراحل الدفع محددة.</p></div>
+<div class="t lt m2 d2"><span class="lab">متابعة منظّمة</span><p>التشغيل الفعلي والصيانة والفحوص موضحة في العرض.</p></div>
+<div class="t so m2 d6 bars"><span class="lab">مؤشرات الطاقة الاستيعابية · أطنان البلاستيك الداخلة يوميًا</span>
+ <div class="hb"><div class="hl">سيناريو Nabta Alkon</div><div class="hr"><i class="a" style="width:100%"></i><b><bdi dir="ltr">10</bdi> طن/يوم</b></div></div>
+ <div class="hb"><div class="hl">WASTX P<bdi dir="ltr">5000</bdi> · QMRE، <bdi dir="ltr">2023</bdi></div><div class="hr"><i class="k" style="width:50%"></i><b><bdi dir="ltr">5</bdi> طن/يوم</b></div></div>
+ <p class="small">مؤشر <bdi dir="ltr">5</bdi> أطنان/يوم بيانات تاريخية للمصنّع الألماني Biofabrik (<bdi dir="ltr">2023</bdi>)، وليس منافسًا مباشرًا.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>قارنوا المادة نفسها والخدمات نفسها ومستوى المتابعة نفسه.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R<bdi dir="ltr">6</bdi>] QMRE · عرض <bdi dir="ltr">2023</bdi>، ص. <bdi dir="ltr">4</bdi> ↗</a> · <a href="https://carboliq.com/en/sustainability/chemical-recycling/" target="_blank" rel="noopener">[R<bdi dir="ltr">7</bdi>] carboliq · العملية والمنافذ ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-7" data-n="7" data-t="حالات حقيقية للتحضير للمبيعات"><div class="inner"><p class="kick"><bdi dir="ltr">06</bdi> / السوق والمشترون</p><h2>حالات حقيقية للتحضير للمبيعات</h2><p class="lead">تحديد المشتري والتحقق من المنتج جزء من المشروع الصناعي منذ مرحلة التحضير.</p><div class="bento"><div class="t dk m2 d2"><span class="lab a">BASF × Quantafuel · <bdi dir="ltr">2019</bdi></span><b class="kpi"><bdi dir="ltr">20</bdi> مليون يورو</b><p>استثمار مع حق أولوية في شراء الزيت من مصنع سكيفه في الدنمارك.</p></div>
+<div class="t lt m2 d2"><span class="lab">Pryme · الزيت المنتَج في <bdi dir="ltr">2024</bdi></span><p class="small">بالأطنان في كل ربع سنة · <bdi dir="ltr">341</bdi> طنًا على مدار السنة</p><div class="bchart"><div class="bc"><b><bdi dir="ltr">6</bdi></b><i class="a" style="height:5%"></i><span>ر<bdi dir="ltr">1</bdi></span></div><div class="bc"><b><bdi dir="ltr">114</bdi></b><i class="a" style="height:98%"></i><span>ر<bdi dir="ltr">2</bdi></span></div><div class="bc"><b><bdi dir="ltr">116</bdi></b><i class="a" style="height:100%"></i><span>ر<bdi dir="ltr">3</bdi></span></div><div class="bc"><b><bdi dir="ltr">105</bdi></b><i class="k" style="height:91%"></i><span>ر<bdi dir="ltr">4</bdi></span></div></div><p class="small">بعد بداية بطيئة (<bdi dir="ltr">6</bdi> أطنان)، نحو <bdi dir="ltr">110</bdi> أطنان من الزيت في كل ربع سنة.</p></div>
+<div class="t hi m2 d2"><span class="lab">Shell × RES · إيطاليا · <bdi dir="ltr">2026</bdi></span><b class="kpi"><bdi dir="ltr">100%</bdi></b><p>من زيت مصنع طاقته <bdi dir="ltr">20,000</bdi> طن/سنة تشتريه Shell على عدة سنوات، ابتداءً من يونيو <bdi dir="ltr">2026.</bdi></p><p>يعرف المصنع لمن سيبيع زيته قبل أن يبدأ الإنتاج أصلًا.</p></div>
+<p class="cap m2 d6">كيف تكونون من الرابحين</p>
+<div class="t lt m2 d2 win"><h4><i><bdi dir="ltr">1</bdi></i> مادة مؤمَّنة</h4><p>إمداد منتظم بموجب عقد.</p></div>
+<div class="t lt m2 d2 win"><h4><i><bdi dir="ltr">2</bdi></i> منتج مطابق للمعايير</h4><p>زيت يستوفي مواصفات المشتري.</p></div>
+<div class="t lt m2 d2 win"><h4><i><bdi dir="ltr">3</bdi></i> مشترٍ يوقّع مبكرًا</h4><p>عقد شراء قبل البناء.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>الرابحون يؤمّنون المادة والجودة والمشتري قبل البناء.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2"><a href="https://www.basf.com/global/en/media/news-releases/2019/10/p-19-356" target="_blank" rel="noopener">[R<bdi dir="ltr">1</bdi>] BASF · <bdi dir="ltr">7</bdi> أكتوبر <bdi dir="ltr">2019</bdi> ↗</a> · <a href="https://pryme-cleantech.com/uploads/downloads/Pryme-N.V.-Q4-2024-Report.pdf" target="_blank" rel="noopener">[R<bdi dir="ltr">2</bdi>] Pryme · تقرير الربع الرابع <bdi dir="ltr">2024</bdi> ↗</a> · <a href="https://macplas.it/en/environment/agreement-pyrolysis-oil-chemical-recycling-plastic-waste" target="_blank" rel="noopener">[R<bdi dir="ltr">10</bdi>] Shell × RES · <bdi dir="ltr">2025</bdi> ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-8" data-n="8" data-t="ثاني أكسيد الكربون: قيمة تُقيَّم لكل مسار"><div class="inner"><p class="kick"><bdi dir="ltr">07</bdi> / الكربون والتتبّع</p><h2>ثاني أكسيد الكربون: قيمة تُقيَّم لكل مسار</h2><p class="lead">تخضع الكتلة الحيوية والبلاستيك لآليات مختلفة. ويُعدّ اعتمادهما منذ مرحلة الدراسة.</p><div class="bento"><div class="t hi m2 d3"><h3>الكتلة الحيوية ← الفحم الحيوي</h3><p>يمكن اعتماد إزالة الكربون إذا استوفت المنهجية والقياسات واستخدام الفحم الحيوي المعايير.</p></div>
+<div class="t dk m2 d3"><h3>البلاستيك ← مادة دائرية</h3><p>تنظّم ISCC PLUS التتبّع وميزان الكتلة. وهذا الاعتماد ليس رصيدًا من CO₂.</p></div>
+<div class="t so m2 d6 chain"><span>التأهيل</span><em>←</em><span>القياس</span><em>←</em><span>التحقق</span><em>←</em><span>التعاقد</span></div>
+<div class="t lt m2 d3"><b class="kpi"><bdi dir="ltr">1.24</bdi> مليون طن CO₂</b><span class="tag">مثال من مشروع آخر، غير مدرج في السيناريو</span><p>لمدة <bdi dir="ltr">10</bdi> سنوات على الأقل: اتفاقية Exomad Green × Microsoft المعلنة في مايو <bdi dir="ltr">2025.</bdi></p></div>
+<div class="t note m2 d3"><span class="lab">أين موقعكم؟</span><p>تُظهر هذه الاتفاقية أن كبار المشترين يلتزمون لمدة <bdi dir="ltr">10</bdi> سنوات. وقد ارتفع سوق الفحم الحيوي من <bdi dir="ltr">14.6</bdi> مليون دولار في <bdi dir="ltr">2022</bdi> إلى <bdi dir="ltr">181.5</bdi> مليون دولار في <bdi dir="ltr">2024.</bdi> وتدخل وحدة الكتلة الحيوية هذا السوق مورّدًا لأرصدة معتمدة، بحجمها، متى جرى التحقق من المنهجية.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>يسلك الفحم الحيوي والبلاستيك مسارين مختلفين. ولا إيرادات كربونية في السيناريو.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2"><a href="https://www.carbonfuture.com/magazine/exomad-green-announces-worlds-largest-biochar-carbon-removal-agreement-with-microsoft-tracked-by-carbonfuture-mrv" target="_blank" rel="noopener">[R<bdi dir="ltr">3</bdi>] Carbonfuture / Exomad · <bdi dir="ltr">21</bdi> مايو <bdi dir="ltr">2025</bdi> ↗</a> · <a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R<bdi dir="ltr">4</bdi>] ISCC PLUS · المعيار ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R<bdi dir="ltr">8</bdi>] Puro.earth · منهجية الفحم الحيوي ↗</a> · <a href="https://www.cdr.fyi/blog/biochar-carbon-removal-market-snapshot-2025" target="_blank" rel="noopener">[R<bdi dir="ltr">11</bdi>] CDR.fyi · الفحم الحيوي ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-9" data-n="9" data-t="كيف تتحول المادة إلى مبيعات"><div class="inner"><p class="kick"><bdi dir="ltr">08</bdi> / سيناريو البلاستيك</p><h2>كيف تتحول المادة إلى مبيعات</h2><p class="lead">مثال لفهم الحساب: تُحتسب إيرادات الزيت فقط.</p><div class="bento"><div class="t lt m2 d2"><b class="kpi"><bdi dir="ltr">3,000</bdi> طن/سنة</b><p>البلاستيك المعالَج فعليًا.</p></div>
+<div class="t lt m1 d2"><b class="kpi">× <bdi dir="ltr">60%</bdi></b><p>النسبة المفترض تحويلها إلى زيت.</p></div>
+<div class="t lt m1 d2"><b class="kpi">× <bdi dir="ltr">500</bdi> يورو/طن</b><p>سعر البيع المفترض للزيت.</p></div>
+<div class="t so m2 d3"><b class="kpi s"><bdi dir="ltr">1,800</bdi> طن من الزيت</b><p><bdi dir="ltr">3,000</bdi> طن × <bdi dir="ltr">60%</bdi></p></div>
+<div class="t hi m2 d3"><b class="kpi"><bdi dir="ltr">900,000</bdi> يورو/سنة</b><p><bdi dir="ltr">1,800</bdi> طن × <bdi dir="ltr">500</bdi> يورو/طن</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>تفترض مبيعات <bdi dir="ltr">900</bdi> ألف يورو معالجة الكميات المخططة وبيعها بالسعر المعتمد.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: سيناريو توضيحي مقدَّم. أُعيد حساب الأرقام في <bdi dir="ltr">24</bdi> أكتوبر <bdi dir="ltr">2026</bdi>؛ والفرضيات تحتاج إلى تأكيد للموقع.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-10" data-n="10" data-t="من المبيعات إلى الرصيد المتاح"><div class="inner"><p class="kick"><bdi dir="ltr">09</bdi> / النفقات</p><h2>من المبيعات إلى الرصيد المتاح</h2><p class="lead">تموّل المبيعات التشغيل. ثم يُخصَّص احتياطي سنوي للاحتياجات المستقبلية.</p><div class="bento"><div class="t lt m2 d3 donutbox"><svg viewBox="0 0 120 120" class="donut" role="img" aria-label="توزيع 600 ألف يورو من التكاليف: المواد والنقل 40%، الطاقة 25%، الموظفون 20%، الصيانة 15%">
+<g transform="rotate(-90 60 60)" fill="none" stroke-width="22">
+<circle cx="60" cy="60" r="40" stroke="#c4e76b" stroke-dasharray="100.53 150.8" stroke-dashoffset="0"/>
+<circle cx="60" cy="60" r="40" stroke="#121212" stroke-dasharray="62.83 188.5" stroke-dashoffset="-100.53"/>
+<circle cx="60" cy="60" r="40" stroke="#8db63c" stroke-dasharray="50.27 201.06" stroke-dashoffset="-163.36"/>
+<circle cx="60" cy="60" r="40" stroke="#dde4d3" stroke-dasharray="37.7 213.63" stroke-dashoffset="-213.63"/>
+</g><text x="60" y="58" text-anchor="middle" class="dn">600 ألف يورو</text><text x="60" y="73" text-anchor="middle" class="ds">/ سنة</text></svg>
+ <ul class="leg"><li><i style="background:#c4e76b"></i><div>المواد والنقل<small><bdi dir="ltr">240</bdi> ألف يورو · <bdi dir="ltr">40%</bdi></small></div></li>
+ <li><i style="background:#121212"></i><div>الطاقة<small><bdi dir="ltr">150</bdi> ألف يورو · <bdi dir="ltr">25%</bdi></small></div></li>
+ <li><i style="background:#8db63c"></i><div>الموظفون<small><bdi dir="ltr">120</bdi> ألف يورو · <bdi dir="ltr">20%</bdi></small></div></li>
+ <li><i style="background:#dde4d3;border:1px solid #c9d0c3"></i><div>الصيانة<small><bdi dir="ltr">90</bdi> ألف يورو · <bdi dir="ltr">15%</bdi></small></div></li></ul></div>
+<div class="t hi m2 d3"><b class="kpi"><bdi dir="ltr">250</bdi> ألف يورو/سنة</b><p>الرصيد بعد الاحتياطي، قبل الضرائب والتمويل.</p><p class="eq"><b><bdi dir="ltr">900</bdi> − <bdi dir="ltr">600</bdi> − <bdi dir="ltr">50</bdi> = <bdi dir="ltr">250</bdi> ألف يورو</b> <small>المبيعات − التكاليف − الاحتياطي السنوي</small></p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>يبقى <bdi dir="ltr">250</bdi> ألف يورو/سنة في السيناريو، قبل الضرائب والتمويل.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: سيناريو توضيحي مقدَّم. أُعيد حساب الأرقام في <bdi dir="ltr">24</bdi> أكتوبر <bdi dir="ltr">2026</bdi>؛ والفرضيات تحتاج إلى تأكيد للموقع.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-11" data-n="11" data-t="سيناريو 3 ملايين يورو: 12 سنة للاسترداد"><div class="inner"><p class="kick"><bdi dir="ltr">10</bdi> / قراءة العائد</p><h2>سيناريو <bdi dir="ltr">3</bdi> ملايين يورو: <bdi dir="ltr">12</bdi> سنة للاسترداد</h2><p class="lead">مع <bdi dir="ltr">250</bdi> ألف يورو ثابتة سنويًا، يُسترد <bdi dir="ltr">1.75</bdi> مليون يورو في سبع سنوات، ويتبقى <bdi dir="ltr">1.25</bdi> مليون يورو للاسترداد.</p><div class="bento"><div class="t lt m2 d3"><svg viewBox="0 0 320 208" class="chart" role="img" aria-label="الرصيد التراكمي من −3,000 ألف يورو إلى 0 خلال 12 سنة؛ و−1,250 ألف يورو عند 7 سنوات">
+<text x="48" y="10" class="ax">الرصيد التراكمي بعد الاستثمار (ألف يورو)</text><line x1="48" x2="300" y1="22.0" y2="22.0" class="gl"/><text x="42" y="25.0" text-anchor="end" class="ax">0</text><line x1="48" x2="300" y1="72.0" y2="72.0" class="gl"/><text x="42" y="75.0" text-anchor="end" class="ax">−1,000</text><line x1="48" x2="300" y1="122.0" y2="122.0" class="gl"/><text x="42" y="125.0" text-anchor="end" class="ax">−2,000</text><line x1="48" x2="300" y1="172.0" y2="172.0" class="gl"/><text x="42" y="175.0" text-anchor="end" class="ax">−3,000</text><text x="48.0" y="188" text-anchor="middle" class="ax">0</text><text x="90.0" y="188" text-anchor="middle" class="ax">2</text><text x="132.0" y="188" text-anchor="middle" class="ax">4</text><text x="174.0" y="188" text-anchor="middle" class="ax">6</text><text x="216.0" y="188" text-anchor="middle" class="ax">8</text><text x="258.0" y="188" text-anchor="middle" class="ax">10</text><text x="300.0" y="188" text-anchor="middle" class="ax">12</text>
+<polyline points="48.0,172.0 69.0,159.5 90.0,147.0 111.0,134.5 132.0,122.0 153.0,109.5 174.0,97.0 195.0,84.5 216.0,72.0 237.0,59.5 258.0,47.0 279.0,34.5 300.0,22.0" fill="none" stroke="#8db63c" stroke-width="2.4"/><circle cx="48.0" cy="172.0" r="2.2" fill="#8db63c"/><circle cx="69.0" cy="159.5" r="2.2" fill="#8db63c"/><circle cx="90.0" cy="147.0" r="2.2" fill="#8db63c"/><circle cx="111.0" cy="134.5" r="2.2" fill="#8db63c"/><circle cx="132.0" cy="122.0" r="2.2" fill="#8db63c"/><circle cx="153.0" cy="109.5" r="2.2" fill="#8db63c"/><circle cx="174.0" cy="97.0" r="2.2" fill="#8db63c"/><circle cx="195.0" cy="84.5" r="2.2" fill="#8db63c"/><circle cx="216.0" cy="72.0" r="2.2" fill="#8db63c"/><circle cx="237.0" cy="59.5" r="2.2" fill="#8db63c"/><circle cx="258.0" cy="47.0" r="2.2" fill="#8db63c"/><circle cx="279.0" cy="34.5" r="2.2" fill="#8db63c"/><circle cx="300.0" cy="22.0" r="2.2" fill="#8db63c"/>
+<circle cx="195.0" cy="84.5" r="4.6" fill="#121212"/><text x="203.0" y="98.5" class="lb">−1,250 · 7 سنوات</text>
+<circle cx="300.0" cy="22.0" r="4.6" fill="#121212"/><text x="300.0" y="14.0" text-anchor="end" class="lb">0 · 12 سنة</text>
+<text x="174" y="204" text-anchor="middle" class="ax">سنوات التشغيل</text></svg></div>
+<div class="t dk m2 d3 stats"><div><b class="kpi"><bdi dir="ltr">−41.7%</bdi></b><span>العائد التراكمي على الاستثمار خلال <bdi dir="ltr">7</bdi> سنوات</span></div><div><b class="kpi"><bdi dir="ltr">−11.9%</bdi></b><span>معدل العائد الداخلي خلال <bdi dir="ltr">7</bdi> سنوات</span></div><div><b class="kpi"><bdi dir="ltr">−1.783</bdi> مليون يورو</b><span>صافي القيمة الحالية بمعدل <bdi dir="ltr">10%</bdi> خلال <bdi dir="ltr">7</bdi> سنوات</span></div></div>
+<div class="t hi m2 d6 nocount"><span class="lab">ما لا يحتسبه هذا الحساب</span>
+<p><b>طلب تفرضه القوانين.</b> ابتداءً من <bdi dir="ltr">2030</bdi>، يجب أن تحتوي عبوات البلاستيك المباعة في الاتحاد الأوروبي على <bdi dir="ltr">10</bdi> إلى <bdi dir="ltr">35%</bdi> من المواد المعاد تدويرها.</p>
+<p><b>سوق كربون في نمو.</b> الفحم الحيوي: <bdi dir="ltr">181.5</bdi> مليون دولار في <bdi dir="ltr">2024</bdi> مقابل <bdi dir="ltr">14.6</bdi> مليون دولار في <bdi dir="ltr">2022.</bdi></p>
+<p><b>إيرادات غير مقدَّرة.</b> الغاز والمخلفات الصلبة وأرصدة الكربون تساوي صفرًا في هذا السيناريو.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>السيناريو متحفّظ: فهو يتجاهل الطلب التنظيمي وإيرادات الكربون.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: سيناريو توضيحي مقدَّم، أُعيد حسابه في <bdi dir="ltr">24</bdi> أكتوبر <bdi dir="ltr">2026.</bdi> <a href="https://eur-lex.europa.eu/eli/reg/2025/40/oj/eng" target="_blank" rel="noopener">[R<bdi dir="ltr">9</bdi>] اللائحة (الاتحاد الأوروبي) <bdi dir="ltr">2025</bdi>/<bdi dir="ltr">40</bdi> ↗</a> · <a href="https://www.cdr.fyi/blog/biochar-carbon-removal-market-snapshot-2025" target="_blank" rel="noopener">[R<bdi dir="ltr">11</bdi>] CDR.fyi · الفحم الحيوي ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-12" data-n="12" data-t="العوامل التي تغيّر العائد"><div class="inner"><p class="kick"><bdi dir="ltr">11</bdi> / اختبار الفرضيات</p><h2>العوامل التي تغيّر العائد</h2><p class="lead">يحدد سعر الزيت وكلفة الموظفين والكمية المعالَجة فعليًا الرصيد السنوي.</p><div class="bento"><div class="t lt m2 d4"><svg viewBox="0 0 320 236" class="chart" role="img" aria-label="الرصيد السنوي بحسب سعر الزيت، مع 120 أو 300 ألف يورو للموظفين">
+<text x="44" y="12" class="ax">الرصيد السنوي (ألف يورو)</text><line x1="44" x2="296" y1="24.0" y2="24.0" class="gl"/><text x="38" y="27.0" text-anchor="end" class="ax">600</text><line x1="44" x2="296" y1="74.0" y2="74.0" class="gl"/><text x="38" y="77.0" text-anchor="end" class="ax">300</text><line x1="44" x2="296" y1="124.0" y2="124.0" class="gl z"/><text x="38" y="127.0" text-anchor="end" class="ax">0</text><line x1="44" x2="296" y1="174.0" y2="174.0" class="gl"/><text x="38" y="177.0" text-anchor="end" class="ax">−300</text><text x="66.0" y="196" text-anchor="middle" class="ax">300</text><text x="129.4" y="196" text-anchor="middle" class="ax">400</text><text x="192.9" y="196" text-anchor="middle" class="ax">500</text><text x="288.0" y="196" text-anchor="middle" class="ax">650</text>
+<polyline points="66.0,172.3 129.4,142.3 192.9,112.3 288.0,67.3" fill="none" stroke="#121212" stroke-width="2.4"/><circle cx="66.0" cy="172.3" r="3.4" fill="#121212"/><text x="66.0" y="186.3" text-anchor="middle" class="lb">−290</text><circle cx="129.4" cy="142.3" r="3.4" fill="#121212"/><text x="129.4" y="156.3" text-anchor="middle" class="lb">−110</text><circle cx="192.9" cy="112.3" r="3.4" fill="#121212"/><text x="192.9" y="126.3" text-anchor="middle" class="lb">70</text><circle cx="288.0" cy="67.3" r="3.4" fill="#121212"/><text x="288.0" y="81.3" text-anchor="middle" class="lb">340</text><polyline points="66.0,142.3 129.4,112.3 192.9,82.3 288.0,37.3" fill="none" stroke="#8db63c" stroke-width="2.4"/><circle cx="66.0" cy="142.3" r="3.4" fill="#8db63c"/><text x="66.0" y="134.3" text-anchor="middle" class="lb">−110</text><circle cx="129.4" cy="112.3" r="3.4" fill="#8db63c"/><text x="129.4" y="104.3" text-anchor="middle" class="lb">70</text><circle cx="192.9" cy="82.3" r="3.4" fill="#8db63c"/><text x="192.9" y="74.3" text-anchor="middle" class="lb">250</text><circle cx="288.0" cy="37.3" r="3.4" fill="#8db63c"/><text x="288.0" y="29.3" text-anchor="middle" class="lb">520</text>
+<text x="170" y="212" text-anchor="middle" class="ax">سعر بيع الزيت (يورو/طن)</text>
+<rect x="44" y="222" width="9" height="9" fill="#8db63c"/><text x="57" y="230" class="ax">الموظفون 120 ألف يورو/سنة</text><rect x="170" y="222" width="9" height="9" fill="#121212"/><text x="183" y="230" class="ax">الموظفون 300 ألف يورو/سنة</text></svg></div>
+<div class="t hi m2 d2"><span class="lab">استرداد <bdi dir="ltr">3</bdi> ملايين يورو</span><b class="kpi">≈ <bdi dir="ltr">778</bdi> يورو/طن</b><p>لاستهداف <bdi dir="ltr">4</bdi> سنوات: رصيد مطلوب قدره <bdi dir="ltr">750</bdi> ألف يورو/سنة.</p><b class="kpi">≈ <bdi dir="ltr">599</bdi> يورو/طن</b><p>لاستهداف <bdi dir="ltr">7</bdi> سنوات: رصيد مطلوب قدره <bdi dir="ltr">429</bdi> ألف يورو/سنة.</p></div>
+<div class="t so m2 d6"><p>بسعر <bdi dir="ltr">500</bdi> يورو/طن مع <bdi dir="ltr">300</bdi> ألف يورو للموظفين: <bdi dir="ltr">42.9</bdi> سنة.</p></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>السعر الأعلى يحسّن الحساب؛ ويجب بعد ذلك تثبيته بعقد.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: سيناريو توضيحي مقدَّم. أُعيد حساب الأرقام في <bdi dir="ltr">24</bdi> أكتوبر <bdi dir="ltr">2026</bdi>؛ والفرضيات تحتاج إلى تأكيد للموقع.</p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-13" data-n="13" data-t="أسئلتكم حول الجانب الاقتصادي"><div class="inner"><p class="kick"><bdi dir="ltr">12</bdi> / أسئلة وأجوبة</p><h2>أسئلتكم حول الجانب الاقتصادي</h2><p class="lead">لفهم ما تقوله الأرقام والشروط التي تغيّرها.</p><div class="bento"><div class="t lt m2 d2 qa"><h3>ما العائد المتوقع؟</h3><p>مع استثمار <bdi dir="ltr">3</bdi> ملايين يورو و<bdi dir="ltr">250</bdi> ألف يورو ثابتة سنويًا: <bdi dir="ltr">12</bdi> سنة للاسترداد البسيط. وبعد سبع سنوات يتبقى <bdi dir="ltr">1.25</bdi> مليون يورو من المبلغ المستثمر.</p><a class="lnk" href="#nt-11" data-go="nt:11">اطّلعوا على الحساب ←</a></div>
+<div class="t hi m2 d2 qa"><h3>كيف يحقق النشاط أرباحه؟</h3><p>ببيع الزيت إلى شركات صناعية تشتريه بالفعل: <b>BASF</b> في ألمانيا، و<b>SHELL</b> في هولندا وإيطاليا، و<b>LYONDELLBASELL</b>، و<b>SABIC</b>.</p><p>الدول المستفيدة: الاتحاد الأوروبي، حيث تصبح المواد المعاد تدويرها إلزامية في <bdi dir="ltr">2030</bdi>، والدول التي ينتهي فيها البلاستيك في المكبات. ويحتسب المثال الزيت فقط.</p><a class="lnk" href="#nt-9" data-go="nt:9">اطّلعوا على المبيعات ←</a></div>
+<div class="t lt m2 d2 qa"><h3>ما الهامش إذا تباطأ النشاط؟</h3><p>عند تشغيل بنسبة <bdi dir="ltr">75%</bdi>، ينخفض الرصيد إلى <bdi dir="ltr">122.5</bdi> ألف يورو/سنة. وعند <bdi dir="ltr">50%</bdi> يبلغ <bdi dir="ltr">−5</bdi> آلاف يورو/سنة في هذا النموذج.</p><a class="lnk" href="#nt-12" data-go="nt:12">اطّلعوا على العوامل ←</a></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>ربحية الوحدة ودخل الشريك حسابان مختلفان.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: سيناريو توضيحي مقدَّم. <a href="https://macplas.it/en/environment/agreement-pyrolysis-oil-chemical-recycling-plastic-waste" target="_blank" rel="noopener">[R<bdi dir="ltr">10</bdi>] Shell × RES ↗</a> · <a href="https://www.packagingeurope.com/basf-signs-purchase-agreement-for-pyrolysis-oil-derived-from-mixed-plastic-waste/" target="_blank" rel="noopener">[R<bdi dir="ltr">12</bdi>] BASF × ARCUS ↗</a> · <a href="https://www.circularonline.co.uk/news/9-of-global-plastic-waste-is-recycled-while-22-is-mismanaged-oecd/" target="_blank" rel="noopener">[R<bdi dir="ltr">13</bdi>] OECD · البلاستيك ↗</a> · <a href="https://eur-lex.europa.eu/eli/reg/2025/40/oj/eng" target="_blank" rel="noopener">[R<bdi dir="ltr">9</bdi>] اللائحة (الاتحاد الأوروبي) <bdi dir="ltr">2025</bdi>/<bdi dir="ltr">40</bdi> ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-14" data-n="14" data-t="أسئلتكم قبل الالتزام"><div class="inner"><p class="kick"><bdi dir="ltr">13</bdi> / أسئلة وأجوبة</p><h2>أسئلتكم قبل الالتزام</h2><p class="lead">العرض المقنع يربط كل التزام بدليل وبمسؤولية.</p><div class="bento"><div class="t lt m2 d6 qa cmp"><div class="qh"><h3>لماذا تختارون Nabta Alkon بدلًا من منافس؟</h3><a class="lnk" href="#nt-2" data-go="nt:2">اطّلعوا على العرض ←</a></div>
+ <div class="cg"><div class="ch"></div><div class="ch a">Nabta Alkon</div><div class="ch">WASTX P<bdi dir="ltr">5000</bdi> · Biofabrik</div>
+ <div class="cl">الطاقة الاستيعابية</div><div class="a"><bdi dir="ltr">10</bdi> أطنان/يوم مستهدفة، أي ضعف المؤشر</div><div><bdi dir="ltr">5</bdi> أطنان/يوم (مؤشر <bdi dir="ltr">2023</bdi>)</div>
+ <div class="cl">الجدول الزمني</div><div class="a"><bdi dir="ltr">8</bdi> أشهر مستهدفة، من التصنيع إلى التركيب</div><div>غير معلن</div>
+ <div class="cl">جهة الاتصال</div><div class="a">جهة واحدة، من المعدات إلى جودة المنتج</div><div>مصنّع وموزّع محلي</div></div></div>
+<div class="t lt m2 d3 qa"><div class="qh"><h3>كيف تحددون الميزانية والمواعيد؟</h3></div><p><bdi dir="ltr">3</bdi> ملايين يورو لطاقة <bdi dir="ltr">10</bdi> أطنان/يوم، موزعة على <bdi dir="ltr">4</bdi> حزم مسعَّرة في عرض الأسعار؛ <bdi dir="ltr">8</bdi> أشهر مستهدفة؛ ودفعات مرتبطة بمراحل الاستلام.</p><a class="lnk" href="#nt-5" data-go="nt:5">اطّلعوا على خطة التنفيذ ←</a></div>
+<div class="t lt m2 d3 qa"><div class="qh"><h3>ما مكانة الكربون؟</h3></div><p>الفحم الحيوي: اعتمد الاتحاد الأوروبي في فبراير <bdi dir="ltr">2026</bdi> أولى قواعد اعتماد إزالة الكربون الدائمة [R<bdi dir="ltr">14</bdi>]. هدف الاتحاد الأوروبي لعام <bdi dir="ltr">2040</bdi>: خفض الانبعاثات الصافية بنسبة <bdi dir="ltr">90%</bdi>، وبما يصل إلى <bdi dir="ltr">5%</bdi> عبر أرصدة دولية [R<bdi dir="ltr">15</bdi>]. البلاستيك: تتبّع فقط، ولا إيرادات كربونية في النموذج.</p><a class="lnk" href="#nt-8" data-go="nt:8">اطّلعوا على CO₂ ←</a></div></div><div class=bento><div class="t ret m2"><div><span class="lab">الخلاصة</span><p>يُثبَت الالتزام كتابةً: عرض أسعار لكل حزمة وجدول زمني وجدول دفعات موقّعة.</p></div><a class="btn dk" href="#nt-15" data-go="nt:15">مشروعكم ←</a></div><p class="base m2">الأساس: العرض كما وصفته Nabta Alkon؛ والالتزامات تُؤكَّد في العرض التعاقدي.</p><p class="base m2"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R<bdi dir="ltr">6</bdi>] QMRE · <bdi dir="ltr">2023</bdi> ↗</a> · <a href="https://climate.ec.europa.eu/news-other-reads/news/eu-sets-worlds-first-voluntary-standard-permanent-carbon-removals-2026-02-03_en" target="_blank" rel="noopener">[R<bdi dir="ltr">14</bdi>] المفوضية الأوروبية ↗</a> · <a href="https://www.consilium.europa.eu/en/press/press-releases/2025/12/10/2040-climate-target-council-and-parliament-agree-on-a-90-emissions-reduction/" target="_blank" rel="noopener">[R<bdi dir="ltr">15</bdi>] المجلس الأوروبي · <bdi dir="ltr">2040</bdi> ↗</a></p></div><nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav></div></article><article class="slide" id="nt-15" data-n="15" data-t="امنحوا موادكم قيمة صناعية"><div class="inner">
+<p class="kick"><bdi dir="ltr">14</bdi> / بناء ما بعد ذلك</p><h2>امنحوا موادكم قيمة صناعية</h2>
+<div class="bento">
+ <div class="t lt m2 d3 final"><h1>مادة. موقع. مشروع قابل للتسعير.</h1><p>مع Nabta Alkon، أعدّوا عرضًا يربط مواردكم بالمعدات والمنتجات المراد بيعها.</p><a class="btn hi" href="#nt-1" data-go="nt:1">العودة إلى البداية ←</a></div>
+ <div class="t lt m1 d1"><span class="lab">المادة</span><p>النوع والمصدر والجودة</p></div>
+ <div class="t lt m1 d1"><span class="lab">الكمية</span><p>الحجم والانتظام</p></div>
+ <div class="t lt m1 d1"><span class="lab">الموقع</span><p>المكان وسهولة الوصول والطاقة</p></div>
+ <div class="t lt m1 d1"><span class="lab">الهدف</span><p>المنتج والاستخدام والميزانية المتاحة</p></div>
+ <div class="t dk m2 d6 contact"><div><h3>تواصلوا مع Nabta Alkon</h3><p>شاركونا هذه المعطيات الأربعة لإعداد عرضكم.</p></div>
+  <div class="cbox"><a href="tel:+17373179014">الهاتف · <bdi dir="ltr">+1</bdi> <bdi dir="ltr">737</bdi> <bdi dir="ltr">317</bdi> <bdi dir="ltr">9014</bdi></a><a href="mailto:contact@nabta-alkon.com">البريد الإلكتروني · contact@nabta-alkon.com</a><a href="mailto:negzbls@proton.me">البريد الإلكتروني · negzbls@proton.me</a></div></div>
+</div>
+<nav class="chips"><a href="#nt-1" data-go="nt:1">نظرة عامة</a><a href="#nt-2" data-go="nt:2">عرضنا</a><a href="#nt-13" data-go="nt:13">الأسئلة</a></nav>
+</div></article></div></div>
+  <div class="deck tech" id="deck-tech" data-deck="tech" hidden><div class="track"><article class="slide" id="tech-1" data-n="1" data-t="Nabta Alkon — الملف التقني"><div class="inner">
+<p class="kick">Nabta Alkon / التعمّق، نقطة بنقطة</p><h2>Nabta Alkon <span class="r">الملف التقني</span></h2>
+<p class="lead">الفرضيات نفسها، مع الحسابات والمخرجات وأسس القرار بالتفصيل.</p>
+<div class="bento">
+ <a class="t dk m1 d3 ch" href="#tech-2" data-go="tech:2"><h3><i><bdi dir="ltr">01</bdi></i> المواد والمنتجات</h3><p>المادة الداخلة والعملية وجودة المخرجات.</p><span class="go">عرض ←</span></a>
+ <a class="t dk m1 d3 ch" href="#tech-5" data-go="tech:5"><h3><i><bdi dir="ltr">02</bdi></i> الطاقة الاستيعابية والتنفيذ</h3><p>الكميات والاستثمار ومراحل التنفيذ.</p><span class="go">عرض ←</span></a>
+ <a class="t dk m1 d3 ch" href="#tech-8" data-go="tech:8"><h3><i><bdi dir="ltr">03</bdi></i> الاقتصاد والحساسية</h3><p>المبيعات والتكاليف والاسترداد وعتبات النموذج.</p><span class="go">عرض ←</span></a>
+ <a class="t dk m1 d3 ch" href="#tech-13" data-go="tech:13"><h3><i><bdi dir="ltr">04</bdi></i> العقود والكربون</h3><p>المسؤوليات والمنافذ والاعتماد.</p><span class="go">عرض ←</span></a>
+ <div class="t so m2 d6"><span class="lab">السيناريو المرجعي</span><p class="big"><bdi dir="ltr">3</bdi> ملايين يورو في البداية · <bdi dir="ltr">3,000</bdi> طن/سنة · <bdi dir="ltr">60%</bdi> زيت · <bdi dir="ltr">500</bdi> يورو/طن · رصيد <bdi dir="ltr">250</bdi> ألف يورو/سنة</p></div>
+ <div class="t note m2 d6"><p>إطار توضيحي. وسيتيح عرض الأسعار والاختبارات على المادة والعقود بناء الحالة الفعلية.</p></div>
+</div>
+<nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-2" data-n="2" data-t="تأهيل المادة قبل تحديد الحجم"><div class="inner"><p class="kick">Nabta Alkon / المواد</p><h2>تأهيل المادة قبل تحديد الحجم</h2><p class="lead">يوجّه تركيب المادة وانتظام التوريد العملية والتكاليف وجودة المنتج.</p><div class="bento"><div class="t dk m2 d3 row"><h3>المصدر والتركيب</h3><span class="lab">ما يُقاس</span><p>فئات البلاستيك أو الكتلة الحيوية؛ والخلائط والمواد الغريبة.</p><span class="lab">ما يهيئه ذلك</span><p>اختيار المسار وتوافق العملية.</p></div>
+<div class="t dk m2 d3 row"><h3>الرطوبة والحجم</h3><span class="lab">ما يُقاس</span><p>الماء وحجم الجسيمات والتحضير اللازم.</p><span class="lab">ما يهيئه ذلك</span><p>الفرز والتقطيع والتجفيف والتغذية.</p></div>
+<div class="t dk m2 d3 row"><h3>الجودة والملوّثات</h3><span class="lab">ما يُقاس</span><p>تحاليل مناسبة للتيار: المواد الخاملة والرماد والملوّثات المستهدفة.</p><span class="lab">ما يهيئه ذلك</span><p>معالجة المخرجات ومواصفاتها.</p></div>
+<div class="t dk m2 d3 row"><h3>الكمية والانتظام</h3><span class="lab">ما يُقاس</span><p>الأطنان المتاحة والموسمية والمسافات والموردون.</p><span class="lab">ما يهيئه ذلك</span><p>خطة التوريد والتكلفة عند التسليم.</p></div>
+<div class="t note m2 d6"><p><b>المخرَج:</b> بطاقة للمادة وخطة للتحاليل. وتُحدَّد عتبات القبول مع العملية المختارة والاستخدام المقصود، انطلاقًا من عيّنات ممثِّلة.</p></div></div><div class=bento><p class="base m2">المصادر: <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R<bdi dir="ltr">9</bdi>] BASF · تنقية الزيوت ↗</a> · <a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R<bdi dir="ltr">10</bdi>] IEA Bioenergy · جودة الكتلة الحيوية، <bdi dir="ltr">2024</bdi> ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-3" data-n="3" data-t="العملية: ثلاثة مخرجات ودوائر مخصصة"><div class="inner"><p class="kick">Nabta Alkon / سلسلة التحويل</p><h2>العملية: ثلاثة مخرجات ودوائر مخصصة</h2><p class="lead">تحوّل الحرارة المادة. وتُبرَّد الأبخرة؛ ويتبع الغاز والمواد الصلبة دوائرها الخاصة.</p><div class="bento"><div class="t dk m1 d3"><h3>التحضير</h3><p>الفرز والتقطيع وضبط الرطوبة بحسب الحاجة.</p></div>
+<div class="t dk m1 d3"><h3>المفاعل</h3><p>التسخين والتحكم في زمن المكوث.</p></div>
+<div class="t hi m2 d3"><h3>حرارة العملية</h3><p>يُستخدم الغاز بحسب التهيئة. وتُعاد هذه الحرارة إلى المفاعل.</p></div>
+<div class="t dk m1 d1"><h3>المواد الصلبة</h3><p>التبريد والتوصيف والتعبئة.</p></div>
+<div class="t dk m1 d1"><h3>الأبخرة</h3><p>التكثيف إلى سائل ثم الجمع.</p></div>
+<div class="t dk m2 d2"><h3>الغاز</h3><p>المعالجة والتوجيه إلى الاستخدام المقصود.</p></div><div class="t note m2 d6"><p>مخطط وظيفي مبسّط. يرافق العمليةَ الوزنُ وتتبّع الدفعات والصيانة ورصد الانبعاثات. والغاز المستخدم في التسخين يقلّل حاجة من الطاقة؛ ولا تُحتسب قيمته مرتين.</p></div></div><div class=bento><p class="base m2">المصدر: <a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R<bdi dir="ltr">5</bdi>] IEA Bioenergy · العملية ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-4" data-n="4" data-t="المخرجات التي ينبغي تجهيزها للمشترين"><div class="inner"><p class="kick">Nabta Alkon / جودة المنتج</p><h2>المخرجات التي ينبغي تجهيزها للمشترين</h2><p class="lead">يُباع المنتج بجودة محددة وفحوص واستخدام معروف.</p><div class="bento"><div class="t dk m2 d2 row"><h3>البلاستيك: زيت الانحلال الحراري</h3><span class="lab">استخدام يُحدَّد لاحقًا</span><p>مادة أولية لمشترٍ صناعي متوافق.</p><span class="lab">الأساس قبل التسليم</span><p>بطاقة المنتج وتحاليل مستهدفة والتخزين ومعايير القبول.</p></div>
+<div class="t dk m2 d2 row"><h3>الكتلة الحيوية: الفحم الحيوي</h3><span class="lab">استخدام يُحدَّد لاحقًا</span><p>تطبيقات تتوافق مع جودة الدفعة والإطار المحلي.</p><span class="lab">الأساس قبل التسليم</span><p>المصدر والتركيب والجودة، وملف الاعتماد إذا كان مستهدفًا.</p></div>
+<div class="t dk m2 d2 row"><h3>الغاز وسوائل الكتلة الحيوية والمخلفات</h3><span class="lab">استخدام يُحدَّد لاحقًا</span><p>استخدام داخلي أو منفذ محدد بحسب العملية.</p><span class="lab">الأساس قبل التسليم</span><p>التوصيف والمعالجة وشروط التثمين أو الإدارة.</p></div>
+<div class="t hi m2 d6"><h3>يصادق المشتري على المواصفات قبل أول تسليم</h3></div><div class="t note m2 d6"><p>قد يحتاج زيت الانحلال الحراري إلى تنقية بحسب الاستخدام المختار. والفحم الحيوي الناتج من الكتلة الحيوية والمخلفات الصلبة للبلاستيك ليسا المنتج نفسه. وتبقى المنتجات الثانوية خارج إيرادات النموذج.</p></div></div><div class=bento><p class="base m2">المصادر: <a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R<bdi dir="ltr">9</bdi>] BASF · تنقية الزيوت ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R<bdi dir="ltr">8</bdi>] Puro.earth · منهجية الفحم الحيوي ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-5" data-n="5" data-t="من الإنتاجية المعلنة إلى الأطنان المعالَجة فعليًا"><div class="inner"><p class="kick">Nabta Alkon / الطاقة الاستيعابية والتشغيل</p><h2>من الإنتاجية المعلنة إلى الأطنان المعالَجة فعليًا</h2><p class="lead">تُقرأ الطاقة الاستيعابية للسيناريو على أساس زمني واحد، ثم تُعدَّل بحسب الاستخدام الفعلي.</p><div class="bento"><div class="t lt m1 d2"><b class="kpi"><bdi dir="ltr">10</bdi> أطنان/يوم</b><p>الإنتاجية اليومية للسيناريو.</p></div>
+<div class="t lt m1 d2"><b class="kpi">× <bdi dir="ltr">300</bdi> يوم</b><p>الأساس السنوي المعتمد.</p></div>
+<div class="t hi m2 d2"><b class="kpi">= <bdi dir="ltr">3,000</bdi> طن/سنة</b><p>الطاقة السنوية المعتمدة في الحساب.</p></div>
+<div class="t dk m2 d3"><h3>الجاهزية</h3><p>نسبة الوقت المبرمج التي تكون فيها الوحدة قادرة على العمل.</p></div>
+<div class="t dk m2 d3"><h3>استخدام الطاقة الاستيعابية</h3><p>الأطنان المعالَجة فعليًا / <bdi dir="ltr">3,000</bdi> طن. وهي تعكس أيضًا التغذية والتنظيم.</p></div><div class="t note m2 d6"><p>مثال للتحويل فقط: <bdi dir="ltr">10</bdi> أطنان/يوم على مدى <bdi dir="ltr">24</bdi> ساعة = <bdi dir="ltr">0.417</bdi> طن/ساعة. وتبقى ساعات التشغيل الفعلية بحاجة إلى تأكيد. ويغيّر النموذج الحجم بمعامل استخدام إجمالي واحد: فلا تُخصم التوقفات نفسها مرتين.</p></div></div><div class=bento><p class="base m2">الأساس: فرضيات السيناريو المقدَّم. والطاقات التي يعلنها المصنّع والإنتاج الفعلي المقيس مؤشران مختلفان.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-6" data-n="6" data-t="الـ 3 ملايين يورو: نطاق ينبغي تدوينه"><div class="inner"><p class="kick">Nabta Alkon / النفقات الرأسمالية والدفعات</p><h2>الـ <bdi dir="ltr">3</bdi> ملايين يورو: نطاق ينبغي تدوينه</h2><p class="lead">يصبح المبلغ الإجمالي قابلًا للاستخدام عندما يُربط بطاقة استيعابية وحزم ومراحل استلام.</p><div class="bento"><div class="t dk m2 d3 row"><h3>المعدات</h3><span class="lab">تُفصَّل في عرض الأسعار</span><p>العملية والطاقة الاستيعابية والملحقات وتحضير المواد.</p><span class="lab">نقطة المصادقة</span><p>الاختيار التقني ومحتوى التوريد.</p></div>
+<div class="t dk m2 d3 row"><h3>الموقع والمرافق</h3><span class="lab">تُفصَّل في عرض الأسعار</span><p>الأعمال المدنية والأرضية والشبكات والطاقة والمياه والتخزين.</p><span class="lab">نقطة المصادقة</span><p>حدود التوريد وواجهات الموقع.</p></div>
+<div class="t dk m2 d3 row"><h3>التركيب والتشغيل الأولي</h3><span class="lab">تُفصَّل في عرض الأسعار</span><p>النقل والتجميع والتجارب والتدريب وقطع الغيار الأولية.</p><span class="lab">نقطة المصادقة</span><p>الاستلام والتجارب ونقل المسؤولية.</p></div>
+<div class="t dk m2 d3 row"><h3>التكاليف الجانبية</h3><span class="lab">تُفصَّل في عرض الأسعار</span><p>الدراسة والتراخيص والسيولة عند البدء: مبالغ تُحدَّد لاحقًا.</p><span class="lab">نقطة المصادقة</span><p>ما يشمله ويستثنيه التمويل عند الانطلاق.</p></div><div class="t note m2 d6"><p><b>جدول دفعات قابل للتفاوض:</b> الطلب والتصنيع والفحص قبل الشحن والاستلام والتجارب. وتُحدَّد في العقد نسب الدفع والضمانات المحتملة وعواقب التأخير.</p></div></div><div class=bento><p class="base m2"><bdi dir="ltr">3</bdi> ملايين يورو: إطار للتخطيط أعلنته Nabta Alkon؛ ولم يُقدَّم أي تقسيم للميزانية بحسب الحزم ولا جدول دفعات مسعَّر.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-7" data-n="7" data-t="جدول زمني بمهام متوازية"><div class="inner"><p class="kick">Nabta Alkon / الجدول الزمني التفصيلي</p><h2>جدول زمني بمهام متوازية</h2><p class="lead">عرض توضيحي ينطلق من بدء النقل / أعمال الموقع. ويُوضع التصنيع والتراخيص قبل ذلك.</p><div class="bento"><div class="t lt m2 d6 gantt" role="img" aria-label="الجدول الزمني: النقل من شهرين إلى 3 أشهر، أعمال الحفر والأرضية من شهرين إلى 3 أشهر، التجميع بعد الاستلام من شهر إلى شهرين، البنية التحتية والمرافق نحو 6 أشهر">
+<div class="months"><span>ش<bdi dir="ltr">1</bdi></span><span>ش<bdi dir="ltr">2</bdi></span><span>ش<bdi dir="ltr">3</bdi></span><span>ش<bdi dir="ltr">4</bdi></span><span>ش<bdi dir="ltr">5</bdi></span><span>ش<bdi dir="ltr">6</bdi></span></div>
+<div class="g"><p>نقل الوحدات</p><div class="track2"><div class="bar2" style="left:0;width:50%"><bdi dir="ltr">2</bdi> إلى <bdi dir="ltr">3</bdi> أشهر</div></div></div>
+<div class="g"><p>أعمال الحفر والأرضية</p><div class="track2"><div class="bar2" style="left:0;width:50%"><bdi dir="ltr">2</bdi> إلى <bdi dir="ltr">3</bdi> أشهر</div></div></div>
+<div class="g"><p>التجميع بعد الاستلام</p><div class="track2"><div class="bar2 k" style="left:50%;width:33.33%"><bdi dir="ltr">1</bdi> إلى <bdi dir="ltr">2</bdi> شهر</div></div></div>
+<div class="g"><p>البنية التحتية والمرافق</p><div class="track2"><div class="bar2" style="left:0;width:100%">نحو <bdi dir="ltr">6</bdi> أشهر</div></div></div></div><div class="t note m2 d6"><p>الهدف الإجمالي المعلن: <bdi dir="ltr">8</bdi> أشهر من التصنيع إلى التركيب، ويُؤكَّد بجدول زمني كامل. وقد تتحكم المرافق في موعد البدء. وللدراسة والتراخيص والتجارب ورفع الإنتاج مراحلها الخاصة.</p></div></div><div class=bento><p class="base m2">المدد الإرشادية من Nabta Alkon: النقل/الموقع من شهرين إلى <bdi dir="ltr">3</bdi> أشهر؛ التجميع من شهر إلى شهرين؛ المرافق نحو <bdi dir="ltr">6</bdi> أشهر. ويستخدم الرسم الحدود القصوى لتوضيح التداخل.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-8" data-n="8" data-t="المبيعات: الكمية × المردود × السعر"><div class="inner"><p class="kick">Nabta Alkon / حساب رقم الأعمال</p><h2>المبيعات: الكمية × المردود × السعر</h2><p class="lead">يتبع نموذج البلاستيك وصفة واحدة ليكون الحساب قابلًا للتحقق: الزيت المباع.</p><div class="bento"><div class="t lt m2 d2"><b class="kpi"><bdi dir="ltr">3,000</bdi> طن/سنة</b><p>المادة المعالَجة فعليًا.</p></div>
+<div class="t lt m1 d2"><b class="kpi"><bdi dir="ltr">1,800</bdi> طن/سنة</b><p>الزيت الناتج بمردود <bdi dir="ltr">60%</bdi>.</p></div>
+<div class="t hi m1 d2"><b class="kpi"><bdi dir="ltr">900</bdi> ألف يورو/سنة</b><p>مبيعات بسعر <bdi dir="ltr">500</bdi> يورو لكل طن من الزيت.</p></div>
+<div class="t so m2 d3"><span class="lab">لكل طن داخل</span><p><bdi dir="ltr">0.6</bdi> طن من الزيت × <bdi dir="ltr">500</bdi> يورو/طن = <bdi dir="ltr">300</bdi> يورو من المبيعات.</p></div>
+<div class="t so m2 d3"><span class="lab">المخرجات الأخرى</span><p>النسبة المتبقية (<bdi dir="ltr">40%</bdi>) من الميزان المبسّط ما زالت بحاجة إلى توصيف. ولا تُضاف أي إيرادات من الغاز أو الفحم أو الخدمات أو الكربون.</p></div><div class="t note m2 d6"><p>مردود <bdi dir="ltr">60%</bdi> وسعر <bdi dir="ltr">500</bdi> يورو/طن مجرد فرضيات. ويجب ربط السعر الصافي والكمية المقبولة والجودة بالمادة المختبَرة وعقد الشراء. ويتطلب سيناريو الكتلة الحيوية نموذجًا مستقلًا.</p></div></div><div class=bento><p class="base m2">فرضيات الحساب مقدَّمة؛ والحسابات أُعيدت على أساس <bdi dir="ltr">3</bdi> ملايين يورو. ولا يُستنتج من النموذج أي أداء مقيس لNabta Alkon.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-9" data-n="9" data-t="التكاليف والموظفون بحاجة إلى تأكيد"><div class="inner"><p class="kick">Nabta Alkon / حساب الرصيد السنوي</p><h2>التكاليف والموظفون بحاجة إلى تأكيد</h2><p class="lead">يميّز التحليل بين التكاليف المرتبطة بالكمية والتكاليف التي تبقى عند انخفاضها.</p><div class="bento"><div class="t dk m1 d3 row"><h3>المواد والنقل</h3><span class="lab">الأساس عند <bdi dir="ltr">100%</bdi></span><p><bdi dir="ltr">240</bdi> ألف يورو/سنة · <bdi dir="ltr">80</bdi> يورو لكل طن معالَج</p><span class="lab">قاعدة النموذج</span><p>متغيّر بحسب الطنية.</p></div>
+<div class="t dk m1 d3 row"><h3>الطاقة</h3><span class="lab">الأساس عند <bdi dir="ltr">100%</bdi></span><p><bdi dir="ltr">150</bdi> ألف يورو/سنة · <bdi dir="ltr">50</bdi> يورو لكل طن معالَج</p><span class="lab">قاعدة النموذج</span><p>متغيّر بحسب الطنية.</p></div>
+<div class="t dk m1 d3 row"><h3>الموظفون</h3><span class="lab">الأساس عند <bdi dir="ltr">100%</bdi></span><p><bdi dir="ltr">120</bdi> ألف يورو/سنة</p><span class="lab">قاعدة النموذج</span><p>ثابت؛ وجرى اختبار بديل قدره <bdi dir="ltr">300</bdi> ألف يورو/سنة.</p></div>
+<div class="t dk m1 d3 row"><h3>الصيانة</h3><span class="lab">الأساس عند <bdi dir="ltr">100%</bdi></span><p><bdi dir="ltr">90</bdi> ألف يورو/سنة</p><span class="lab">قاعدة النموذج</span><p>ثابتة في تحليل الحساسية.</p></div>
+<div class="t lt m1 d2"><b class="kpi"><bdi dir="ltr">600</bdi> ألف يورو</b><p>النفقات التشغيلية في الحالة الأساسية.</p></div>
+<div class="t lt m1 d2"><b class="kpi"><bdi dir="ltr">50</bdi> ألف يورو</b><p>احتياطي سنوي يُبقى عليه.</p></div>
+<div class="t hi m2 d2"><b class="kpi"><bdi dir="ltr">250</bdi> ألف يورو</b><p><bdi dir="ltr">900</bdi> − <bdi dir="ltr">600</bdi> − <bdi dir="ltr">50</bdi>: الرصيد السنوي.</p></div><div class="t note m2 d6"><p>مع <bdi dir="ltr">300</bdi> ألف يورو للموظفين، تبلغ النفقات التشغيلية <bdi dir="ltr">780</bdi> ألف يورو/سنة، وينخفض الرصيد إلى <bdi dir="ltr">70</bdi> ألف يورو/سنة. ولا تحدد هذه الميزانيات عدد العاملين: فتغطية الدوام والمناوبات وكلفة صاحب العمل والإشراف أمور ما زالت بحاجة إلى تسعير.</p></div></div><div class=bento><p class="base m2">فرضيات الحساب مقدَّمة؛ والحسابات أُعيدت على أساس <bdi dir="ltr">3</bdi> ملايين يورو. ولا يُستنتج من النموذج أي أداء مقيس لNabta Alkon.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-10" data-n="10" data-t="إعادة الحساب الكاملة عند 3 ملايين يورو"><div class="inner"><p class="kick">Nabta Alkon / مردود السيناريو</p><h2>إعادة الحساب الكاملة عند <bdi dir="ltr">3</bdi> ملايين يورو</h2><p class="lead">الرصيد نفسه: <bdi dir="ltr">250</bdi> ألف يورو/سنة. وحده المبلغ المبدئي المستثمر يتغير في هذه المقارنة الحسابية.</p><div class="bento"><div class="t lt m2 d6 tb"><table class="nm"><thead><tr><th>المؤشر</th><th class=num>الحساب السابق: مليون يورو</th><th class=num>المبلغ المعتمد: <bdi dir="ltr">3</bdi> ملايين يورو</th></tr></thead><tbody><tr><th>الاسترداد البسيط</th><td class="num"><bdi dir="ltr">4</bdi> سنوات</td><td class="num"><bdi dir="ltr">12</bdi> سنة</td></tr><tr><th>صافي الرصيد التراكمي خلال <bdi dir="ltr">7</bdi> سنوات</th><td class="num"><bdi dir="ltr">+750</bdi> ألف يورو</td><td class="num neg"><bdi dir="ltr">−1,250</bdi> ألف يورو</td></tr><tr><th>العائد التراكمي على الاستثمار خلال <bdi dir="ltr">7</bdi> سنوات</th><td class="num"><bdi dir="ltr">+75%</bdi></td><td class="num neg"><bdi dir="ltr">−41.7%</bdi></td></tr><tr><th>معدل العائد الداخلي خلال <bdi dir="ltr">7</bdi> سنوات</th><td class="num"><bdi dir="ltr">16.3%</bdi></td><td class="num neg"><bdi dir="ltr">−11.9%</bdi></td></tr><tr><th>صافي القيمة الحالية بمعدل <bdi dir="ltr">10%</bdi> خلال <bdi dir="ltr">7</bdi> سنوات</th><td class="num"><bdi dir="ltr">+217</bdi> ألف يورو</td><td class="num neg"><bdi dir="ltr">−1,783</bdi> ألف يورو</td></tr></tbody></table></div><div class="t note m2 d6"><p>الأساس: المبلغ المبدئي المستثمر، وسبع تدفقات نقدية في نهاية كل سنة، وقيمة نهائية معدومة، قبل الضرائب والتمويل. وتمدّد الـ <bdi dir="ltr">12</bdi> سنة الرصيد الثابت إلى ما بعد السنوات السبع المنمذجة. ويجب إضافة مدة البناء ورفع الإنتاج إلى الجدول الزمني الفعلي.</p></div></div><div class=bento><p class="base m2">فرضيات الحساب مقدَّمة؛ والحسابات أُعيدت على أساس <bdi dir="ltr">3</bdi> ملايين يورو. ولا يُستنتج من النموذج أي أداء مقيس لNabta Alkon.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-11" data-n="11" data-t="الحساسية: سعر الزيت × الموظفون"><div class="inner"><p class="kick">Nabta Alkon / مقارنة الفرضيات</p><h2>الحساسية: سعر الزيت × الموظفون</h2><p class="lead">الرصيد السنوي بعد الاحتياطي، بآلاف اليوروهات. المُدخلات: <bdi dir="ltr">3,000</bdi> طن/سنة؛ الزيت: <bdi dir="ltr">1,800</bdi> طن/سنة؛ النفقات الرأسمالية: <bdi dir="ltr">3</bdi> ملايين يورو.</p><div class="bento"><div class="t lt m2 d4 tb"><table class="nm"><thead><tr><th>سعر الزيت</th><th class=num>الموظفون <bdi dir="ltr">120</bdi> ألف يورو/سنة</th><th class=num>الموظفون <bdi dir="ltr">300</bdi> ألف يورو/سنة</th></tr></thead><tbody><tr><th><bdi dir="ltr">300</bdi> يورو/طن</th><td class="num neg"><bdi dir="ltr">−110</bdi></td><td class="num neg"><bdi dir="ltr">−290</bdi></td></tr><tr><th><bdi dir="ltr">400</bdi> يورو/طن</th><td class="num"><bdi dir="ltr">70</bdi></td><td class="num neg"><bdi dir="ltr">−110</bdi></td></tr><tr><th><bdi dir="ltr">500</bdi> يورو/طن</th><td class="num"><bdi dir="ltr">250</bdi></td><td class="num"><bdi dir="ltr">70</bdi></td></tr><tr><th><bdi dir="ltr">650</bdi> يورو/طن</th><td class="num"><bdi dir="ltr">520</bdi></td><td class="num"><bdi dir="ltr">340</bdi></td></tr></tbody></table></div><div class="t hi m2 d2"><span class="lab">الاسترداد عند <bdi dir="ltr">500</bdi> يورو/طن</span><p><bdi dir="ltr">12</bdi> سنة مع <bdi dir="ltr">120</bdi> ألف يورو للموظفين؛ و<bdi dir="ltr">42.9</bdi> سنة مع <bdi dir="ltr">300</bdi> ألف يورو.</p></div><div class="t note m2 d6"><p>مع بقاء النفقات دون تغيير: لاسترداد <bdi dir="ltr">3</bdi> ملايين يورو في <bdi dir="ltr">4</bdi> سنوات، يلزم نحو <bdi dir="ltr">778</bdi> يورو/طن مع <bdi dir="ltr">120</bdi> ألف يورو للموظفين، أو <bdi dir="ltr">878</bdi> يورو/طن مع <bdi dir="ltr">300</bdi> ألف يورو. ولاستهداف <bdi dir="ltr">7</bdi> سنوات: نحو <bdi dir="ltr">599</bdi> يورو/طن أو <bdi dir="ltr">699</bdi> يورو/طن. وهذه عتبات حسابية وليست أسعار سوق.</p></div></div><div class=bento><p class="base m2">فرضيات الحساب مقدَّمة؛ والحسابات أُعيدت على أساس <bdi dir="ltr">3</bdi> ملايين يورو. ولا يُستنتج من النموذج أي أداء مقيس لNabta Alkon.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-12" data-n="12" data-t="الحساسية: الكمية المعالَجة فعليًا"><div class="inner"><p class="kick">Nabta Alkon / الاستخدام والعتبات</p><h2>الحساسية: الكمية المعالَجة فعليًا</h2><p class="lead">تغيّر الكمية المبيعات والمادة والطاقة. أما الموظفون والصيانة والاحتياطي فتبقى ثابتة.</p><div class="bento"><div class="t lt m2 d4 tb"><table class="nm w4"><thead><tr><th>الاستخدام</th><th class=num>الأطنان المعالَجة</th><th class=num>الرصيد · موظفون <bdi dir="ltr">120</bdi> ألف يورو</th><th class=num>الرصيد · موظفون <bdi dir="ltr">300</bdi> ألف يورو</th></tr></thead><tbody><tr><th><bdi dir="ltr">100%</bdi></th><td class="num"><bdi dir="ltr">3,000</bdi> طن/سنة</td><td class="num"><bdi dir="ltr">250</bdi> ألف يورو/سنة</td><td class="num"><bdi dir="ltr">70</bdi> ألف يورو/سنة</td></tr><tr><th><bdi dir="ltr">85%</bdi></th><td class="num"><bdi dir="ltr">2,550</bdi> طن/سنة</td><td class="num"><bdi dir="ltr">173.5</bdi> ألف يورو/سنة</td><td class="num neg"><bdi dir="ltr">−6.5</bdi> ألف يورو/سنة</td></tr><tr><th><bdi dir="ltr">75%</bdi></th><td class="num"><bdi dir="ltr">2,250</bdi> طن/سنة</td><td class="num"><bdi dir="ltr">122.5</bdi> ألف يورو/سنة</td><td class="num neg"><bdi dir="ltr">−57.5</bdi> ألف يورو/سنة</td></tr><tr><th><bdi dir="ltr">50%</bdi></th><td class="num"><bdi dir="ltr">1,500</bdi> طن/سنة</td><td class="num neg"><bdi dir="ltr">−5</bdi> آلاف يورو/سنة</td><td class="num neg"><bdi dir="ltr">−185</bdi> ألف يورو/سنة</td></tr></tbody></table></div><div class="t hi m2 d2"><span class="lab">عتبة الرصيد الإيجابي</span><p>≈ <bdi dir="ltr">51%</bdi> مع <bdi dir="ltr">120</bdi> ألف يورو للموظفين · ≈ <bdi dir="ltr">86%</bdi> مع <bdi dir="ltr">300</bdi> ألف يورو.</p></div><div class="t note m2 d6"><p>عند <bdi dir="ltr">75%</bdi> و<bdi dir="ltr">120</bdi> ألف يورو للموظفين: استرداد <bdi dir="ltr">3</bdi> ملايين يورو في <bdi dir="ltr">24.5</bdi> سنة بالاستقراء. ومضاعفة الطاقة الاستيعابية ثلاث مرات لا تضمن مضاعفة الرصيد ثلاث مرات: فالمعدات والطاقة والموظفون والمادة والمنافذ يجب إعادة حسابها.</p></div></div><div class=bento><p class="base m2">فرضيات الحساب مقدَّمة؛ والحسابات أُعيدت على أساس <bdi dir="ltr">3</bdi> ملايين يورو. ولا يُستنتج من النموذج أي أداء مقيس لNabta Alkon.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-13" data-n="13" data-t="الإجابات المطلوب الحصول عليها قبل التوقيع"><div class="inner"><p class="kick">Nabta Alkon / الالتزامات والمسؤوليات</p><h2>الإجابات المطلوب الحصول عليها قبل التوقيع</h2><p class="lead">تشكّل هذه العناصر ملف القرار؛ ويجري إقرارها رسميًا مع المسؤولين المعنيين.</p><div class="bento"><div class="t dk m2 d3"><h3><bdi dir="ltr">1</bdi>–<bdi dir="ltr">4</bdi> · النطاق والميزانية</h3><p>ما تشمله الـ <bdi dir="ltr">3</bdi> ملايين يورو، والطاقة الاستيعابية والتكلفة للطن؛ والاستثناءات؛ والدفعات والضمانات عند التأخير.</p></div>
+<div class="t dk m2 d3"><h3><bdi dir="ltr">5</bdi>–<bdi dir="ltr">8</bdi> · الأداء والجودة</h3><p>المردود المقيس والزيارة؛ والنتيجة على مادتكم؛ والجاهزية؛ وجودة الزيت ومراقبته.</p></div>
+<div class="t dk m2 d3"><h3><bdi dir="ltr">9</bdi>–<bdi dir="ltr">10</bdi> · المشترون والسعر</h3><p>مشترٍ محدد، وعقد، ودور Nabta Alkon في البيع؛ وحد أدنى للسعر أو حماية يُتفاوض عليها.</p></div>
+<div class="t dk m2 d3"><h3><bdi dir="ltr">11</bdi>–<bdi dir="ltr">12</bdi> · التشغيل والامتثال</h3><p>مشغّل وعدد عاملين مسعَّر؛ ومسؤول عن التراخيص والسلامة والامتثال المحلي.</p></div>
+<div class="t dk m1 d3"><h3><bdi dir="ltr">13</bdi> · الشراكة</h3><p>المساهمات والحقوق الاقتصادية وتقاسم الإيرادات وبنود الخروج.</p></div>
+<div class="t dk m1 d3"><h3><bdi dir="ltr">14</bdi> · المراجع</h3><p>التواصل مع عملاء أو مراجع يمكن التحقق منها، مع بيان الدور الذي نفّذته Nabta Alkon.</p></div><div class="t note m2 d6"><p>وتحدد دراسة الموقع أيضًا تكلفتها ومحتواها وموعد فوترتها. ويعود الترخيص إلى الجهة المختصة. ويجب تحديد الأداء والمواعيد وتقاسم المخاطر في العقد، مع شروطها.</p></div></div><div class=bento><p class="base m2">جدول تحقق مستمد من الأسئلة الأربعة عشر المرسلة. وتبقى الإجابات الخاصة بالمشروع بحاجة إلى توثيق؛ ولا يُعرض أي التزام لم يُقدَّم على أنه مكتسب.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-14" data-n="14" data-t="الكربون: سلسلة أدلة لكل مسار"><div class="inner"><p class="kick">Nabta Alkon / الاعتماد والقيمة</p><h2>الكربون: سلسلة أدلة لكل مسار</h2><p class="lead">أولًا تأهيل الأهلية والاستخدام؛ ثم القياس والتحقق والتعاقد على القيمة المقابلة.</p><div class="bento"><div class="t dk m1 d1"><h3><i><bdi dir="ltr">1</bdi></i> التأهيل</h3><p>المادة والعملية والاستخدام النهائي.</p></div>
+<div class="t dk m1 d1"><h3><i><bdi dir="ltr">2</bdi></i> القياس</h3><p>الدفعات وبيانات المتابعة.</p></div>
+<div class="t dk m1 d1"><h3><i><bdi dir="ltr">3</bdi></i> التحقق</h3><p>رقابة مستقلة.</p></div>
+<div class="t dk m1 d1"><h3><i><bdi dir="ltr">4</bdi></i> التعاقد</h3><p>القيمة والكمية والتسليم.</p></div>
+<div class="t lt m2 d3"><h3>الفحم الحيوي: إزالة الكربون</h3><p>يمكن للفحم الحيوي تخزين الكربون. ويستند إصدار الأرصدة إلى منهجية وإزالة صافية موثَّقة ومتابعة للاستخدامات.</p></div>
+<div class="t lt m2 d3"><h3>البلاستيك: ميزان الكتلة</h3><p>تتتبع ISCC PLUS تخصيص المواد ضمن سلسلة معتمدة. وهذه الآلية ليست رصيدًا لإزالة CO₂.</p></div><div class="t note m2 d6"><p>MRV = القياس والتوثيق والتحقق. وبالنسبة إلى الفحم الحيوي، يمكن تنظيم بيع مستقبلي للأرصدة قبل إصدارها. أما السعر والرسوم والأهلية فتُحدَّد لاحقًا. ويُبقي سيناريو البلاستيك إيرادات الكربون عند الصفر.</p></div></div><div class=bento><p class="base m2">المصادر: <a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R<bdi dir="ltr">4</bdi>] ISCC PLUS · المعيار ↗</a> · <a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R<bdi dir="ltr">8</bdi>] Puro.earth · منهجية الفحم الحيوي ↗</a></p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article><article class="slide" id="tech-15" data-n="15" data-t="المصادر وأسس الملف"><div class="inner"><p class="kick">Nabta Alkon / المراجع</p><h2>المصادر وأسس الملف</h2><p class="lead">تُضيء حالات السوق القطاع، لكنها لا تثبت أداء Nabta Alkon ولا ربحيتها.</p><div class="bento"><div class="t lt m2 d3 ref"><a href="https://www.basf.com/global/en/media/news-releases/2019/10/p-19-356" target="_blank" rel="noopener">[R<bdi dir="ltr">1</bdi>] BASF × Quantafuel ↗</a><p><bdi dir="ltr">20</bdi> مليون يورو وحق الأفضلية في الشراء · <bdi dir="ltr">2019.</bdi></p></div><div class="t lt m2 d3 ref"><a href="https://www.qmre.ltd/wp-content/uploads/2020/09/QMRE-Investor-doc-Oct-2023.pdf" target="_blank" rel="noopener">[R<bdi dir="ltr">6</bdi>] QMRE · عرض <bdi dir="ltr">2023</bdi> ↗</a><p>طاقة WASTX P<bdi dir="ltr">5000</bdi> المعلنة؛ مؤشر تاريخي.</p></div><div class="t lt m2 d3 ref"><a href="https://pryme-cleantech.com/uploads/downloads/Pryme-N.V.-Q4-2024-Report.pdf" target="_blank" rel="noopener">[R<bdi dir="ltr">2</bdi>] Pryme · تقرير الربع الرابع <bdi dir="ltr">2024</bdi> ↗</a><p>إنتاج الزيت: <bdi dir="ltr">341</bdi> طنًا على مدار السنة.</p></div><div class="t lt m2 d3 ref"><a href="https://carboliq.com/en/sustainability/chemical-recycling/" target="_blank" rel="noopener">[R<bdi dir="ltr">7</bdi>] carboliq ↗</a><p>عرض للعملية والمنافذ.</p></div><div class="t lt m2 d3 ref"><a href="https://www.carbonfuture.com/magazine/exomad-green-announces-worlds-largest-biochar-carbon-removal-agreement-with-microsoft-tracked-by-carbonfuture-mrv" target="_blank" rel="noopener">[R<bdi dir="ltr">3</bdi>] Exomad × Microsoft ↗</a><p>اتفاقية معلنة: ≥ <bdi dir="ltr">1.24</bdi> مليون طن CO₂ على مدى <bdi dir="ltr">10</bdi> سنوات.</p></div><div class="t lt m2 d3 ref"><a href="https://puro.earth/methodologies/biochar/" target="_blank" rel="noopener">[R<bdi dir="ltr">8</bdi>] Puro.earth · الفحم الحيوي ↗</a><p>منهجية اعتماد إزالة الكربون.</p></div><div class="t lt m2 d3 ref"><a href="https://iscc-system.org/certification/certification-schemes/iscc-plus/" target="_blank" rel="noopener">[R<bdi dir="ltr">4</bdi>] ISCC PLUS ↗</a><p>التتبّع وسلسلة حيازة المواد.</p></div><div class="t lt m2 d3 ref"><a href="https://chemical-catalysts-and-adsorbents.basf.com/global/en/sustainability-process-catalysts/puricycle" target="_blank" rel="noopener">[R<bdi dir="ltr">9</bdi>] BASF · PuriCycle ↗</a><p>تنقية الزيوت والملوّثات.</p></div><div class="t lt m2 d3 ref"><a href="https://task34.ieabioenergy.com/pyrolysis-explained/" target="_blank" rel="noopener">[R<bdi dir="ltr">5</bdi>] IEA Bioenergy · Task <bdi dir="ltr">34</bdi> ↗</a><p>مبدأ الانحلال الحراري ومراحله.</p></div><div class="t lt m2 d3 ref"><a href="https://www.ieabioenergy.com/wp-content/uploads/2024/02/IEA-Bioenergy-2-page-summary-identifying-key-quality-characteristics-of-woody-biomass.pdf" target="_blank" rel="noopener">[R<bdi dir="ltr">10</bdi>] IEA Bioenergy · Task <bdi dir="ltr">43</bdi> ↗</a><p>جودة الكتلة الحيوية · يناير <bdi dir="ltr">2024.</bdi></p></div><div class="t note m2 d6"><p>بيانات المشروع: إطار تخطيط قدّمته Nabta Alkon (<bdi dir="ltr">3</bdi> ملايين يورو، وهدف <bdi dir="ltr">8</bdi> أشهر). البيانات الاقتصادية: سيناريو مقدَّم، أُعيد حسابه واختُبر. وكل فرضية تختلف عن نتيجة مقيسة أو التزام تعاقدي.</p></div></div><div class=bento><p class="base m2">رُوجعت المصادر في <bdi dir="ltr">24</bdi> أكتوبر <bdi dir="ltr">2026.</bdi> والروابط قابلة للنقر؛ وقد تتغير الوثائق التاريخية أو تصبح غير متاحة لدى ناشرها.</p></div><nav class="chips"><a href="#tech-1" data-go="tech:1">الفهرس</a><a href="#tech-3" data-go="tech:3">العملية</a><a href="#tech-15" data-go="tech:15">المصادر</a></nav></div></article></div></div>
+</main>
+
+<div class="dock" id="dock" aria-label="التنقل بين الصفحات">
+  <button type="button" id="prev" aria-label="الصفحة السابقة"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button type="button" id="menu" class="dots" aria-label="الفهرس"><span id="dots"></span></button>
+  <button type="button" id="next" aria-label="الصفحة التالية"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sh-bg" data-close></div>
+  <div class="sh-box" role="dialog" aria-modal="true" aria-label="الفهرس">
+    <div class="sh-top"><b>الفهرس</b><button type="button" data-close>إغلاق</button></div>
+    <ol data-for="nt"><li><a href="#nt-1" data-go="nt:1"><i><bdi dir="ltr">01</bdi></i>نظرة عامة</a></li><li><a href="#nt-2" data-go="nt:2"><i><bdi dir="ltr">02</bdi></i>مشروعكم، طريقان للمضي قدمًا</a></li><li><a href="#nt-3" data-go="nt:3"><i><bdi dir="ltr">03</bdi></i>الانحلال الحراري في خطوات قليلة</a></li><li><a href="#nt-4" data-go="nt:4"><i><bdi dir="ltr">04</bdi></i>ميزانية تناسب مشروعكم</a></li><li><a href="#nt-5" data-go="nt:5"><i><bdi dir="ltr">05</bdi></i>ثمانية أشهر من التصنيع إلى التركيب</a></li><li><a href="#nt-6" data-go="nt:6"><i><bdi dir="ltr">06</bdi></i>قارنوا العروض على الأسس نفسها</a></li><li><a href="#nt-7" data-go="nt:7"><i><bdi dir="ltr">07</bdi></i>حالات حقيقية للتحضير للمبيعات</a></li><li><a href="#nt-8" data-go="nt:8"><i><bdi dir="ltr">08</bdi></i>ثاني أكسيد الكربون: قيمة تُقيَّم لكل مسار</a></li><li><a href="#nt-9" data-go="nt:9"><i><bdi dir="ltr">09</bdi></i>كيف تتحول المادة إلى مبيعات</a></li><li><a href="#nt-10" data-go="nt:10"><i><bdi dir="ltr">10</bdi></i>من المبيعات إلى الرصيد المتاح</a></li><li><a href="#nt-11" data-go="nt:11"><i><bdi dir="ltr">11</bdi></i>سيناريو <bdi dir="ltr">3</bdi> ملايين يورو: <bdi dir="ltr">12</bdi> سنة للاسترداد</a></li><li><a href="#nt-12" data-go="nt:12"><i><bdi dir="ltr">12</bdi></i>العوامل التي تغيّر العائد</a></li><li><a href="#nt-13" data-go="nt:13"><i><bdi dir="ltr">13</bdi></i>أسئلتكم حول الجانب الاقتصادي</a></li><li><a href="#nt-14" data-go="nt:14"><i><bdi dir="ltr">14</bdi></i>أسئلتكم قبل الالتزام</a></li><li><a href="#nt-15" data-go="nt:15"><i><bdi dir="ltr">15</bdi></i>امنحوا موادكم قيمة صناعية</a></li></ol>
+    <ol data-for="tech" hidden><li><a href="#tech-1" data-go="tech:1"><i><bdi dir="ltr">01</bdi></i>Nabta Alkon — الملف التقني</a></li><li><a href="#tech-2" data-go="tech:2"><i><bdi dir="ltr">02</bdi></i>تأهيل المادة قبل تحديد الحجم</a></li><li><a href="#tech-3" data-go="tech:3"><i><bdi dir="ltr">03</bdi></i>العملية: ثلاثة مخرجات ودوائر مخصصة</a></li><li><a href="#tech-4" data-go="tech:4"><i><bdi dir="ltr">04</bdi></i>المخرجات التي ينبغي تجهيزها للمشترين</a></li><li><a href="#tech-5" data-go="tech:5"><i><bdi dir="ltr">05</bdi></i>من الإنتاجية المعلنة إلى الأطنان المعالَجة فعليًا</a></li><li><a href="#tech-6" data-go="tech:6"><i><bdi dir="ltr">06</bdi></i>الـ <bdi dir="ltr">3</bdi> ملايين يورو: نطاق ينبغي تدوينه</a></li><li><a href="#tech-7" data-go="tech:7"><i><bdi dir="ltr">07</bdi></i>جدول زمني بمهام متوازية</a></li><li><a href="#tech-8" data-go="tech:8"><i><bdi dir="ltr">08</bdi></i>المبيعات: الكمية × المردود × السعر</a></li><li><a href="#tech-9" data-go="tech:9"><i><bdi dir="ltr">09</bdi></i>التكاليف والموظفون بحاجة إلى تأكيد</a></li><li><a href="#tech-10" data-go="tech:10"><i><bdi dir="ltr">10</bdi></i>إعادة الحساب الكاملة عند <bdi dir="ltr">3</bdi> ملايين يورو</a></li><li><a href="#tech-11" data-go="tech:11"><i><bdi dir="ltr">11</bdi></i>الحساسية: سعر الزيت × الموظفون</a></li><li><a href="#tech-12" data-go="tech:12"><i><bdi dir="ltr">12</bdi></i>الحساسية: الكمية المعالَجة فعليًا</a></li><li><a href="#tech-13" data-go="tech:13"><i><bdi dir="ltr">13</bdi></i>الإجابات المطلوب الحصول عليها قبل التوقيع</a></li><li><a href="#tech-14" data-go="tech:14"><i><bdi dir="ltr">14</bdi></i>الكربون: سلسلة أدلة لكل مسار</a></li><li><a href="#tech-15" data-go="tech:15"><i><bdi dir="ltr">15</bdi></i>المصادر وأسس الملف</a></li></ol>
+  </div>
+</div>
+
+<div class="lp" id="lp" hidden role="dialog" aria-modal="true" aria-label="Langue / Language / اللغة"><div class="lp-bg" data-lpclose></div><div class="lp-card"><button type="button" class="lp-x" data-lpclose aria-label="Close">×</button><p class="lp-t"><b lang="fr">Choisissez votre langue</b><span lang="en">Choose your language</span><span lang="ar" dir="rtl">اختر لغتك</span></p><a href="../" hreflang="fr" lang="fr"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg><span>Français</span></a><a href="../en/" hreflang="en" lang="en"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="1.6"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6.5"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3.6"/></svg><span>English</span></a><a href="./" hreflang="ar" lang="ar" class="on"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#1B6B3A"/><text x="15" y="15.5" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" font-family="IBM Plex Sans Arabic,Arial,sans-serif">ع</text></svg><span>العربية</span></a></div></div>
+
+<footer class="ft">Nabta Alkon</footer>
+<script>window.CFG={"vid": {"nt": ["../video_en.mp4", "../poster_en.jpg"], "tech": ["../video.mp4", "../poster.jpg"]}};(function(){
+  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+  /* ---------- vidéo : lecture auto muette, le son s'active au premier geste / à l'appui sur les touches de volume ---------- */
+  var v=$('#v'),son=$('#son'),unmuted=false,vis=false;
+  if(v.play){var p0=v.play();if(p0&&p0.catch)p0.catch(function(){})}
+  function fit(){if(v.videoWidth)v.style.aspectRatio=v.videoWidth+'/'+v.videoHeight}
+  v.addEventListener('loadedmetadata',fit);fit();
+  function unmute(restart){
+    if(unmuted)return;unmuted=true;
+    v.muted=false;v.volume=1;if(restart)v.currentTime=0;
+    var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;unmuted=false;son.hidden=false});
+    son.hidden=true;
+  }
+  son.addEventListener('click',function(e){e.stopPropagation();unmute(true)});
+  v.addEventListener('volumechange',function(){if(!v.muted){son.hidden=true;unmuted=true}});
+  document.addEventListener('keydown',function(e){
+    var k=e.key||'',c=e.keyCode;
+    if(k==='AudioVolumeUp'||k==='AudioVolumeDown'||k==='VolumeUp'||k==='VolumeDown'||c===175||c===174||c===183)unmute(false);
+  });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){vis=es[0].intersectionRatio>=.5},{threshold:[0,.5,1]}).observe($('#video'));
+  }
+  ['pointerup','touchend'].forEach(function(ev){
+    document.addEventListener(ev,function(e){
+      if(unmuted||!vis)return;
+      if(e.target.closest&&e.target.closest('.tabs,.dock,.sheet,a,#son'))return;
+      unmute(false);
+    },{passive:true});
+  });
+
+  /* ---------- decks (cartes à faire glisser) ---------- */
+  var decks={},cur='nt';
+  $$('.deck').forEach(function(el){
+    var k=el.dataset.deck;
+    decks[k]={el:el,track:$('.track',el),slides:$$('.slide',el),idx:0};
+  });
+  var tabs=$('#tabs'),viewer=$('#viewer'),dock=$('#dock'),dotsEl=$('#dots'),prev=$('#prev'),next=$('#next'),sheet=$('#sheet');
+  function pad(n){return (n<10?'0':'')+n}
+  function D(){return decks[cur]}
+  function setH(d){d=d||D();var s=d.slides[d.idx];if(s&&!d.el.hidden)d.track.style.height=s.offsetHeight+'px'}
+  var dotsFor=null;
+  function update(){
+    var d=D(),n=d.slides.length;
+    if(dotsFor!==cur){
+      dotsEl.innerHTML='';for(var i=0;i<n;i++)dotsEl.appendChild(document.createElement('i'));dotsFor=cur;
+    }
+    $$('i',dotsEl).forEach(function(e,i){e.classList.toggle('on',i===d.idx)});
+    prev.disabled=d.idx<=0;next.disabled=d.idx>=n-1;
+  }
+  function ensureTop(){
+    var d=D(),r=d.track.getBoundingClientRect(),top=r.top+window.pageYOffset-tabs.offsetHeight;
+    if(window.pageYOffset>top+4)window.scrollTo({top:top,behavior:'smooth'});
+  }
+  function go(i,smooth,keepScroll){
+    var d=D();i=Math.max(0,Math.min(d.slides.length-1,i));
+    var changed=i!==d.idx;d.idx=i;
+    d.track.scrollTo({left:SG*i*d.track.clientWidth,behavior:smooth?'smooth':'auto'});
+    setH(d);update();
+    if(changed&&!keepScroll)ensureTop();
+    try{history.replaceState(null,'','#'+cur+'-'+(i+1))}catch(e){}
+  }
+  var C=window.CFG||{},VID=C.vid||{nt:['video3.mp4','poster3.jpg'],tech:['video.mp4','poster.jpg']},vcur='nt';
+  var SG=document.documentElement.dir==='rtl'?-1:1;
+  function setVideo(k){
+    if(k===vcur)return;vcur=k;
+    v.poster=VID[k][1];v.src=VID[k][0];v.load();
+    v.muted=!unmuted;
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+  }
+  function switchDeck(k,noScroll){
+    if(k===cur)return;
+    cur=k;setVideo(k);
+    Object.keys(decks).forEach(function(n){decks[n].el.hidden=n!==k});
+    $$('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.deck===k)});
+    $$('.sheet ol').forEach(function(o){o.hidden=o.dataset.for!==k});
+    var d=D();d.track.scrollLeft=SG*d.idx*d.track.clientWidth;setH(d);update();
+    if(!noScroll)ensureTop();
+  }
+  /* défilement au doigt */
+  Object.keys(decks).forEach(function(k){
+    var d=decks[k],t;
+    d.track.addEventListener('scroll',function(){
+      clearTimeout(t);
+      t=setTimeout(function(){
+        if(d.el.hidden)return;
+        var i=Math.round(Math.abs(d.track.scrollLeft)/d.track.clientWidth);
+        if(i!==d.idx){d.idx=i;setH(d);update();ensureTop();try{history.replaceState(null,'','#'+k+'-'+(i+1))}catch(e){}}
+      },80);
+    },{passive:true});
+    if('ResizeObserver' in window){
+      var ro=new ResizeObserver(function(){if(k===cur)setH(d)});
+      d.slides.forEach(function(s){ro.observe(s)});
+    }
+  });
+  window.addEventListener('resize',function(){var d=D();d.track.scrollLeft=SG*d.idx*d.track.clientWidth;setH(d)});
+  function allH(){Object.keys(decks).forEach(function(k){if(k===cur)setH(decks[k])})}
+  window.addEventListener('load',function(){allH();setTimeout(function(){document.body.classList.add('ready')},700);setTimeout(allH,400);setTimeout(allH,1500)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(allH);
+  $$('img').forEach(function(im){if(!im.complete)im.addEventListener('load',allH)});
+
+  prev.addEventListener('click',function(){go(D().idx-1,true)});
+  next.addEventListener('click',function(){go(D().idx+1,true)});
+  $$('.tabs button').forEach(function(b){b.addEventListener('click',function(){switchDeck(b.dataset.deck)})});
+
+  /* liens internes */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-go]');
+    if(!a)return;
+    e.preventDefault();
+    var parts=a.dataset.go.split(':');
+    closeSheet();
+    switchDeck(parts[0],true);
+    go((+parts[1])-1,true);
+    var top=D().track.getBoundingClientRect().top+window.pageYOffset-tabs.offsetHeight;
+    window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+  });
+
+  /* sommaire */
+  function openSheet(){
+    var d=D();
+    $$('.sheet ol[data-for="'+cur+'"] a').forEach(function(a,i){a.classList.toggle('cur',i===d.idx)});
+    sheet.hidden=false;document.body.style.overflow='hidden';
+    var c=$('.sheet ol:not([hidden]) a.cur');if(c&&c.scrollIntoView)c.scrollIntoView({block:'center'});
+  }
+  function closeSheet(){sheet.hidden=true;document.body.style.overflow=''}
+  $('#menu').addEventListener('click',openSheet);
+  $$('[data-close]',sheet).forEach(function(b){b.addEventListener('click',closeSheet)});
+
+  /* barre de navigation visible quand les documents sont à l'écran */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){dock.classList.toggle('on',es[0].isIntersecting)},{rootMargin:'0px 0px -35% 0px',threshold:0}).observe(viewer);
+  }else dock.classList.add('on');
+
+  /* clavier */
+  document.addEventListener('keydown',function(e){
+    if(!sheet.hidden){if(e.key==='Escape')closeSheet();return}
+    if(!dock.classList.contains('on'))return;
+    if(e.key==='ArrowLeft')go(D().idx-SG,true);
+    if(e.key==='ArrowRight')go(D().idx+SG,true);
+  });
+
+  /* lien direct #nt-5 / #tech-3 */
+  var m=/^#(nt|tech)-(\d+)$/.exec(location.hash);
+  update();setH();
+  if(m){
+    switchDeck(m[1],true);
+    requestAnimationFrame(function(){go((+m[2])-1,false,true);
+      var top=D().track.getBoundingClientRect().top+window.pageYOffset-tabs.offsetHeight;window.scrollTo(0,Math.max(0,top))});
+  }
+
+  /* carte de choix de langue : 10 s après l'arrivée, une seule fois */
+  var LP=$('#lp');
+  function lpClose(){LP.hidden=true;try{localStorage.setItem('lp','1')}catch(e){}}
+  $$('[data-lpclose]',LP).forEach(function(b){b.addEventListener('click',lpClose)});
+  $$('.langs a,.lp-card a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('lp','1')}catch(e){}})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!LP.hidden)lpClose()});
+  var seen=false;try{seen=!!localStorage.getItem('lp')}catch(e){}
+  if(!seen)setTimeout(function(){LP.hidden=false},10000);
+})();
+</script>
+</body>
+</html>
